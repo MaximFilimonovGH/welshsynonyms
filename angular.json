@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "welshsynonyms": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "welshsynonyms"
+    }
+  },
+  "defaultProject": "welshsynonyms",
+  "cli": {
+    "analytics": "69237e92-600d-4514-a044-9fca0d139266"
+  }
 }

@@ -1,0 +1,18 @@
+.game-button {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.centeralign{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .game-text {
+      font-size: 30px;
+  }

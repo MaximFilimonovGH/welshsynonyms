@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 
 import { AngularMaterialModule } from './material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AngularMaterialModule } from './material.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

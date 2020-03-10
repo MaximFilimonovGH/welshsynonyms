@@ -5,10 +5,16 @@ module.exports = app => {
     var router = require("express").Router();
 
     //Retrieve a word
-    router.get("/words", words.findWord);
+    router.get("/words/findByWord", words.findWord);
 
     //Retrieve a synset
-    router.get("/synsets", synsets.findSynset);
+    router.get("/synsets/findBySynset", synsets.findSynset);
+
+    //Count words
+    router.get("/words/count", words.countWords);
+
+    //Get word by array position
+    router.get("/words/findByArrayPosition", words.getWordByPosition);
 
     app.use("/api", router);
 }

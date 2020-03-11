@@ -55,6 +55,7 @@ export class GameComponent implements OnInit {
 
     this.isSubmitted = true;
     this.isAnswerRequired = false;
+    this.isCorrect = false;
     this.result = "";
 
     //if no input

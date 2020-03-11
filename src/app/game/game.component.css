@@ -1,5 +1,5 @@
 .game-button {
-    margin-right: 10px;
+    margin-right: 10px !important;
     font-size: 20px;
 }
 
@@ -14,5 +14,17 @@
   }
 
   .game-text {
-      font-size: 30px;
+      font-size: 25px;
+  }
+
+  .game-label {
+    font-size: 15px;
+    color: darkslategrey;
+  }
+
+  .disclaimer-text {
+    font-size: 25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }

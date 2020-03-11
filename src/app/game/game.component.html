@@ -1,27 +1,49 @@
-<mat-card class="game-class">
+<mat-card class="game-card">
     <mat-card-content class="centeralign">
+        <div *ngIf="!isGenerated" fxLayout="column">
+            <div class="disclaimer-text">
+                Welcome to the Game of Welsh words, in which you can practice your Welsh.<br><br>
+            </div>
+            <div class="disclaimer-text">
+                In this game you will get a random Welsh word and then you need to type its synonym.<br><br>
+            </div>
+            <div class="disclaimer-text">
+                If you do not know the synonym, you will be able to see the answer by pressing SHOW ANSWER button.<br><br><br><br>
+            </div>
+            <div class="disclaimer-text">
+                Press START to begin
+            </div>
+        </div>
         <div *ngIf="isGenerated" fxLayout="column">
-            <div>
-                <span class="game-text">Welsh Word:</span>
-            </div>
-            <div>
-                <mat-form-field class="input-form-field">
-                    <input matInput type="text" [(ngModel)]="randomWord" readonly="true" class="game-text">  
-                </mat-form-field>
-            </div>
-            <div>
-                <span class="game-text">Please type a synonym in the following field:</span>
-            </div>
-            <div>
-                <mat-form-field class="input-form-field">
-                    <input matInput type="text" [(ngModel)]="inputWord" class="game-text">  
-                </mat-form-field>
-            </div>
+            <div class="game-label">Welsh Word:</div>
+
+            <mat-form-field class="input-form-field" style="width: 700px !important;">
+                <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="randomWord" class="game-text" readonly="true"></textarea>
+            </mat-form-field>
+
+            <div class="game-label">Please type its synonym in the following field:</div>
+
+            <mat-form-field class="input-form-field" style="width: 700px !important;" appearance="outline">
+                <mat-label style="margin-top: 0px !important;">Synonym</mat-label>
+                <input matInput type="text" [(ngModel)]="inputWord" class="game-text">  
+            </mat-form-field>
+
+            <div *ngIf="isAnswerRequired" class="game-label">Full List of Synonyms:</div>
+
+            <mat-form-field *ngIf="isAnswerRequired" class="result-form-field" style="width: 700px !important;">
+                <textarea matInput rows="5" cols="1" type="text" [(ngModel)]="answer" class="game-text" readonly="true"></textarea>
+            </mat-form-field>
+
+            <div *ngIf="isSubmitted" class="game-label">Result:</div>
+            <mat-form-field *ngIf="isSubmitted" class="result-form-field" style="width: 700px !important;">
+                <textarea matInput rows="5" cols="1" type="text" [(ngModel)]="result" class="game-text" readonly="true"></textarea>
+            </mat-form-field>
         </div>
     </mat-card-content>
     <mat-divider></mat-divider>
     <mat-card-actions class="centeralign">
         <button mat-raised-button color="primary" (click)="firstButtonClick()" class="game-button">{{firstButtonText}}</button>
-        <button mat-raised-button color="primary" *ngIf="isGenerated" (click)="submitButtonClick()"  class="game-button">SUBMIT</button>
+        <button mat-raised-button color="primary" *ngIf="isGenerated" (click)="showAnswerClick()" class="game-button" [disabled]="(isCorrect || isAnswerRequired)">SHOW ANSWER?</button>
+        <button mat-raised-button color="primary" *ngIf="isGenerated" (click)="submitButtonClick()" class="game-button">SUBMIT</button>
     </mat-card-actions>
 </mat-card>

@@ -6,7 +6,7 @@ exports.findSynset = (req, res) => {
     const synset = req.query.synset;
     var condition = { "synsets.k": synset };
 
-    synsetsCollection.find(condition).select( {"synsets.$": 1})
+    synsetsCollection.find(condition).select( {"synsets.$": 1}).select( {"_id": 0} )
         .then(data => {
             res.send(data);
         })

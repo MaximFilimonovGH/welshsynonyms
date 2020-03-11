@@ -6,7 +6,7 @@ exports.findWord = (req, res) => {
     const word = req.query.word;
     var condition = { "words.k": word };
 
-    wordsCollection.find(condition).select( {"words.$": 1})
+    wordsCollection.find(condition).select( {"words.$": 1}).select( {"_id": 0} )
         .then(data => {
             res.send(data);
         })

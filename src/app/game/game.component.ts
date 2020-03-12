@@ -10,11 +10,10 @@ import { MongodbService } from 'src/app/services/mongodb.service';
 })
 export class GameComponent implements OnInit {
 
-  isGenerated = false;
   isAnswerRequired = false;
   isSubmitted = false;
   isCorrect = false;
-  firstButtonText = "START";
+  firstButtonText = "DIFFERENT WORD?";
   randomWord = '';
   inputWord = '';
   listOfSynonyms = [];
@@ -25,30 +24,34 @@ export class GameComponent implements OnInit {
   constructor(private router: Router, private mongodbService: MongodbService) { }
 
   ngOnInit(): void {
+    this.firstButtonClick();
   }
 
   async firstButtonClick(): Promise<void> {
     this.listOfSynonyms.length = 0;
-    this.isGenerated = true;
     this.isAnswerRequired = false;
     this.isSubmitted = false;
     this.isCorrect = false;
     this.inputWord = "";
+    this.randomWord = "";
     this.answer = "";
     this.result = "";
-    this.firstButtonText = "TRY AGAIN?";
+    this.wordsCount = 0;
+    this.firstButtonText = "DIFFERENT WORD?";
 
+    //count words
     var countResult = await this.countWords();
     this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
     console.log("Number of words:", this.wordsCount);
 
+    //get random word from wordnet
     var randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));
     this.randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
     console.log("Random word:", this.randomWord);
 
+    //generate list of synonyms
     await this.getSynonyms(this.randomWord);
     console.log("list of synonyms", this.listOfSynonyms);
-    
   }
 
   async submitButtonClick(): Promise<void> {
@@ -103,20 +106,24 @@ export class GameComponent implements OnInit {
       {
         this.result = "Correct!\n\nFull list of synonyms:\n" + this.listOfSynonyms.toString().split(",").join('\n');;
         this.isCorrect = true;
+        this.firstButtonText = "TRY AGAIN?";
         return;
       }
     }
-    this.result = "Incorrect.\n\nPlease try a different word or press SHOW ANSWER to see the synonyms";
 
+    this.result = "Incorrect.\n\nPlease try a different word or press SHOW ANSWER to see the synonyms";
   }
 
   showAnswerClick(): void {
     this.isAnswerRequired = true;
     this.isSubmitted = false;
+
+    //if no synonyms for this word
     if (this.listOfSynonyms.length == 0)
     {
       this.answer = "This word has no synonyms";
     }
+    //print list of synonyms
     else
     {
       this.answer = this.listOfSynonyms.toString().split(",").join('\n');
@@ -152,18 +159,20 @@ export class GameComponent implements OnInit {
 
   async getSynonyms(word) {
 
+    //find word and its synsets
     var result = await this.findWord(word);
     var synsetList = JSON.parse(JSON.stringify(result[0])).words[0].v;
     console.log("Synset List: ", synsetList);
 
-    for (var s of synsetList)
+
+    for (var s of synsetList)     //cycle all synsets
     {
-      var synsetFindRes = await this.findSynset(s);
-      var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;
+      var synsetFindRes = await this.findSynset(s); //find each synset in mongodb
+      var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;  //get word list for each synset
       console.log("Words List: ", wordsList);
-      for (var w of wordsList)
+      for (var w of wordsList)  //cycle all words in each synset
       {
-        if(!this.listOfSynonyms.includes(w) && !w.includes(this.randomWord))
+        if(!this.listOfSynonyms.includes(w) && !w.includes(this.randomWord)) //check if a word is in the list already
         {
           this.listOfSynonyms.push(w);
         }

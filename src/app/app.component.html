@@ -8,9 +8,31 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <mat-toolbar color="primary" class="top-toolbar">
-  <span>Game of Welsh Words</span>
+  <span (click)="resetApp()" style="cursor: pointer;">Game of Welsh Words</span>
 </mat-toolbar>
 
-<app-game></app-game>
+<mat-card *ngIf = "!isStarted">
+  <mat-card-content  class="centeralign">
+    <div fxLayout="column">
+        <div class="disclaimer-text centeralign">
+            Welcome to the Game of Welsh words, in which you can practice your Welsh.<br><br>
+        </div>
+        <div class="disclaimer-text centeralign">
+            In this game you will get a random Welsh word and then you need to type its synonym.<br><br>
+        </div>
+        <div class="disclaimer-text centeralign">
+            If you do not know the synonym, you will be able to see the answer by pressing SHOW ANSWER button.<br><br><br><br>
+        </div>
+        <div class="disclaimer-text centeralign">
+            Press START to begin
+        </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="centeralign">
+    <button mat-raised-button color="primary" (click)="startButtonClick()" class="game-button">START</button>
+  </mat-card-actions>
+</mat-card>
+
+<app-game *ngIf="isStarted"></app-game>
 
 <router-outlet></router-outlet>

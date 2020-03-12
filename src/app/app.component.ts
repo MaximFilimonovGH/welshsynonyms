@@ -10,11 +10,17 @@ import { GameComponent } from './game/game.component';
 })
 export class AppComponent {
 
+  isStarted = false;
+
   constructor(private router: Router) {}
 
-  title = 'welshsynonyms';
+  title = 'Game of Welsh Words';
 
-  gameButtonClick(): void {
-    this.router.navigateByUrl('/game');
+  startButtonClick(): void {
+    this.isStarted = true;
+  }
+
+  resetApp(): void {
+    this.isStarted = false;
   }
 }

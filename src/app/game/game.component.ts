@@ -72,13 +72,27 @@ export class GameComponent implements OnInit {
       return;
     }
 
+    //if no synonyms is the correct answer
+    if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length==0)
+    {
+      this.result = "Correct!\n\nThis word does not have any synonyms";
+      return;
+    }
+
+    //if no synonyms is the input but there are synonyms
+    if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length!=0)
+    {
+      this.result = "Incorrect!\n\nThis word has synonyms";
+      return;
+    }
+
     //find word in mongodb
     var searchRes = await this.findWord(this.inputWord);
 
     //if no such word
     if(searchRes.toString().length == 0)
     {
-      this.result = "No such word in Welsh";
+      this.result = "There is no such word in Welsh";
       return;
     }
 
@@ -92,7 +106,7 @@ export class GameComponent implements OnInit {
         return;
       }
     }
-    this.result = "Incorrect.\nPlease try a different word or press SHOW ANSWER to see the synonyms";
+    this.result = "Incorrect.\n\nPlease try a different word or press SHOW ANSWER to see the synonyms";
 
   }
 

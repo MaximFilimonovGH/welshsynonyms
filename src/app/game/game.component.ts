@@ -103,6 +103,8 @@ export class GameComponent implements OnInit {
       return;
     }
 
+    this.inputWord = this.inputWord.toLowerCase();
+
     //if same word 
     if(this.inputWord == this.randomWord)
     {
@@ -214,7 +216,7 @@ export class GameComponent implements OnInit {
       //cycle all words in each synset
       for (var w of wordsList)  
       {
-        if(!this.listOfSynonyms.includes(w) && w != this.inputWord) //check if a word is in the list already
+        if(!this.listOfSynonyms.includes(w) && w != this.randomWord) //check if a word is in the list already
         {
           this.listOfSynonyms.push(w);
         }

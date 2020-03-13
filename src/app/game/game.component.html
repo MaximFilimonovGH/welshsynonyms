@@ -24,12 +24,14 @@
             <mat-form-field *ngIf="isSubmitted" class="result-form-field" style="width: 700px !important;">
                 <textarea matInput rows="5" cols="1" type="text" [(ngModel)]="result" class="game-text" readonly="true"></textarea>
             </mat-form-field>
+
+            <div class="game-database-progress">{{databaseProgress}}</div>
         </div>
     </mat-card-content>
     <mat-divider></mat-divider>
     <mat-card-actions class="centeralign">
-        <button mat-raised-button color="primary" (click)="firstButtonClick()" class="game-button">{{firstButtonText}}</button>
-        <button mat-raised-button color="primary" (click)="showAnswerClick()" class="game-button" [disabled]="(isCorrect || isAnswerRequired)">SHOW ANSWER?</button>
-        <button mat-raised-button color="primary" (click)="submitButtonClick()" class="game-button">SUBMIT</button>
+        <button mat-raised-button color="primary" (click)="firstButtonClick()" class="game-button" [disabled]="!isSynonymsAcquired">{{firstButtonText}}</button>
+        <button mat-raised-button color="primary" (click)="showAnswerClick()" class="game-button" [disabled]="(isCorrect || isAnswerRequired || !isSynonymsAcquired)">SHOW ANSWER?</button>
+        <button mat-raised-button color="primary" (click)="submitButtonClick()" class="game-button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
     </mat-card-actions>
 </mat-card>

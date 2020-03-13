@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
 
+import { MongodbStitchService } from 'src/app/services/mongodb-stitch.service';
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -13,6 +15,7 @@ export class GameComponent implements OnInit {
   isAnswerRequired = false;
   isSubmitted = false;
   isCorrect = false;
+  isSynonymsAcquired = false;
   firstButtonText = "DIFFERENT WORD?";
   randomWord = '';
   inputWord = '';
@@ -20,10 +23,17 @@ export class GameComponent implements OnInit {
   wordsCount: Number;
   answer = "";
   result = "";
+  databaseProgress = "";
+  submitProgress = "";
 
-  constructor(private router: Router, private mongodbService: MongodbService) { }
+  isStitch = true;
 
-  ngOnInit(): void {
+  constructor(private router: Router,
+    private mongodbService: MongodbService,
+    private mongodbstitchService: MongodbStitchService
+    ) { }
+
+  async ngOnInit(): Promise<void> {
     this.firstButtonClick();
   }
 
@@ -32,26 +42,50 @@ export class GameComponent implements OnInit {
     this.isAnswerRequired = false;
     this.isSubmitted = false;
     this.isCorrect = false;
+    this.isSynonymsAcquired = false;
     this.inputWord = "";
     this.randomWord = "";
     this.answer = "";
     this.result = "";
+    this.databaseProgress = "";
     this.wordsCount = 0;
     this.firstButtonText = "DIFFERENT WORD?";
 
-    //count words
-    var countResult = await this.countWords();
-    this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+    var countResult;
+    var randomWordResult;
+    this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+    
+    if (!this.isStitch)
+    {
+      //count words
+      countResult = await this.countWords();
+      this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+  
+      //get random word from wordnet
+      randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));
+      this.randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
+  
+      //generate list of synonyms
+      await this.getSynonyms(this.randomWord);
+    }
+    else
+    {
+      //count words
+      countResult = await this.countWordsStitch();
+      this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+  
+      //get random word from wordnet
+      randomWordResult = await this.findWordByArrayPositionStitch(this.getRandomNumber(0, this.wordsCount));
+      this.randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
+  
+      //generate list of synonyms
+      await this.getSynonyms(this.randomWord);
+    }
     console.log("Number of words:", this.wordsCount);
-
-    //get random word from wordnet
-    var randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));
-    this.randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
     console.log("Random word:", this.randomWord);
-
-    //generate list of synonyms
-    await this.getSynonyms(this.randomWord);
     console.log("list of synonyms", this.listOfSynonyms);
+    this.databaseProgress = "";
+    this.isSynonymsAcquired = true;
   }
 
   async submitButtonClick(): Promise<void> {
@@ -59,7 +93,8 @@ export class GameComponent implements OnInit {
     this.isSubmitted = true;
     this.isAnswerRequired = false;
     this.isCorrect = false;
-    this.result = "";
+    this.result = "Checking...";
+    
 
     //if no input
     if(this.inputWord.length==0)
@@ -69,7 +104,7 @@ export class GameComponent implements OnInit {
     }
 
     //if same word 
-    if(this.inputWord.includes(this.randomWord))
+    if(this.inputWord == this.randomWord)
     {
       this.result = "Please type a different word from the original";
       return;
@@ -90,7 +125,16 @@ export class GameComponent implements OnInit {
     }
 
     //find word in mongodb
-    var searchRes = await this.findWord(this.inputWord);
+    var searchRes;
+
+    if(!this.isStitch)
+    {
+      searchRes = await this.findWord(this.inputWord);
+    }
+    else
+    {
+      searchRes = await this.findWordStitch(this.inputWord);
+    }
 
     //if no such word
     if(searchRes.toString().length == 0)
@@ -102,7 +146,7 @@ export class GameComponent implements OnInit {
     //if word found
     for(var s of this.listOfSynonyms)
     {
-      if(s.includes(this.inputWord))
+      if(s == this.inputWord)
       {
         this.result = "Correct!\n\nFull list of synonyms:\n" + this.listOfSynonyms.toString().split(",").join('\n');;
         this.isCorrect = true;
@@ -131,6 +175,60 @@ export class GameComponent implements OnInit {
 
   }
 
+  async getSynonyms(word) {
+
+    //find word and its synsets
+    var wordFindResult;
+    if(!this.isStitch)
+    {
+      wordFindResult = await this.findWord(word);
+    }
+    else
+    {
+      wordFindResult = await this.findWordStitch(word);
+    }
+
+    console.log("Found word for synonyms:", wordFindResult);
+
+    var synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
+    console.log("Synset List: ", synsetList);
+
+
+    for (var s of synsetList)     //cycle all synsets
+    {
+       //find each synset in mongodb
+      var synsetFindRes;
+      if(!this.isStitch)
+      {
+        synsetFindRes = await this.findSynset(s);
+      }
+      else
+      {
+        synsetFindRes = await this.findSynsetStitch(String(s));
+      }
+
+      //get word list for each synset
+      var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v; 
+      console.log("Words List: ", wordsList);
+      
+      //cycle all words in each synset
+      for (var w of wordsList)  
+      {
+        if(!this.listOfSynonyms.includes(w) && w != this.inputWord) //check if a word is in the list already
+        {
+          this.listOfSynonyms.push(w);
+        }
+      }
+    }
+  }
+  
+  getRandomNumber(min, max): Number {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  //own backend implementation
   async countWords() {
     const count = await this.mongodbService.countWords().toPromise();
     return count;
@@ -151,23 +249,40 @@ export class GameComponent implements OnInit {
     return result;
   }
 
-  getRandomNumber(min, max): Number {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
+  //mongodb stitch implementation
+  async findWordStitch(word) {
+    const result = await this.mongodbstitchService.findWord(word);
+    return result;
   }
 
-  async getSynonyms(word) {
+  async countWordsStitch() {
+    const count = await this.mongodbstitchService.countWords();
+    return count;
+  }
+
+  async findWordByArrayPositionStitch(arrNumber) {
+    const result = await this.mongodbstitchService.findWordByArrayPosition(arrNumber);
+    return result;
+  }
+
+  async findSynsetStitch(synset) {
+    const result = await this.mongodbstitchService.findSynset(synset);
+    return result;
+  }
+  
+  async getSynonymsStitch(word) {
 
     //find word and its synsets
-    var result = await this.findWord(word);
+    var result = await this.findWordStitch(word);
+    console.log("Found word for synonyms:", result);
+
     var synsetList = JSON.parse(JSON.stringify(result[0])).words[0].v;
     console.log("Synset List: ", synsetList);
 
-
     for (var s of synsetList)     //cycle all synsets
     {
-      var synsetFindRes = await this.findSynset(s); //find each synset in mongodb
+      var synsetFindRes = await this.findSynsetStitch(String(s)); //find each synset in mongodb
+
       var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;  //get word list for each synset
       console.log("Words List: ", wordsList);
       for (var w of wordsList)  //cycle all words in each synset

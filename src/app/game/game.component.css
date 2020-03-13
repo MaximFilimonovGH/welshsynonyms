@@ -22,6 +22,11 @@
     color: darkslategrey;
   }
 
+  .game-database-progress {
+    font-size: 15px;
+    color: red;
+  }
+
   .disclaimer-text {
     font-size: 25px;
     display:flex;

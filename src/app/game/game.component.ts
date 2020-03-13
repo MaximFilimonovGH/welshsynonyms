@@ -12,7 +12,7 @@ import { MongodbStitchService } from 'src/app/services/mongodb-stitch.service';
 })
 export class GameComponent implements OnInit {
 
-  isAnswerRequired = false;
+  isAnswerRequested = false;
   isSubmitted = false;
   isCorrect = false;
   isSynonymsAcquired = false;
@@ -34,12 +34,14 @@ export class GameComponent implements OnInit {
     ) { }
 
   async ngOnInit(): Promise<void> {
+    var test = await this.findWordByArrayPositionStitch(31322);
+    console.log("TEST: ", test.word);
     this.firstButtonClick();
   }
 
   async firstButtonClick(): Promise<void> {
     this.listOfSynonyms.length = 0;
-    this.isAnswerRequired = false;
+    this.isAnswerRequested = false;
     this.isSubmitted = false;
     this.isCorrect = false;
     this.isSynonymsAcquired = false;
@@ -72,11 +74,11 @@ export class GameComponent implements OnInit {
     {
       //count words
       countResult = await this.countWordsStitch();
-      this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+      this.wordsCount = countResult.wordsCount;
   
       //get random word from wordnet
       randomWordResult = await this.findWordByArrayPositionStitch(this.getRandomNumber(0, this.wordsCount));
-      this.randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
+      this.randomWord = randomWordResult.word.k;
   
       //generate list of synonyms
       await this.getSynonyms(this.randomWord);
@@ -91,7 +93,7 @@ export class GameComponent implements OnInit {
   async submitButtonClick(): Promise<void> {
 
     this.isSubmitted = true;
-    this.isAnswerRequired = false;
+    this.isAnswerRequested = false;
     this.isCorrect = false;
     this.result = "Checking...";
     
@@ -116,6 +118,8 @@ export class GameComponent implements OnInit {
     if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length==0)
     {
       this.result = "Correct!\n\nThis word does not have any synonyms";
+      this.isCorrect = true;
+      this.firstButtonText = "TRY AGAIN?";
       return;
     }
 
@@ -161,7 +165,7 @@ export class GameComponent implements OnInit {
   }
 
   showAnswerClick(): void {
-    this.isAnswerRequired = true;
+    this.isAnswerRequested = true;
     this.isSubmitted = false;
 
     //if no synonyms for this word
@@ -181,18 +185,17 @@ export class GameComponent implements OnInit {
 
     //find word and its synsets
     var wordFindResult;
+    var synsetList;
     if(!this.isStitch)
     {
       wordFindResult = await this.findWord(word);
+      synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
     }
     else
     {
       wordFindResult = await this.findWordStitch(word);
+      synsetList = wordFindResult.words[0].v
     }
-
-    console.log("Found word for synonyms:", wordFindResult);
-
-    var synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
     console.log("Synset List: ", synsetList);
 
 
@@ -200,17 +203,19 @@ export class GameComponent implements OnInit {
     {
        //find each synset in mongodb
       var synsetFindRes;
+      var wordsList;
       if(!this.isStitch)
       {
         synsetFindRes = await this.findSynset(s);
+        wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;
       }
       else
       {
         synsetFindRes = await this.findSynsetStitch(String(s));
+        wordsList = synsetFindRes.synsets[0].v;
       }
 
       //get word list for each synset
-      var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v; 
       console.log("Words List: ", wordsList);
       
       //cycle all words in each synset

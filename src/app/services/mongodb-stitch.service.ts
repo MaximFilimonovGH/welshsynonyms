@@ -27,7 +27,8 @@ export class MongodbStitchService {
 
     return wordsCollection.find( query, options ).toArray()
     .then((words) => {
-        return words;
+        var result = JSON.parse(JSON.stringify(words[0]));
+        return result;
     })
     .catch((err) => {
         console.error(err);
@@ -48,7 +49,8 @@ export class MongodbStitchService {
 
     return synsetCollection.find(query, options).toArray()
     .then((synsets) => {
-      return synsets;
+      var result = JSON.parse(JSON.stringify(synsets[0]));
+      return result;
     })
     .catch((err) => {
       console.error(err);
@@ -64,7 +66,8 @@ export class MongodbStitchService {
     const pipeline = [{$project: {"_id": 0, wordsCount: {$size: "$words"} } }];
 
     return wordsCollection.aggregate(pipeline).toArray()
-    .then((res) => {
+    .then((words) => {
+      var res = JSON.parse(JSON.stringify(words[0]));
       return res;
     })
     .catch((err) => {
@@ -81,7 +84,8 @@ export class MongodbStitchService {
     const pipeline = [{$project: {"_id": 0, word: { $arrayElemAt: ["$words", Number(arrNumber)] } } }]
 
     return wordsCollection.aggregate(pipeline).toArray()
-    .then((res) => {
+    .then((words) => {
+      var res = JSON.parse(JSON.stringify(words[0]));
       return res;
     })
     .catch((err) => {

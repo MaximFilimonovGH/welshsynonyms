@@ -12,10 +12,13 @@ import { MongodbStitchService } from 'src/app/services/mongodb-stitch.service';
 })
 export class GameComponent implements OnInit {
 
+  isStitch = false;
+
   isAnswerRequested = false;
   isSubmitted = false;
   isCorrect = false;
   isSynonymsAcquired = false;
+  
   firstButtonText = "DIFFERENT WORD?";
   randomWord = '';
   inputWord = '';
@@ -25,8 +28,6 @@ export class GameComponent implements OnInit {
   result = "";
   databaseProgress = "";
   submitProgress = "";
-
-  isStitch = true;
 
   constructor(private router: Router,
     private mongodbService: MongodbService,

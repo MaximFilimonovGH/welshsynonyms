@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MatDividerModule } from '@angular/material/divider';
       MatTableModule,
       MatPaginatorModule,
       MatCardModule,
-      MatDividerModule
+      MatDividerModule,
+      MatSlideToggleModule
    ],
    exports: [
       MatButtonModule,
@@ -61,7 +63,8 @@ import { MatDividerModule } from '@angular/material/divider';
       MatTableModule,
       MatPaginatorModule,
       MatCardModule,
-      MatDividerModule
+      MatDividerModule,
+      MatSlideToggleModule
    ],
    providers: [
       MatDatepickerModule,

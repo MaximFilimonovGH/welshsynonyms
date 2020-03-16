@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { GameComponent } from './game/game.component';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import { GameComponent } from './game/game.component';
 export class AppComponent {
 
   isStarted = false;
+  isStitch = false;
+  toggleColor: ThemePalette = "primary";
 
   constructor(private router: Router) {}
 
@@ -22,5 +25,10 @@ export class AppComponent {
 
   resetApp(): void {
     this.isStarted = false;
+    this.isStitch = false;
+  }
+
+  onSlideChange(): void {
+    this.isStitch = !this.isStitch;
   }
 }

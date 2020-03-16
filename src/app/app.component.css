@@ -16,3 +16,13 @@
     margin-right: 10px !important;
     font-size: 20px;
 }
+
+.game-toggle {
+  font-size: 20px;
+  color: grey;
+}
+
+.game-toggle-stitch {
+  font-size: 20px;
+  color: #673ab7;
+}

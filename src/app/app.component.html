@@ -29,10 +29,15 @@
     </div>
   </mat-card-content>
   <mat-card-actions class="centeralign">
-    <button mat-raised-button color="primary" (click)="startButtonClick()" class="game-button">START</button>
+        <button mat-raised-button color="primary" (click)="startButtonClick()" class="game-button">START</button>
+        <mat-slide-toggle
+          color="primary"
+          (change)="onSlideChange()"
+          [ngClass]="{'game-toggle': isStitch === false,
+                    'game-toggle-stitch': isStitch === true}">MongoDB Stitch</mat-slide-toggle>
   </mat-card-actions>
 </mat-card>
 
-<app-game *ngIf="isStarted"></app-game>
+<app-game *ngIf="isStarted" [data]="isStitch"></app-game>
 
 <router-outlet></router-outlet>

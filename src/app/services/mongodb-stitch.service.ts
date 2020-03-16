@@ -27,8 +27,17 @@ export class MongodbStitchService {
 
     return wordsCollection.find( query, options ).toArray()
     .then((words) => {
+      //console.log("words: ", words);
+      if(words.length == 0)
+      {
+        return words;
+      }
+      else
+      {
         var result = JSON.parse(JSON.stringify(words[0]));
         return result;
+      }
+
     })
     .catch((err) => {
         console.error(err);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
@@ -11,8 +11,9 @@ import { MongodbStitchService } from 'src/app/services/mongodb-stitch.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
+  @Input() data: boolean;
 
-  isStitch = false;
+  isStitch: boolean;
 
   isAnswerRequested = false;
   isSubmitted = false;
@@ -35,8 +36,9 @@ export class GameComponent implements OnInit {
     ) { }
 
   async ngOnInit(): Promise<void> {
-    var test = await this.findWordByArrayPositionStitch(31322);
-    console.log("TEST: ", test.word);
+    this.isStitch = this.data;
+    // var test = await this.findWordByArrayPositionStitch(31322);
+    // console.log("TEST: ", test.word);
     this.firstButtonClick();
   }
 
@@ -87,6 +89,7 @@ export class GameComponent implements OnInit {
     console.log("Number of words:", this.wordsCount);
     console.log("Random word:", this.randomWord);
     console.log("list of synonyms", this.listOfSynonyms);
+    console.log("Is it Stitch? ", this.isStitch);
     this.databaseProgress = "";
     this.isSynonymsAcquired = true;
   }
@@ -142,9 +145,10 @@ export class GameComponent implements OnInit {
     {
       searchRes = await this.findWordStitch(this.inputWord);
     }
+    console.log("searchRes of input:", searchRes);
 
     //if no such word
-    if(searchRes.toString().length == 0)
+    if(searchRes.length == 0)
     {
       this.result = "There is no such word in Welsh";
       return;

@@ -1,13 +1,16 @@
 module.exports = {
   apps : [{
-    name: 'welshsynonyms-frontend',
-    script: 'node_modules/@angular/cli/bin/ng',
-    args: 'serve --port 4202',
-    instances: 1,
-    autorestart: true,
-    watch: '.'
-  }],
-
-  deploy : {
-  }
+    script: 'serve',
+    name: '4202-welshsynonyms-frontend',
+    env: {
+      PM2_SERVE_PATH: 'dist/welshsynonyms',
+      PM2_SERVE_PORT: 4202,
+      PM2_SERVE_SPA: 'true',
+      //PM2_SERVE_HOMEPAGE: 'dist/firstaidcu/index.html'
+    }
+  },
+  {
+    script: 'backend/server.js',
+    name: '8082-welshsynonyms-backend'
+  }]
 };

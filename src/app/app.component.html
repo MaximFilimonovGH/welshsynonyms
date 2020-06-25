@@ -33,11 +33,11 @@
         <mat-slide-toggle
           color="primary"
           (change)="onSlideChange()"
-          [ngClass]="{'game-toggle': isStitch === false,
-                    'game-toggle-stitch': isStitch === true}">MongoDB Stitch</mat-slide-toggle>
+          [ngClass]="{'game-toggle': isRealm === false,
+                    'game-toggle-stitch': isRealm === true}">MongoDB Realm</mat-slide-toggle>
   </mat-card-actions>
 </mat-card>
 
-<app-game *ngIf="isStarted" [data]="isStitch"></app-game>
+<app-game *ngIf="isStarted" [data]="isRealm"></app-game>
 
 <router-outlet></router-outlet>

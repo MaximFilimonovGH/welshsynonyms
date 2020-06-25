@@ -15,7 +15,7 @@ import { MongodbRealmService } from 'src/app/services/mongodb-realm.service';
 export class GameComponent implements OnInit {
   @Input() data: boolean;
 
-  isStitch: boolean;
+  isRealm: boolean;
 
   isAnswerRequested = false;
   isSubmitted = false;
@@ -39,7 +39,7 @@ export class GameComponent implements OnInit {
     ) { }
 
   async ngOnInit(): Promise<void> {
-    this.isStitch = this.data;
+    this.isRealm = this.data;
     // var test = await this.findWordByArrayPositionStitch(31322);
     // console.log("TEST: ", test.word);
     this.firstButtonClick();
@@ -63,7 +63,7 @@ export class GameComponent implements OnInit {
     var randomWordResult;
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     
-    if (!this.isStitch)
+    if (!this.isRealm)
     {
       //count words
       countResult = await this.countWords();
@@ -92,7 +92,7 @@ export class GameComponent implements OnInit {
     console.log("Number of words:", this.wordsCount);
     console.log("Random word:", this.randomWord);
     console.log("list of synonyms", this.listOfSynonyms);
-    console.log("Is it Stitch? ", this.isStitch);
+    console.log("Is it Realm? ", this.isRealm);
     this.databaseProgress = "";
     this.isSynonymsAcquired = true;
   }
@@ -140,7 +140,7 @@ export class GameComponent implements OnInit {
     //find word in mongodb
     var searchRes;
 
-    if(!this.isStitch)
+    if(!this.isRealm)
     {
       searchRes = await this.findWord(this.inputWord);
     }
@@ -194,7 +194,7 @@ export class GameComponent implements OnInit {
     //find word and its synsets
     var wordFindResult;
     var synsetList;
-    if(!this.isStitch)
+    if(!this.isRealm)
     {
       wordFindResult = await this.findWord(word);
       synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
@@ -212,7 +212,7 @@ export class GameComponent implements OnInit {
        //find each synset in mongodb
       var synsetFindRes;
       var wordsList;
-      if(!this.isStitch)
+      if(!this.isRealm)
       {
         synsetFindRes = await this.findSynset(s);
         wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;

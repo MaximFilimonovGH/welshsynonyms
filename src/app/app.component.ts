@@ -12,7 +12,7 @@ import { ThemePalette } from '@angular/material/core';
 export class AppComponent {
 
   isStarted = false;
-  isStitch = false;
+  isRealm = true;
   toggleColor: ThemePalette = "primary";
 
   constructor(private router: Router) {}
@@ -25,10 +25,10 @@ export class AppComponent {
 
   resetApp(): void {
     this.isStarted = false;
-    this.isStitch = false;
+    this.isRealm = false;
   }
 
   onSlideChange(): void {
-    this.isStitch = !this.isStitch;
+    this.isRealm = !this.isRealm;
   }
 }

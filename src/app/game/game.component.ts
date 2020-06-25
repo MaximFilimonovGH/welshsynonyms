@@ -5,6 +5,8 @@ import { MongodbService } from 'src/app/services/mongodb.service';
 
 import { MongodbStitchService } from 'src/app/services/mongodb-stitch.service';
 
+import { MongodbRealmService } from 'src/app/services/mongodb-realm.service';
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -32,7 +34,8 @@ export class GameComponent implements OnInit {
 
   constructor(private router: Router,
     private mongodbService: MongodbService,
-    private mongodbstitchService: MongodbStitchService
+    //private mongodbstitchService: MongodbStitchService,
+    private mongodbRealmService: MongodbRealmService
     ) { }
 
   async ngOnInit(): Promise<void> {
@@ -76,11 +79,11 @@ export class GameComponent implements OnInit {
     else
     {
       //count words
-      countResult = await this.countWordsStitch();
+      countResult = await this.countWordsRealm();
       this.wordsCount = countResult.wordsCount;
   
       //get random word from wordnet
-      randomWordResult = await this.findWordByArrayPositionStitch(this.getRandomNumber(0, this.wordsCount));
+      randomWordResult = await this.findWordByArrayPositionRealm(this.getRandomNumber(0, this.wordsCount));
       this.randomWord = randomWordResult.word.k;
   
       //generate list of synonyms
@@ -143,7 +146,7 @@ export class GameComponent implements OnInit {
     }
     else
     {
-      searchRes = await this.findWordStitch(this.inputWord);
+      searchRes = await this.findWordRealm(this.inputWord);
     }
     console.log("searchRes of input:", searchRes);
 
@@ -198,7 +201,7 @@ export class GameComponent implements OnInit {
     }
     else
     {
-      wordFindResult = await this.findWordStitch(word);
+      wordFindResult = await this.findWordRealm(word);
       synsetList = wordFindResult.words[0].v
     }
     console.log("Synset List: ", synsetList);
@@ -216,7 +219,7 @@ export class GameComponent implements OnInit {
       }
       else
       {
-        synsetFindRes = await this.findSynsetStitch(String(s));
+        synsetFindRes = await this.findSynsetRealm(String(s));
         wordsList = synsetFindRes.synsets[0].v;
       }
 
@@ -261,31 +264,32 @@ export class GameComponent implements OnInit {
     return result;
   }
 
-  //mongodb stitch implementation
-  async findWordStitch(word) {
-    const result = await this.mongodbstitchService.findWord(word);
+  //mongodb realm implementation
+
+  async findWordRealm(word) {
+    const result = await this.mongodbRealmService.findWord(word);
     return result;
   }
 
-  async countWordsStitch() {
-    const count = await this.mongodbstitchService.countWords();
+  async countWordsRealm() {
+    const count = await this.mongodbRealmService.countWords();
     return count;
   }
 
-  async findWordByArrayPositionStitch(arrNumber) {
-    const result = await this.mongodbstitchService.findWordByArrayPosition(arrNumber);
+  async findWordByArrayPositionRealm(arrNumber) {
+    const result = await this.mongodbRealmService.findWordByArrayPosition(arrNumber);
     return result;
   }
 
-  async findSynsetStitch(synset) {
-    const result = await this.mongodbstitchService.findSynset(synset);
+  async findSynsetRealm(synset) {
+    const result = await this.mongodbRealmService.findSynset(synset);
     return result;
   }
   
-  async getSynonymsStitch(word) {
+   async getSynonymsRealm(word) {
 
     //find word and its synsets
-    var result = await this.findWordStitch(word);
+    var result = await this.findWordRealm(word);
     console.log("Found word for synonyms:", result);
 
     var synsetList = JSON.parse(JSON.stringify(result[0])).words[0].v;
@@ -293,7 +297,7 @@ export class GameComponent implements OnInit {
 
     for (var s of synsetList)     //cycle all synsets
     {
-      var synsetFindRes = await this.findSynsetStitch(String(s)); //find each synset in mongodb
+      var synsetFindRes = await this.findSynsetRealm(String(s)); //find each synset in mongodb
 
       var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;  //get word list for each synset
       console.log("Words List: ", wordsList);
@@ -306,5 +310,51 @@ export class GameComponent implements OnInit {
       }
     }
   }
+
+  // //mongodb stitch implementation
+  // async findWordStitch(word) {
+  //   const result = await this.mongodbstitchService.findWord(word);
+  //   return result;
+  // }
+
+  // async countWordsStitch() {
+  //   const count = await this.mongodbstitchService.countWords();
+  //   return count;
+  // }
+
+  // async findWordByArrayPositionStitch(arrNumber) {
+  //   const result = await this.mongodbstitchService.findWordByArrayPosition(arrNumber);
+  //   return result;
+  // }
+
+  // async findSynsetStitch(synset) {
+  //   const result = await this.mongodbstitchService.findSynset(synset);
+  //   return result;
+  // }
+  
+  //  async getSynonymsStitch(word) {
+
+  //   //find word and its synsets
+  //   var result = await this.findWordStitch(word);
+  //   console.log("Found word for synonyms:", result);
+
+  //   var synsetList = JSON.parse(JSON.stringify(result[0])).words[0].v;
+  //   console.log("Synset List: ", synsetList);
+
+  //   for (var s of synsetList)     //cycle all synsets
+  //   {
+  //     var synsetFindRes = await this.findSynsetStitch(String(s)); //find each synset in mongodb
+
+  //     var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;  //get word list for each synset
+  //     console.log("Words List: ", wordsList);
+  //     for (var w of wordsList)  //cycle all words in each synset
+  //     {
+  //       if(!this.listOfSynonyms.includes(w) && !w.includes(this.randomWord)) //check if a word is in the list already
+  //       {
+  //         this.listOfSynonyms.push(w);
+  //       }
+  //     }
+  //   }
+  // }
 
 }

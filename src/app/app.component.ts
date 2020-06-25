@@ -12,7 +12,7 @@ import { ThemePalette } from '@angular/material/core';
 export class AppComponent {
 
   isStarted = false;
-  isRealm = true;
+  isRealm = false;
   toggleColor: ThemePalette = "primary";
 
   constructor(private router: Router) {}

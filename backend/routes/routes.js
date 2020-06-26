@@ -16,5 +16,5 @@ module.exports = app => {
     //Get word by array position
     router.get("/words/findByArrayPosition", words.getWordByPosition);
 
-    app.use("/api", router);
+    app.use("/", router);
 }

@@ -10,11 +10,13 @@ import { GameComponent } from './game/game.component';
 import { AngularMaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent
+    GameComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,

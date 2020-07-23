@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from './../../environments/environment';
 
-//const baseUrl = 'http://localhost:8082/'; //development ng serve URL
-//const baseUrl = 'https://datainnovation.cardiff.ac.uk/api/welshsynonyms/' //production server URL
 const baseUrl = environment.baseApiUrl;
+//const baseUrl = '/';
 
 @Injectable({
   providedIn: 'root'

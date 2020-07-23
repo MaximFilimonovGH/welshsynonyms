@@ -10,7 +10,7 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-const db = require("./models");
+const db = require("./backend/models");
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
@@ -28,6 +28,10 @@ db.mongoose
 //parse requests of content-type - application/json
 app.use(bodyParser.json());
 
+// Create link to Angular build directory
+var distDir = "./dist/welshsynonyms/";
+app.use(express.static(distDir));
+
 //parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded( {extended: true }));
 
@@ -37,10 +41,14 @@ app.get("/test", (req, res) => {
 });
 
 //use routes
-require("./routes/routes")(app);
+require("./backend/routes/routes")(app);
+
+app.all("/*", function(req, res, next) {
+    res.sendFile("index.html", { root: distDir });
+});
 
 //set port, listen for requests
-const PORT = process.env.PORT || 8082;
+const PORT = process.env.PORT || 4202;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });

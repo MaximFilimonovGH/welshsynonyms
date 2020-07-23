@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
 
-import { MongodbStitchService } from 'src/app/services/mongodb-stitch.service';
-
 import { MongodbRealmService } from 'src/app/services/mongodb-realm.service';
 
 @Component({
@@ -310,51 +308,5 @@ export class GameComponent implements OnInit {
       }
     }
   }
-
-  // //mongodb stitch implementation
-  // async findWordStitch(word) {
-  //   const result = await this.mongodbstitchService.findWord(word);
-  //   return result;
-  // }
-
-  // async countWordsStitch() {
-  //   const count = await this.mongodbstitchService.countWords();
-  //   return count;
-  // }
-
-  // async findWordByArrayPositionStitch(arrNumber) {
-  //   const result = await this.mongodbstitchService.findWordByArrayPosition(arrNumber);
-  //   return result;
-  // }
-
-  // async findSynsetStitch(synset) {
-  //   const result = await this.mongodbstitchService.findSynset(synset);
-  //   return result;
-  // }
-  
-  //  async getSynonymsStitch(word) {
-
-  //   //find word and its synsets
-  //   var result = await this.findWordStitch(word);
-  //   console.log("Found word for synonyms:", result);
-
-  //   var synsetList = JSON.parse(JSON.stringify(result[0])).words[0].v;
-  //   console.log("Synset List: ", synsetList);
-
-  //   for (var s of synsetList)     //cycle all synsets
-  //   {
-  //     var synsetFindRes = await this.findSynsetStitch(String(s)); //find each synset in mongodb
-
-  //     var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;  //get word list for each synset
-  //     console.log("Words List: ", wordsList);
-  //     for (var w of wordsList)  //cycle all words in each synset
-  //     {
-  //       if(!this.listOfSynonyms.includes(w) && !w.includes(this.randomWord)) //check if a word is in the list already
-  //       {
-  //         this.listOfSynonyms.push(w);
-  //       }
-  //     }
-  //   }
-  // }
 
 }

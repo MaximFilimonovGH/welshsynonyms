@@ -1,6 +1,8 @@
 .game-button {
-    margin: 10px !important;
-    font-size: 15px;
+    margin: 5px !important;
+    font-size: 100%;
+    white-space: normal;
+    line-height: 2.0;
     background-color: #f56a6a;
 }
 

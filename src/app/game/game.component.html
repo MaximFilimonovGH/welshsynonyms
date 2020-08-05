@@ -1,6 +1,6 @@
 <mat-card class="game-card">
     <mat-card-content class="centeralign">
-        <div fxLayout="column">
+        <div fxLayout="column" style="font-size: 12px">
             <div class="game-label">Welsh Word:</div>
 
             <mat-form-field class="input-form-field">
@@ -10,7 +10,7 @@
             <div class="game-label" *ngIf="isSynonymsAcquired">Please type its synonym or "no synonyms" in the following field:</div>
 
             <mat-form-field *ngIf="isSynonymsAcquired" class="input-form-field" appearance="outline" (keyup.enter)="submitButtonClick()">
-                <mat-label style="margin-top: 0px !important;">Synonym</mat-label>
+                <mat-label class="synonym-label">Synonym</mat-label>
                 <input matInput type="text" [(ngModel)]="inputWord" class="game-text">  
             </mat-form-field>
 
@@ -30,8 +30,8 @@
     </mat-card-content>
     <mat-divider></mat-divider>
     <mat-card-actions class="centeralign">
-        <button mat-raised-button color="primary" (click)="firstButtonClick()" class="game-button" [disabled]="!isSynonymsAcquired">{{firstButtonText}}</button>
-        <button mat-raised-button color="primary" (click)="showAnswerClick()" class="game-button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">SHOW ANSWER?</button>
-        <button mat-raised-button color="primary" (click)="submitButtonClick()" class="game-button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
+        <button mat-raised-button color="primary" (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">{{firstButtonText}}</button>
+        <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">SHOW ANSWER?</button>
+        <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
     </mat-card-actions>
 </mat-card>

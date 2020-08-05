@@ -6,6 +6,7 @@
     background-color: #f56a6a;
 }
 
+
 .centeralign{
     display:flex;
     justify-content:center;
@@ -17,12 +18,14 @@
   }
 
   .game-text {
-      font-size: 25px;
+      font-size: 23px;
   }
 
   .game-label {
-    font-size: 15px;
-    color: darkslategrey;
+      color: #3d4449;
+      font-family: "Roboto Slab", serif;
+      font-size: 1.3em;
+      font-weight: 700;
   }
 
   .game-database-progress {
@@ -37,12 +40,163 @@
     align-items:center;
   }
 
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #f56a6a !important;
+}
+
   .input-form-field {
     width: 50% !important;
     min-width: 350px;
+    color: #7f888f;
+		font-family: "Open Sans", sans-serif;
+		font-size: 10 pt;
+    font-weight: 400;
+    margin: 0px !important;
+  }
+
+  .synonym-label {
+    margin: 0px !important;
+    color: #7f888f;
+		font-family: "Open Sans", sans-serif;
+		font-size: 11pt;
+		font-weight: 200;
   }
 
   .result-form-field {
     width: 50% !important;
     min-width: 350px;
+    color: #7f888f;
+		font-family: "Open Sans", sans-serif;
+		font-size: 15pt;
+		font-weight: 400;
   }
+
+  /* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		background-color: transparent;
+		border-radius: 0.375em;
+		border: 0;
+		box-shadow: inset 0 0 0 2px #f56a6a;
+		color: #f56a6a !important;
+		cursor: pointer;
+		display: inline-block;
+		font-family: "Roboto Slab", serif;
+		font-size: 0.8em;
+		font-weight: 700;
+		height: 3.5em;
+		letter-spacing: 0.075em;
+		line-height: 3.5em;
+    padding: 0 2.25em;
+    margin: 5px !important;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		button:hover,
+		.button:hover {
+			background-color: rgba(245, 106, 106, 0.05);
+		}
+
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		input[type="button"]:active,
+		button:active,
+		.button:active {
+			background-color: rgba(245, 106, 106, 0.15);
+		}
+
+		input[type="submit"].icon:before,
+		input[type="reset"].icon:before,
+		input[type="button"].icon:before,
+		button.icon:before,
+		.button.icon:before {
+			margin-right: 0.5em;
+		}
+
+		input[type="submit"].fit,
+		input[type="reset"].fit,
+		input[type="button"].fit,
+		button.fit,
+		.button.fit {
+			display: block;
+			margin: 0 0 1em 0;
+			width: 100%;
+		}
+
+		input[type="submit"].small,
+		input[type="reset"].small,
+		input[type="button"].small,
+		button.small,
+		.button.small {
+			font-size: 0.6em;
+		}
+
+		input[type="submit"].big,
+		input[type="reset"].big,
+		input[type="button"].big,
+		button.big,
+		.button.big {
+			font-size: 1em;
+			height: 3.65em;
+			line-height: 3.65em;
+		}
+
+		input[type="submit"].special,
+		input[type="reset"].special,
+		input[type="button"].special,
+		button.special,
+		.button.special {
+			background-color: #f56a6a;
+			box-shadow: none;
+			color: #ffffff !important;
+		}
+
+			input[type="submit"].special:hover,
+			input[type="reset"].special:hover,
+			input[type="button"].special:hover,
+			button.special:hover,
+			.button.special:hover {
+				background-color: #f67878;
+			}
+
+			input[type="submit"].special:active,
+			input[type="reset"].special:active,
+			input[type="button"].special:active,
+			button.special:active,
+			.button.special:active {
+				background-color: #f45c5c;
+			}
+
+		input[type="submit"].disabled, input[type="submit"]:disabled,
+		input[type="reset"].disabled,
+		input[type="reset"]:disabled,
+		input[type="button"].disabled,
+		input[type="button"]:disabled,
+		button.disabled,
+		button:disabled,
+		.button.disabled,
+		.button:disabled {
+			-moz-pointer-events: none;
+			-webkit-pointer-events: none;
+			-ms-pointer-events: none;
+			pointer-events: none;
+			opacity: 0.25;
+		}

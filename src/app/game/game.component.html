@@ -7,7 +7,7 @@
                 <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="randomWord" class="game-text" readonly="true"></textarea>
             </mat-form-field>
 
-            <div class="game-label" *ngIf="isSynonymsAcquired">Please type its synonym or "no synonyms" in the following field:</div>
+            <div class="game-label" *ngIf="isSynonymsAcquired">Please type its synonym in the following field:</div>
 
             <mat-form-field *ngIf="isSynonymsAcquired" class="input-form-field" appearance="outline" (keyup.enter)="submitButtonClick()">
                 <mat-label class="synonym-label">Synonym</mat-label>
@@ -31,7 +31,7 @@
     <mat-divider></mat-divider>
     <mat-card-actions class="centeralign">
         <button mat-raised-button color="primary" (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">{{firstButtonText}}</button>
-        <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">SHOW ANSWER?</button>
+        <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">PASS</button>
         <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
     </mat-card-actions>
 </mat-card>

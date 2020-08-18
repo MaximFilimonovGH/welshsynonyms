@@ -73,6 +73,7 @@ export class GameComponent implements OnInit {
   
       //generate list of synonyms
       await this.getSynonyms(this.randomWord);
+
     }
     else
     {
@@ -91,6 +92,12 @@ export class GameComponent implements OnInit {
     //console.log("Random word:", this.randomWord);
     //console.log("list of synonyms", this.listOfSynonyms);
     //console.log("Is it Realm? ", this.isRealm);
+    if (this.listOfSynonyms.length == 0)
+    {
+      console.log("This word has no sysnonyms. Getting new word");
+      this.firstButtonClick();
+    }
+
     this.databaseProgress = "";
     this.isSynonymsAcquired = true;
   }
@@ -119,21 +126,22 @@ export class GameComponent implements OnInit {
       return;
     }
 
+    //no synonyms implementation
     //if no synonyms is the correct answer
-    if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length==0)
-    {
-      this.result = "Correct!\n\nThis word does not have any synonyms";
-      this.isCorrect = true;
-      this.firstButtonText = "TRY AGAIN?";
-      return;
-    }
+    // if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length==0)
+    // {
+    //   this.result = "Correct!\n\nThis word does not have any synonyms";
+    //   this.isCorrect = true;
+    //   this.firstButtonText = "TRY AGAIN?";
+    //   return;
+    // }
 
     //if no synonyms is the input but there are synonyms
-    if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length!=0)
-    {
-      this.result = "Incorrect!\n\nThis word has synonyms";
-      return;
-    }
+    // if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length!=0)
+    // {
+    //   this.result = "Incorrect!\n\nThis word has synonyms";
+    //   return;
+    // }
 
     //find word in mongodb
     var searchRes;

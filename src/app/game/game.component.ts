@@ -20,7 +20,7 @@ export class GameComponent implements OnInit {
   isCorrect = false;
   isSynonymsAcquired = false;
   
-  firstButtonText = "DIFFERENT WORD?";
+  firstButtonText = "SKIP";
   randomWord = '';
   inputWord = '';
   listOfSynonyms = [];
@@ -55,7 +55,7 @@ export class GameComponent implements OnInit {
     this.result = "";
     this.databaseProgress = "";
     this.wordsCount = 0;
-    this.firstButtonText = "DIFFERENT WORD?";
+    this.firstButtonText = "SKIP";
 
     var countResult;
     var randomWordResult;
@@ -94,7 +94,7 @@ export class GameComponent implements OnInit {
     //console.log("Is it Realm? ", this.isRealm);
     if (this.listOfSynonyms.length == 0)
     {
-      console.log("This word has no sysnonyms. Getting new word");
+      console.log("This word has no synonyms. Getting new word");
       this.firstButtonClick();
     }
 
@@ -122,7 +122,7 @@ export class GameComponent implements OnInit {
     //if same word 
     if(this.inputWord == this.randomWord)
     {
-      this.result = "Please type a different word from the original";
+      this.result = "Please type a different word";
       return;
     }
 
@@ -170,12 +170,12 @@ export class GameComponent implements OnInit {
       {
         this.result = "Correct!\n\nFull list of synonyms:\n" + this.listOfSynonyms.toString().split(",").join('\n');;
         this.isCorrect = true;
-        this.firstButtonText = "TRY AGAIN?";
+        this.firstButtonText = "NEW WORD";
         return;
       }
     }
 
-    this.result = "Incorrect.\n\nPlease try a different word or press SHOW ANSWER to see the synonyms";
+    this.result = "Incorrect.\n\nPlease try a different word or press HINT to see the synonyms";
   }
 
   showAnswerClick(): void {
@@ -193,6 +193,11 @@ export class GameComponent implements OnInit {
       this.answer = this.listOfSynonyms.toString().split(",").join('\n');
     }
 
+  }
+
+  translateClick(): void {
+    let url = "https://glosbe.com/cy/en/" + this.randomWord;
+    window.open(url, "_blank", "noopener");
   }
 
   async getSynonyms(word) {

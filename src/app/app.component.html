@@ -11,7 +11,7 @@
   <span (click)="resetApp()" style="cursor: pointer;">Game of Welsh Words</span>
 </mat-toolbar> -->
 
-<mat-card *ngIf = "!isStarted && !aboutView">
+<!-- <mat-card *ngIf = "!isStarted && !aboutView">
   <mat-card-content  class="centeralign">
     <div fxLayout="column">
         <div class="disclaimer-text centeralign">
@@ -30,13 +30,13 @@
   </mat-card-content>
   <mat-card-actions class="centeralign">
         <button mat-raised-button color="primary" (click)="startButtonClick()" class="button">START</button>
-        <!-- <mat-slide-toggle
+        <mat-slide-toggle
           color="primary"
           (change)="onSlideChange()"
           [ngClass]="{'game-toggle': isRealm === false,
-                    'game-toggle-stitch': isRealm === true}">MongoDB Realm</mat-slide-toggle> -->
+                    'game-toggle-stitch': isRealm === true}">MongoDB Realm</mat-slide-toggle>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
 
 <!-- <nav>
   <ul>
@@ -44,6 +44,10 @@
     <li><a routerLink="/about" routerLinkActive="active">Second Component</a></li>
   </ul>
 </nav> -->
+<div *ngIf = "!isStarted && !aboutView" class="centeralign">
+  <button mat-raised-button color="primary" (click)="startButtonClick()" class="button">START</button>
+</div>
+
 
 <app-game *ngIf="isStarted" [data]="isRealm"></app-game>
 

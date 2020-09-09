@@ -19,7 +19,7 @@ exports.findWord = (req, res) => {
 };
 
 //Count words function
-exports.countWords = (req, res) => {
+exports.countWordsOld = (req, res) => {
     wordsCollection.aggregate([
         {$project: {"_id": 0, wordsCount: {$size: "$words"} } }
     ])
@@ -32,6 +32,23 @@ exports.countWords = (req, res) => {
                 err.message || "Some error occurred while counting words."
         });
     });
+};
+
+//Count words function
+exports.countWords = async (req, res) => {
+    try {
+        var data = await wordsCollection.aggregate([
+            {$project: {"_id": 0, wordsCount: {$size: "$words"} } }
+        ])
+        if (data)
+            res.send(data);
+
+    } catch (err) {
+        res.status(500).send({
+            message:
+                err.message || "Some error occurred while counting words."
+        });
+    }
 };
 
 //Retrieve a word by its position in the words array

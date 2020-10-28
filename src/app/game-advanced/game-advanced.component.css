@@ -41,6 +41,14 @@
 	color: #f56a6a !important;
 }
 
+  .game-result-score {
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 2.0em;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
   .game-result {
     color: #3d4449;
     font-family: "Roboto Slab", serif;

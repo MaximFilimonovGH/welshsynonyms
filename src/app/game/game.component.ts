@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
 
-import { MongodbRealmService } from 'src/app/services/mongodb-realm.service';
 
 @Component({
   selector: 'app-game',
@@ -31,12 +30,17 @@ export class GameComponent implements OnInit {
   submitProgress = "";
 
   constructor(private router: Router,
-    private mongodbService: MongodbService,
-    private mongodbRealmService: MongodbRealmService
+    private mongodbService: MongodbService
     ) { }
 
   async ngOnInit(): Promise<void> {
+    var countResult;
     this.isRealm = this.data;
+
+    //count words in wordNet database
+    countResult = await this.countWords();
+    this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+
     this.firstButtonClick();
   }
 
@@ -51,47 +55,28 @@ export class GameComponent implements OnInit {
     this.answer = "";
     this.result = "";
     this.databaseProgress = "";
-    this.wordsCount = 0;
     this.firstButtonText = "SKIP";
 
-    var countResult;
     var randomWordResult;
+    var randomWordCheck;
+
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     
-    if (!this.isRealm)
-    {
-      //count words
-      countResult = await this.countWords();
-      this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
-  
-      //get random word from wordnet
-      randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));
-      this.randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
-  
-      //generate list of synonyms
-      await this.getSynonyms(this.randomWord);
+    //get random word from wordnet
+    randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));
+    randomWordCheck = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
 
+    //generate list of synonyms
+    await this.getSynonyms(randomWordCheck);
+
+    if (this.listOfSynonyms.length != 0) {
+      console.log(`Found word`);
+      this.randomWord = randomWordCheck;
     }
-    else
-    {
-      //count words
-      countResult = await this.countWordsRealm();
-      this.wordsCount = countResult.wordsCount;
-  
-      //get random word from wordnet
-      randomWordResult = await this.findWordByArrayPositionRealm(this.getRandomNumber(0, this.wordsCount));
-      this.randomWord = randomWordResult.word.k;
-  
-      //generate list of synonyms
-      await this.getSynonyms(this.randomWord);
-    }
-    //console.log("Number of words:", this.wordsCount);
-    //console.log("Random word:", this.randomWord);
-    //console.log("list of synonyms", this.listOfSynonyms);
-    //console.log("Is it Realm? ", this.isRealm);
     if (this.listOfSynonyms.length == 0)
     {
-      console.log("This word has no synonyms. Getting new word");
+
+      console.log("This word has no synonyms. Getting a new word");
       this.firstButtonClick();
     }
 
@@ -106,9 +91,8 @@ export class GameComponent implements OnInit {
     this.isCorrect = false;
     this.result = "Checking...";
     
-
     //if no input
-    if(this.inputWord.length==0)
+    if(this.inputWord.length == 0)
     {
       this.result = "Please input a word";
       return;
@@ -119,11 +103,11 @@ export class GameComponent implements OnInit {
     //if same word 
     if(this.inputWord == this.randomWord)
     {
-      this.result = "Please type a different word";
+      this.result = "Please input a different word";
       return;
     }
 
-    //no synonyms implementation
+        // no synonyms implementation
     //if no synonyms is the correct answer
     // if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length==0)
     // {
@@ -141,17 +125,8 @@ export class GameComponent implements OnInit {
     // }
 
     //find word in mongodb
-    var searchRes;
-
-    if(!this.isRealm)
-    {
-      searchRes = await this.findWord(this.inputWord);
-    }
-    else
-    {
-      searchRes = await this.findWordRealm(this.inputWord);
-    }
-    //console.log("searchRes of input:", searchRes);
+    let searchRes;
+    searchRes = await this.findWord(this.inputWord);
 
     //if no such word
     if(searchRes.length == 0)
@@ -202,37 +177,19 @@ export class GameComponent implements OnInit {
     //find word and its synsets
     var wordFindResult;
     var synsetList;
-    if(!this.isRealm)
-    {
-      wordFindResult = await this.findWord(word);
-      synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
-    }
-    else
-    {
-      wordFindResult = await this.findWordRealm(word);
-      synsetList = wordFindResult.words[0].v
-    }
+    wordFindResult = await this.findWord(word);
+    synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
     //console.log("Synset List: ", synsetList);
-
 
     for (var s of synsetList)     //cycle all synsets
     {
        //find each synset in mongodb
       var synsetFindRes;
       var wordsList;
-      if(!this.isRealm)
-      {
-        synsetFindRes = await this.findSynset(s);
-        wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;
-      }
-      else
-      {
-        synsetFindRes = await this.findSynsetRealm(String(s));
-        wordsList = synsetFindRes.synsets[0].v;
-      }
+      synsetFindRes = await this.findSynset(s);
+      wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;
 
       //get word list for each synset
-      //console.log("Words List: ", wordsList);
       
       //cycle all words in each synset
       for (var w of wordsList)  
@@ -271,52 +228,4 @@ export class GameComponent implements OnInit {
     const result = await this.mongodbService.findSynset(synset).toPromise().catch(error => console.log(error));
     return result;
   }
-
-  //mongodb realm implementation
-
-  async findWordRealm(word) {
-    const result = await this.mongodbRealmService.findWord(word).catch(error => console.log(error));
-    return result;
-  }
-
-  async countWordsRealm() {
-    const count = await this.mongodbRealmService.countWords().catch(error => console.log(error));
-    return count;
-  }
-
-  async findWordByArrayPositionRealm(arrNumber) {
-    const result = await this.mongodbRealmService.findWordByArrayPosition(arrNumber).catch(error => console.log(error));
-    return result;
-  }
-
-  async findSynsetRealm(synset) {
-    const result = await this.mongodbRealmService.findSynset(synset).catch(error => console.log(error));
-    return result;
-  }
-  
-   async getSynonymsRealm(word) {
-
-    //find word and its synsets
-    var result = await this.findWordRealm(word);
-    //console.log("Found word for synonyms:", result);
-
-    var synsetList = JSON.parse(JSON.stringify(result[0])).words[0].v;
-    //console.log("Synset List: ", synsetList);
-
-    for (var s of synsetList)     //cycle all synsets
-    {
-      var synsetFindRes = await this.findSynsetRealm(String(s)); //find each synset in mongodb
-
-      var wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;  //get word list for each synset
-      //console.log("Words List: ", wordsList);
-      for (var w of wordsList)  //cycle all words in each synset
-      {
-        if(!this.listOfSynonyms.includes(w) && !w.includes(this.randomWord)) //check if a word is in the list already
-        {
-          this.listOfSynonyms.push(w);
-        }
-      }
-    }
-  }
-
 }

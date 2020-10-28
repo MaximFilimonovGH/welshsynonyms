@@ -15,7 +15,6 @@ import { Subscription }   from 'rxjs';
 export class AppComponent implements OnDestroy{
 
   isStarted = false;
-  isRealm = false;
   toggleColor: ThemePalette = "primary";
 
   subscription: Subscription;
@@ -37,13 +36,8 @@ export class AppComponent implements OnDestroy{
 
   resetApp(): void {
     this.isStarted = false;
-    this.isRealm = false;
     this.aboutView = false;
     this.router.navigateByUrl('')
-  }
-
-  onSlideChange(): void {
-    this.isRealm = !this.isRealm;
   }
 
   ngOnDestroy() {

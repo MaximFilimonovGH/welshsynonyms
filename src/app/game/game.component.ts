@@ -10,10 +10,6 @@ import { MongodbService } from 'src/app/services/mongodb.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-  @Input() data: boolean;
-
-  isRealm: boolean;
-
   isAnswerRequested = false;
   isSubmitted = false;
   isCorrect = false;
@@ -34,10 +30,8 @@ export class GameComponent implements OnInit {
     ) { }
 
   async ngOnInit(): Promise<void> {
-    var countResult;
-    this.isRealm = this.data;
-
     //count words in wordNet database
+    var countResult;
     countResult = await this.countWords();
     this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
 
@@ -69,13 +63,14 @@ export class GameComponent implements OnInit {
     //generate list of synonyms
     await this.getSynonyms(randomWordCheck);
 
+    //if there are synonyms then it's a good word
     if (this.listOfSynonyms.length != 0) {
       console.log(`Found word`);
       this.randomWord = randomWordCheck;
     }
+    //if list of synonyms is empty
     if (this.listOfSynonyms.length == 0)
     {
-
       console.log("This word has no synonyms. Getting a new word");
       this.firstButtonClick();
     }
@@ -194,7 +189,7 @@ export class GameComponent implements OnInit {
       //cycle all words in each synset
       for (var w of wordsList)  
       {
-        if(!this.listOfSynonyms.includes(w) && w != this.randomWord) //check if a word is in the list already
+        if(!this.listOfSynonyms.includes(w) && w != word) //check if a word is in the list already
         {
           this.listOfSynonyms.push(w);
         }

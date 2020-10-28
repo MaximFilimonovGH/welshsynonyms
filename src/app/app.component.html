@@ -56,7 +56,7 @@
     color="warn"
     (change)="onSlideChange()"
     [ngClass]="{'game-toggle': isAdvanced === false,
-              'game-toggle-advanced': isAdvanced === true}">Advanced</mat-slide-toggle>
+              'game-toggle-advanced': isAdvanced === true}">{{gameName}}</mat-slide-toggle>
 </div>
 
 <div *ngIf = "!isStarted && !aboutView" class="centeralign">

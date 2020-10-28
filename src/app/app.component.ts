@@ -23,6 +23,7 @@ export class AppComponent implements OnDestroy{
   isAdvanced = false;
   selectedDifficultyId = 20;
   forwardData;
+  gameName = "One Word";
 
   subscription: Subscription;
 
@@ -75,6 +76,12 @@ export class AppComponent implements OnDestroy{
 
   onSlideChange(): void {
     this.isAdvanced = !this.isAdvanced;
+    if(this.isAdvanced) {
+      this.gameName = "Ten Words";
+    }
+    else {
+      this.gameName = "One Word";
+    }
   }
 
   ngOnDestroy() {

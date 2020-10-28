@@ -56,8 +56,6 @@ export class AppComponent implements OnDestroy{
       }
     }
 
-    console.log(this.selectedDifficultyId);
-
     this.forwardData = {
       "selectedDifficultyId": this.selectedDifficultyId,
       "selectedDifficulty": selectedDifficulty,

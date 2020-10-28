@@ -10,6 +10,12 @@ import { MongodbService } from 'src/app/services/mongodb.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
+  constructor(private router: Router,
+    private mongodbService: MongodbService
+    ) { }
+
+  @Input() data: any;
+
   isAnswerRequested = false;
   isSubmitted = false;
   isCorrect = false;
@@ -25,15 +31,13 @@ export class GameComponent implements OnInit {
   databaseProgress = "";
   submitProgress = "";
 
-  constructor(private router: Router,
-    private mongodbService: MongodbService
-    ) { }
-
   async ngOnInit(): Promise<void> {
     //count words in wordNet database
     var countResult;
     countResult = await this.countWords();
     this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+
+    console.log(this.data);
 
     this.firstButtonClick();
   }
@@ -55,6 +59,8 @@ export class GameComponent implements OnInit {
     var randomWordCheck;
 
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+
+
     
     //get random word from wordnet
     randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));

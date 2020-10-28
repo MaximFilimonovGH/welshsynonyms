@@ -11,12 +11,14 @@ import { AngularMaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { GameAdvancedComponent } from './game-advanced/game-advanced.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    GameAdvancedComponent
   ],
   imports: [
     BrowserModule,

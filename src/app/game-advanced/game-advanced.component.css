@@ -33,6 +33,14 @@
     color: red;
   }
 
+  .difficulty-choice {
+	margin: 10px;
+}
+
+.difficulty-label {
+	color: #f56a6a !important;
+}
+
   .game-result {
     color: #3d4449;
     font-family: "Roboto Slab", serif;

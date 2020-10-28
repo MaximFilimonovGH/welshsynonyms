@@ -5,6 +5,11 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { HintDialogComponent } from 'src/app/game-advanced/hint-dialog/hint-dialog.component';
 
+interface DifficultLevel {
+  id: number;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-game-advanced',
   templateUrl: './game-advanced.component.html',
@@ -23,12 +28,15 @@ export class GameAdvancedComponent implements OnInit {
   databaseProgress = '';
   gameResult = '';
   gameResult2 = '';
+  selectedDifficultyId;
+  difficultyLevels: DifficultLevel[];
 
   words = [];
   wordsCount = 0;
 
   async ngOnInit(): Promise<void> {
-    console.log("Received from app.component: ", this.data);
+    this.selectedDifficultyId = this.data.selectedDifficultyId;
+    this.difficultyLevels = this.data.difficultyLevels;
     //count words in wordNet database
     var countResult;
     countResult = await this.countWords();

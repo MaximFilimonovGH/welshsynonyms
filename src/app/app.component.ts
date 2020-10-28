@@ -59,7 +59,8 @@ export class AppComponent implements OnDestroy{
 
     this.forwardData = {
       "selectedDifficultyId": this.selectedDifficultyId,
-      "selectedDifficulty": selectedDifficulty
+      "selectedDifficulty": selectedDifficulty,
+      "difficultyLevels": this.difficultyLevels
     }
 
     this.isStarted = true;

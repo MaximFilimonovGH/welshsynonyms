@@ -34,9 +34,23 @@
         </div>
         <div class="game-database-progress">{{databaseProgress}}</div>
     </mat-card-content>
+    <mat-divider></mat-divider>
     <mat-card-actions class="centeralign">
-        <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isWordListAcquired">SUBMIT</button>
-        <button mat-raised-button color="primary" (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">{{firstButtonText}}</button>
+        <div fxLayout="column">
+            <div class="centeralign difficulty-choice">
+                <mat-form-field>
+                  <mat-label class="difficulty-label">Difficulty Level</mat-label>
+                  <mat-select class="difficulty-select" [(value)]="selectedDifficultyId">
+                    <mat-option *ngFor="let dif of difficultyLevels" [value]="dif.id">
+                      {{dif.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isWordListAcquired">SUBMIT</button>
+                <button mat-raised-button color="primary" (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">{{firstButtonText}}</button>
+            </div>
+        </div>
     </mat-card-actions>
-
 </mat-card>

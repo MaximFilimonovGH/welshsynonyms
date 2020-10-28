@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
 
+interface DifficultLevel {
+  id: number;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-game',
@@ -19,6 +23,8 @@ export class GameComponent implements OnInit {
   isSubmitted = false;
   isCorrect = false;
   isSynonymsAcquired = false;
+  selectedDifficultyId;
+  difficultyLevels: DifficultLevel[];
   
   firstButtonText = "SKIP";
   randomWord = '';
@@ -36,7 +42,8 @@ export class GameComponent implements OnInit {
     countResult = await this.countWords();
     this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
 
-    console.log(this.data);
+    this.selectedDifficultyId = this.data.selectedDifficultyId;
+    this.difficultyLevels = this.data.difficultyLevels;
 
     this.firstButtonClick();
   }
@@ -70,13 +77,11 @@ export class GameComponent implements OnInit {
 
     //if there are synonyms then it's a good word
     if (this.listOfSynonyms.length != 0) {
-      console.log(`Found word`);
       this.randomWord = randomWordCheck;
     }
     //if list of synonyms is empty
     if (this.listOfSynonyms.length == 0)
     {
-      console.log("This word has no synonyms. Getting a new word");
       this.firstButtonClick();
     }
 
@@ -85,7 +90,6 @@ export class GameComponent implements OnInit {
   }
 
   async submitButtonClick(): Promise<void> {
-
     this.isSubmitted = true;
     this.isAnswerRequested = false;
     this.isCorrect = false;

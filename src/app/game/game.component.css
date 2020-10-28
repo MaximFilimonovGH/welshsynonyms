@@ -33,6 +33,14 @@
     color: red;
   }
 
+  .difficulty-choice {
+	margin: 10px;
+}
+
+.difficulty-label {
+	color: #f56a6a !important;
+}
+
   .disclaimer-text {
     font-size: 25px;
     display:flex;

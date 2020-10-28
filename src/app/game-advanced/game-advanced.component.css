@@ -33,6 +33,31 @@
     color: red;
   }
 
+  .game-result {
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+
+  .help-icon {
+      cursor: pointer;
+      margin-left: 10px;
+  }
+
+  .result-correct {
+      color: rgb(19, 177, 19);
+  }
+
+  .result-incorrect {
+      color: red;
+  }
+
+  ::ng-deep .synonyms-tooltip {
+    max-width: unset !important;
+    white-space: pre-line !important;
+  }
+
   .disclaimer-text {
     font-size: 25px;
     display:flex;
@@ -45,13 +70,17 @@
 }
 
   .input-form-field {
-    width: 50% !important;
-    min-width: 350px;
+    width: 40% !important;
+    min-width: 250px;
     color: #7f888f;
 		font-family: "Open Sans", sans-serif;
 		font-size: 10 pt;
     font-weight: 400;
-    margin: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 10px !important;
+    border-inline-color: green !important;
   }
 
   .synonym-label {

@@ -12,13 +12,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { GameAdvancedComponent } from './game-advanced/game-advanced.component';
+import { HintDialogComponent } from './game-advanced/hint-dialog/hint-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
     AboutPageComponent,
-    GameAdvancedComponent
+    GameAdvancedComponent,
+    HintDialogComponent
   ],
   imports: [
     BrowserModule,

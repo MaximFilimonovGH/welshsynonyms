@@ -42,7 +42,7 @@
 
 <div *ngIf = "!isStarted && !aboutView" class="centeralign difficulty-choice">
   <mat-form-field>
-    <mat-label class="difficulty-label">Difficulty</mat-label>
+    <mat-label class="difficulty-label">Difficulty Level</mat-label>
     <mat-select class="difficulty-select" [(value)]="selectedDifficultyId">
       <mat-option *ngFor="let dif of difficultyLevels" [value]="dif.id">
         {{dif.viewValue}}

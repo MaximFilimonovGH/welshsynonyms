@@ -11,8 +11,7 @@ import { MongodbService } from 'src/app/services/mongodb.service';
 })
 export class GameComponent implements OnInit {
   constructor(private router: Router,
-    private mongodbService: MongodbService
-    ) { }
+    private mongodbService: MongodbService) { }
 
   @Input() data: any;
 

@@ -1,8 +1,41 @@
 <mat-card class="game-card">
     <mat-card-content class="centeralign">
-        <div fxLayout="column" style="font-size: 12px">
-            <div class="game-label">Question:</div>
+        <div *ngIf="isWordListAcquired" fxLayout="column" style="font-size: 12px">
+            <div class="game-label">Questions:</div>
+
+            <div *ngFor = "let word of this.words">
+                <div fxLayout="row">
+                    <mat-form-field class="input-form-field">
+                        <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="word.word" class="game-text" readonly="true"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="input-form-field" appearance="outline">
+                        <mat-label class="synonym-label">Synonym</mat-label>
+                        <input matInput type="text" [(ngModel)]="word.inputWord" class="game-text">  
+                    </mat-form-field>
+                    <mat-icon 
+                        *ngIf="isSubmitted"
+                        [ngClass]="{'result-correct result-icon': word.result === 'check',
+                            'result-incorrect result-icon': word.result === 'close'}">
+                        {{word.result}}
+                    </mat-icon>
+                    <mat-icon class="help-icon" *ngIf="isSubmitted"
+                    matTooltip="Hint"
+                    matTooltipClass="synonyms-tooltip"
+                    (click)="submitButtonClick()">help_outline</mat-icon>
+                    <!-- <mat-icon class="help-icon" *ngIf="isSubmitted"
+                    [matTooltip]="word.synonymList"
+                    matTooltipClass="synonyms-tooltip"
+                    [matTooltipShowDelay] = "500"
+                    [matTooltipHideDelay] = "5000">help_outline</mat-icon> -->
+                </div>
+            </div>
+            <div class="game-result">{{gameResult}}</div>
         </div>
+        <div class="game-database-progress">{{databaseProgress}}</div>
     </mat-card-content>
+    <mat-card-actions class="centeralign">
+        <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isWordListAcquired">SUBMIT</button>
+        <button mat-raised-button color="primary" (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">{{firstButtonText}}</button>
+    </mat-card-actions>
 
 </mat-card>

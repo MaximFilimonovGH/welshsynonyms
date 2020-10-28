@@ -1,0 +1,47 @@
+.hint-dialog {
+    width: 250px;
+    height: 250px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .centeralign {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+  }
+
+  .hint-toolbar-text {
+    color: #666;
+    font-size: 18px;
+    padding-top:5px;
+    padding-left: 15px;
+  }
+
+  .hint-toolbar {
+    width: 100%;
+    display: flex;
+    background: #f5f5f5 !important;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  ::ng-deep .mat-dialog-container {
+  padding: 0px !important;
+}
+
+.hint-list-item {
+  margin-bottom: 10px;
+  width: auto !important;
+  height: auto !important;
+}
+
+.hint-text {
+  font-size: 15px;
+  color: gray;
+}
+
+.hint-item {
+  display: flex;
+}

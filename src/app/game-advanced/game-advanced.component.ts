@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
+import { MatDialog } from '@angular/material/dialog';
+
+import { HintDialogComponent } from 'src/app/game-advanced/hint-dialog/hint-dialog.component';
 
 @Component({
   selector: 'app-game-advanced',
@@ -9,7 +12,8 @@ import { MongodbService } from 'src/app/services/mongodb.service';
 })
 export class GameAdvancedComponent implements OnInit {
 
-  constructor(private mongodbService: MongodbService) { }
+  constructor(private mongodbService: MongodbService,
+    private dialog: MatDialog) { }
 
   @Input() data: any;
 
@@ -18,6 +22,7 @@ export class GameAdvancedComponent implements OnInit {
   firstButtonText = "NEW WORDS";
   databaseProgress = '';
   gameResult = '';
+  gameResult2 = '';
 
   words = [];
   wordsCount = 0;
@@ -38,6 +43,13 @@ export class GameAdvancedComponent implements OnInit {
     this.isSubmitted = false;
   
     await this.getRandomWords();
+  }
+
+  showHintClick(wordData) {
+    const dialogRef = this.dialog.open(HintDialogComponent, {
+       data: wordData,
+       autoFocus: false
+    });
   }
 
   async getRandomWords() {
@@ -102,7 +114,8 @@ export class GameAdvancedComponent implements OnInit {
       }
     }
 
-    this.gameResult = "You have scored " + correctWords + " out of 10. You can check your answers now and resubmit or press NEW WORDS";
+    this.gameResult = "You have scored " + correctWords + " out of 10.";
+    this.gameResult2 = "You can check your answers now and resubmit or press NEW WORDS for a new round."
     this.isSubmitted = true;
   }
 

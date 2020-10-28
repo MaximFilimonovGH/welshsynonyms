@@ -1,0 +1,17 @@
+<div mat-dialog-content class="hint-dialog">
+    <div fxLayout="row" class="hint-toolbar">
+        <div class="hint-toolbar-text centeralign">{{data.word}}</div>
+        <span class="spacer"></span>
+        <button mat-icon-button [autoFocus]="false" (click)="onNoClick()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-list>
+        <div mat-subheader>Synonyms:</div>
+        <mat-list-item class="hint-list-item" *ngFor="let s of synonymList">
+            <div fxLayout="row" class="hint-item">
+                <div class="hint-text">{{s}}</div>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>

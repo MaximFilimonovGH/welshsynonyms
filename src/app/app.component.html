@@ -40,6 +40,14 @@
   </ul>
 </nav> -->
 
+<div *ngIf = "!isStarted && !aboutView" class="game-toggle-centeralign">
+  <mat-slide-toggle
+    color="warn"
+    (change)="onSlideChange()"
+    [ngClass]="{'game-toggle': isAdvanced === false,
+              'game-toggle-advanced': isAdvanced === true}">{{gameName}}</mat-slide-toggle>
+</div>
+
 <div *ngIf = "!isStarted && !aboutView" class="centeralign difficulty-choice">
   <mat-form-field>
     <mat-label class="difficulty-label">Difficulty Level</mat-label>
@@ -49,14 +57,6 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-</div>
-
-<div *ngIf = "!isStarted && !aboutView" class="game-toggle-centeralign">
-  <mat-slide-toggle
-    color="warn"
-    (change)="onSlideChange()"
-    [ngClass]="{'game-toggle': isAdvanced === false,
-              'game-toggle-advanced': isAdvanced === true}">{{gameName}}</mat-slide-toggle>
 </div>
 
 <div *ngIf = "!isStarted && !aboutView" class="centeralign">

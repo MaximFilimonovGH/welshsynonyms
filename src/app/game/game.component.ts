@@ -32,14 +32,11 @@ export class GameComponent implements OnInit {
 
   constructor(private router: Router,
     private mongodbService: MongodbService,
-    //private mongodbstitchService: MongodbStitchService,
     private mongodbRealmService: MongodbRealmService
     ) { }
 
   async ngOnInit(): Promise<void> {
     this.isRealm = this.data;
-    // var test = await this.findWordByArrayPositionStitch(31322);
-    // console.log("TEST: ", test.word);
     this.firstButtonClick();
   }
 

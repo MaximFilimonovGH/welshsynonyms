@@ -14,7 +14,6 @@ export class HintDialogComponent implements OnInit {
   synonymList: any[];
 
   ngOnInit(): void {
-    console.log(this.data);
     this.synonymList = this.data.synonymList;
   }
 

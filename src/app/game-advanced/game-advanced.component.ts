@@ -41,9 +41,7 @@ export class GameAdvancedComponent implements OnInit {
     var countResult;
     countResult = await this.countWords();
     this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
-    console.log(`Number of words in the database: ${this.wordsCount}`);
     await this.getRandomWords();
-    console.log("List of words: ", this.words);
   }
 
   async startButtonClick() {
@@ -104,7 +102,6 @@ export class GameAdvancedComponent implements OnInit {
       w.result = '';
     }
 
-    console.log("After submit words: ", this.words);
     //check the results against synonym lists
     for (var w of this.words) {
       //cycle through synonym list of a word

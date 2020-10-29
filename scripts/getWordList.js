@@ -33,6 +33,53 @@ for (let lvl = 0; lvl < levels.length; lvl++) {
     parseWordsFile(sourceFiles, sourcePath, levels[lvl].level_welsh, levels[lvl].level_english);
 }
 
+//create combined file with words
+//read files from export folder
+const exportPath = path.join(__dirname, process.argv[3]);
+console.log(`Reading json files from path: ${exportPath}`);
+let exportFiles = fs.readdirSync(exportPath);
+console.log(`Read the following files from path: ${exportFiles}`);
+
+let combinedJson = [];
+for (let i = 0; i < exportFiles.length; i++) {
+    //read files one by one
+    let file = exportFiles[i];
+    fileData = fs.readFileSync(path.join(exportPath, file));
+    fileJson = JSON.parse(fileData);
+
+    //cycle through all words in file
+    for (let j = 0; j < fileJson.length; j++) {
+        let isListed = false;
+        let listedIndex = 0;
+        //check if word already exists in full combinedJson
+        for (let k = 0; k < combinedJson.length; k++) {
+            if (combinedJson[k].word == fileJson[j].word) {
+                //word is already in the full list
+                isListed = true;
+                listedIndex = k;
+                break;
+            }
+        }
+        //push to list if not listed
+        if (!isListed) {
+            let singleEntry = {
+                "word": fileJson[j].word,
+                "levels_welsh": [fileJson[j].level_welsh],
+                "levels_english": [fileJson[j].level_english]
+            }
+            combinedJson.push(singleEntry);
+        }
+        //add new levels if listed
+        else {
+            console.log(combinedJson[listedIndex]);
+            combinedJson[listedIndex].levels_english.push(fileJson[j].level_english);
+            combinedJson[listedIndex].levels_welsh.push(fileJson[j].level_welsh);
+        }
+    }
+}
+let resultPath = path.join(__dirname, process.argv[3], 'combined.json');
+fs.writeFileSync(resultPath, JSON.stringify(combinedJson, null, 2));
+
 function parseWordsFile(files, sPath, level_welsh, level_english) {
     // find needed files
     let foundFiles = [];

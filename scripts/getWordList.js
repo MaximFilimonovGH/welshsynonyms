@@ -30,7 +30,7 @@ let levels = [
 
 //cycle through all the levels and process files
 for (let lvl = 0; lvl < levels.length; lvl++) {
-    parseWordsFile(sourceFiles, sourcePath, levels[lvl].level_welsh, levels[lvl.level_english]);
+    parseWordsFile(sourceFiles, sourcePath, levels[lvl].level_welsh, levels[lvl].level_english);
 }
 
 function parseWordsFile(files, sPath, level_welsh, level_english) {
@@ -73,7 +73,13 @@ function parseWordsFile(files, sPath, level_welsh, level_english) {
     console.log(`Formed full list of words for ${level_welsh} level with ${fullWordList.length} entries`)
 
     //write result to file
-    let resultPath = path.join(__dirname, process.argv[3], foundFiles[0].substring(0, foundFiles[0].length - 5) + '.json');
+    let resultPath = '';
+    if (level_welsh == "Uwch") {
+        resultPath = path.join(__dirname, process.argv[3], foundFiles[0].substring(0, foundFiles[0].length - 7) + '.json');
+    }
+    else {
+        resultPath = path.join(__dirname, process.argv[3], foundFiles[0].substring(0, foundFiles[0].length - 5) + '.json');
+    }
     fs.writeFileSync(resultPath, JSON.stringify(fullWordList, null, 2));
 }
 

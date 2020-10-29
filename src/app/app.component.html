@@ -40,12 +40,12 @@
   </ul>
 </nav> -->
 
-<div *ngIf = "!isStarted && !aboutView" class="game-toggle-centeralign">
-  <mat-slide-toggle
+<div *ngIf = "!isStarted && !aboutView" class="centeralign">
+  <mat-radio-group class="game-radio-group"
     color="warn"
-    (change)="onSlideChange()"
-    [ngClass]="{'game-toggle': isAdvanced === false,
-              'game-toggle-advanced': isAdvanced === true}">{{gameName}}</mat-slide-toggle>
+    [(ngModel)] = "selectedGameModeId">
+    <mat-radio-button class="game-radio-button" *ngFor="let g of gameVariants" [value]="g.id">{{g.viewValue}}</mat-radio-button>
+  </mat-radio-group>
 </div>
 
 <div *ngIf = "!isStarted && !aboutView" class="centeralign difficulty-choice">
@@ -64,8 +64,8 @@
 </div>
 
 
-<app-game *ngIf="isStarted && !isAdvanced" [data]="forwardData"></app-game>
-<app-game-advanced *ngIf="isStarted && isAdvanced" [data]="forwardData"></app-game-advanced>
+<app-game *ngIf="isStarted && selectedGameModeId === 10" [data]="forwardData"></app-game>
+<app-game-advanced *ngIf="isStarted && selectedGameModeId === 20" [data]="forwardData"></app-game-advanced>
 
 <!-- <app-game></app-game> -->
 

@@ -1,15 +1,17 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { GameComponent } from './game/game.component';
-import { ThemePalette } from '@angular/material/core';
-
 import { RouteService } from './services/route-service.service';
 import { Subscription }   from 'rxjs';
 
 interface DifficultLevel {
   id: number;
   viewValue: string;
+}
+
+interface GameVariant {
+  id: number;
+  viewValue: string
 }
 
 @Component({
@@ -20,7 +22,6 @@ interface DifficultLevel {
 export class AppComponent implements OnDestroy{
 
   isStarted = false;
-  isAdvanced = false;
   selectedDifficultyId = 20;
   forwardData;
   gameName = "One Word";
@@ -37,6 +38,13 @@ export class AppComponent implements OnDestroy{
     {id: 50, viewValue: 'Master'}
   ];
 
+  gameVariants: GameVariant[] = [
+    {id: 10, viewValue: 'One Word'},
+    {id: 20, viewValue: 'Ten Words'}
+  ]
+  selectedGameModeId = this.gameVariants[0].id;
+  selectedGameMode = this.gameVariants[0].viewValue;
+
   constructor(private router: Router, private routeService: RouteService) {
     this.subscription = routeService.routeChanged$.subscribe(
       value => {
@@ -47,14 +55,22 @@ export class AppComponent implements OnDestroy{
   title = 'Game of Welsh Words';
 
   startButtonClick(): void {
-    for (var dif of this.difficultyLevels)
-    {
-      if(dif.id == this.selectedDifficultyId)
-      {
+    for (var dif of this.difficultyLevels) {
+      if(dif.id == this.selectedDifficultyId) {
         var selectedDifficulty = dif.viewValue;
         break;
       }
     }
+
+    for (var gamemode of this.gameVariants) {
+      if (gamemode.id == this.selectedGameModeId) {
+        var selectedGameMode = gamemode.viewValue;
+        break;
+      }
+    }
+
+    console.log(`Selected game mode: "${selectedGameMode}" with id: ${this.selectedGameModeId}`);
+    console.log(`Selected difficulty level: "${selectedDifficulty}" with id: ${this.selectedDifficultyId}`);
 
     this.forwardData = {
       "selectedDifficultyId": this.selectedDifficultyId,
@@ -67,19 +83,8 @@ export class AppComponent implements OnDestroy{
 
   resetApp(): void {
     this.isStarted = false;
-    this.isAdvanced = false;
     this.aboutView = false;
     this.router.navigateByUrl('')
-  }
-
-  onSlideChange(): void {
-    this.isAdvanced = !this.isAdvanced;
-    if(this.isAdvanced) {
-      this.gameName = "Ten Words";
-    }
-    else {
-      this.gameName = "One Word";
-    }
   }
 
   ngOnDestroy() {

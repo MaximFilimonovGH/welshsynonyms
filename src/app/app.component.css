@@ -1,3 +1,13 @@
+.game-radio-group {
+	display: flex;
+	flex-direction: row;
+	margin: 15px 0;
+  }
+  
+  .game-radio-button {
+	margin: 5px;
+  }
+
 .top-toolbar {
     text-align: center;
 }
@@ -39,13 +49,6 @@
     white-space: nowrap;
 }
 
-.game-toggle-centeralign {
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	margin-bottom: 10px;
-}
-
 .difficulty-choice {
 	margin: 10px;
 }
@@ -68,16 +71,6 @@
 }    
 ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
 	color: #f56a6a;
-}
-
-.game-toggle {
-  font-size: 20px;
-  color: grey;
-}
-
-.game-toggle-advanced {
-  font-size: 20px;
-  color: #f56a6a;
 }
 
   /* Button */

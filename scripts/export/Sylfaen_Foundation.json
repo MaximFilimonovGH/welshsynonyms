@@ -1,0 +1,4715 @@
+[
+  {
+    "word": "acen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "achos",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "achub",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "actio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "addas",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "addurno",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "adeilad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "aderyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "adloniant",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "adroddiad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "aelod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "afal",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "agos",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "allwedd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "almaeneg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "amlen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "amserlen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "amyneddgar",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "anabl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "anfon",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "anghytuno",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "angladd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "anhygoel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "anobeithiol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "antur",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "anturus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "ar ben",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "ar bwys",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "ar fai",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "ar fy mhen fy hun",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "ar goll",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "ar ran",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "Arholiad"
+    ]
+  },
+  {
+    "word": "ar wahân",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "ar yr un pryd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "archebu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "archfarchnad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "ardal",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "arfordir",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "arian",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "arian parod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "ar-lein",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "arlunio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "arswyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "astudio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "atig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "awr ginio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "awyr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "balch",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "bale",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "balwn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "baner",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "bant â ni",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "bardd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "barf",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "bas",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "bedd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "beicio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "benthyg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "bin",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "bioleg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "blaen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "blasu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "blasus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "blawd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "blewog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "blog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "blogio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "blows",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "bob yn ail",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "boch",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "bochdew",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "bocs bwyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "bodlon",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "boeler",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "botwm",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "braidd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "brest",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "bresych",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "buwch",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "bwced",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "bwcio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "bwrw cesair",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "bwthyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "bwydo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "bwystfil",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "byw",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "bywyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "cadair olwyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "cadno",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "cadw mewn cysylltiad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "cae",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cais",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "caled",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "call",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "calon",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "camp",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "cangarw",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "canol dydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "canolog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "canrif",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "canslo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "cantores(au)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "canwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "cardigan",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "caredig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "carped",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "cartŵn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "cas beth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cas pensiliau",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "castell neidio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "cefn gwlad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "ceiliog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "ceisio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "celf",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "celfi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "cemeg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cerddorol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "cerdyn credyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cewyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "chwarae teg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "chwaraewr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "chwilio (am)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "chwyrnu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "chwys",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "chwysu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "chwythu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "cigydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "cimwch",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "cinio rhost",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "ciwb",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "clasurol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "clecs",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "clir",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "clirio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "cloi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "coeden deuluol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "coedwig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "cofiant",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "cofion",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "cofion cynnes",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cofrestru",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "coleg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "coll",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "colli",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "comedi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "copïo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "côr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "coridor",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cornel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "coron",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "corryn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "costio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "crafu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "craig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "cranc",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "creision",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "creulon",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "croen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "croesair",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cropian",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "cryf",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "crys",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "crys t",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "cusan",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "cusanu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "cwch",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "cwmwl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "cwningen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "cwpwrdd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "cwrdd (â)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "cwrt",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "cwsmer",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "cwt",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "cwympo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "cwyno",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "cydweithiwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "cydweithwraig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "cyfarwyddo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "cyfeillgar",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "cyfeirio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "cyffrous",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "cyfle",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "cyfleus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "cyflog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "cyfoethog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "cyfreithiwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "cyfryngau cymdeithasol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "cyhoeddi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "cyhoeddiad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "cylch meithrin",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cylchgrawn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "cyllell",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "cymdeithas",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "Arholiad"
+    ]
+  },
+  {
+    "word": "cymdeithas rieni",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "cymdeithasu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "cymeriad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "cymreig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "cymuned",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "cynffon",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "cynnig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "cyrchfan",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "cyrliog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "cysylltiad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "cysylltu (â)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "cytundeb",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "cyw",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "daear",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "daearyddiaeth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "dafad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "dartiau",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "datblygu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "dathliad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "dawns(feydd)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "dawnus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "dechreuwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "derbynfa",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "dibynnu (ar)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "difetha",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "diffodd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "digartref",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "Arholiad"
+    ]
+  },
+  {
+    "word": "digidol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "dilyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "dinas",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5",
+      "13"
+    ]
+  },
+  {
+    "word": "diolch byth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "diolchgar",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "disgrifio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "disgwyl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "disgybl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "diswyddo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "diwedd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "dogfen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "doli",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "doniol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "draig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "dramor",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "dror",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "dros",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "drwm",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "dwlu (ar)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "dwywaith",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "dyddiad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "dyddiadur",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "dyffryn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "dyfodol",
+    "level_welsh": "Sylfaen",
+    "units": []
+  },
+  {
+    "word": "dyna i gyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "ebostio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "egwyl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "eidalaidd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "eidaleg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "eiliad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "eitem",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "eleni",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "eli haul",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "eliffant",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "elusen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "emyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "er enghraifft",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "erbyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "erbyn hyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "eryri",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "esbonio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "ewrop",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "fest",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "ffa pob",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "ffafr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "ffansio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "ffantasi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "ffasiwn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "ffasiynol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "ffeil",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "ffeithiol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "fferi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "fferm",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "ffermdy",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "ffi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "ffiseg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "ffitio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "fforc",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "ffordd osgoi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "ffrangeg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "ffres",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "ffrio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "ffrog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "ffŵl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "ffwrn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "gafr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "gairo gyngor",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "galwad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "gartre",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "gem",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "gemwaith",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "geni",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "glân",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "glanhäwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "glo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "glöwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "gofalu am",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "gogs",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "gôl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "golygfa",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "gorchymyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "gorffennol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "gradd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "gratio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "grawnffrwyth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "grawnfwyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "gris",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "grŵp",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "gwaed",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "gwael",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "gwaelod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "gwag",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "gwahanol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "gwahoddiad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "gwarchod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "gwario",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "gwartheg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "gwawr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "gweddïo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "gwefan(nau)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "gweiddi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "gweinidog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "gweinyddol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "gweld eisiau",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "gwella",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "gwersyll",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "gwersylla, campio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "gwirfoddol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "gwisg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "gwisg ffansi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "gwiwer",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "gwlad groeg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "gwnio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "gwregys",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "gwres canolog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "gwrthod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "gwybodaeth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "gwych",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "gŵydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "gwyddelig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "gwyddoniaeth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "gwydr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "gwydraid",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "gŵyl san steffan",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "gwylltio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "haearn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "hamdden",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "heb sôn am",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "heibio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "heini",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "hen ffasiwn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "heulwen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "hiraeth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "hofrennydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "holl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "hosan",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "hunan",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "hunangofiant",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "hwfro",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "hwntws",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "hwyaden",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "hwylio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "hyd yn oed",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "hyderus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "hyfforddi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "hyfforddiant",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "Arholiad"
+    ]
+  },
+  {
+    "word": "hyfforddwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "hyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "hysbysebu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "iach",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "iaith",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "iâr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "isel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "jar",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "jeli",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "jiraff",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "lan llofft",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "lawnt",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "lawr llawr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "lein",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "llaw",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "llefain",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "lleol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "lleuad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "llew",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "lliwgar",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "lliwio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "llo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "llogi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "llonydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "llosgi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "llungopïo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "llwgu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "llwy",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "llwybr(au)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "llwynog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "llygoden fawr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "llym",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "llysfam",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "llysieuol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "llystad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "llythyr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "llythyr(au)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "lori",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "mab",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "mae’n debyg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "maes awyr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "maint",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "malwoden",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "marw",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "materion cyfoes",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "mathemateg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "meddai",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "meddwi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "meicrodon",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "meithrinfa",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "melys",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "merch",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "milfeddyg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "milfeddygfa",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "milltir",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "mochyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "modfedd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "modrwy",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "moel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "mwg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "mwnci",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "mwstas",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "mwy neu lai",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "mwyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "myfyriwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "myfyrwraig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "mynd ati",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "mynedfa",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "mynydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "naid",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "natur",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "naturiol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "neges(euon)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "neidio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "neidr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "newid",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "newyddiadurwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "niwl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "nodyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "Arholiad"
+    ]
+  },
+  {
+    "word": "noddi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "nofel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "norman(iaid)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "noswyl nadolig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "nwyddau",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "o hyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "oddi wrth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "oedolyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "oen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "oergell",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "oes",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "ofn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "olew",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "olwyn(ion)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "opsiwn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "optegydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "o'r blaen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "o'r diwedd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "palu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "pam lai?",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "panel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "papur bro",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "papuro",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "parsel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "pasio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "peiriannydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "pêl fasged",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "pêl–rwyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "pen ol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "pen-blwydd priodas",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "penderfynu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "penelin",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "pen-glin",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "pennill",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "penrhyn gŵyr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "perlysiau",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "personol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "peryglus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "pilo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "plaen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "plat",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "pluen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "plwg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "plymwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "pobi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "poblogaidd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "poced",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "poenus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "poeth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "porthladd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "postio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "potel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "powdr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "powlen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "pren",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "presennol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "preswyl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "prif ddinas",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "priodas(au)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "pris",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "prydain",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "pupur",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "pwdin",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "pwrs",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "pwynt",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "pwys(au)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "pwysau",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "pysgota",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "pythefnos",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "realiti",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "reidio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "reis",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "rhaeadr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "rhag ofn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "rhan fwya",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "rhannu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "rhegi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "rheilffordd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "rhentu",
+    "level_welsh": "Sylfaen",
+    "units": []
+  },
+  {
+    "word": "rheswm",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "rhesymol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "rhewgell",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "rhewi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "rhiant",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "rhiwbob",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "rhoi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "rhoi gwybod (i)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "rhugl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "rhydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "rhyngwladol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "rhyw fath",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "rhywbryd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "rysait",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "safle bws",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "salwch",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "sandal",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "sawdl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "sawl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "sbaeneg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "sbectol haul",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "sbeislyd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "sboncen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "sebon",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "sedd(i)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "1"
+    ]
+  },
+  {
+    "word": "sef",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "seler",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "selsig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "senedd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "seremoni",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "18"
+    ]
+  },
+  {
+    "word": "sgarff",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "sgert",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "sgrîn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "sgwrs",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "sgwrsio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "siaced",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "sianel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "sied",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "sinc",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "siomedig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "siwmper",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "siwt",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "sliper",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "sôn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "sosban",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "soser",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "stadiwm",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "stori",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "storm",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "straen",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "stumog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "suddo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "swil",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "swn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "swyddog",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "sychu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "sychwr gwallt",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "sylwi (ar)",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "syml",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "ta beth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "tacluso",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "tacsi",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "tafarnwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "taflu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "tafod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "tair gwaith",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "tal",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "taldra",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "tap",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "tawel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "tebot",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "technegydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "technoleg",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "tei",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "teigr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "teipio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "teithiwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "telyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "tenau",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "tew",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "theatr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "6"
+    ]
+  },
+  {
+    "word": "tisian",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "tlawd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "ton",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "torheulo",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "tra",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "tractor",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "traddodiadol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "trafferth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "traffordd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "trais",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "7"
+    ]
+  },
+  {
+    "word": "trawiadol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "trefnus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "17"
+    ]
+  },
+  {
+    "word": "treth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "treulio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "triongl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "troedfedd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "trôns",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "trowsus",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "trwm",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "trwsio",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "22"
+    ]
+  },
+  {
+    "word": "trydanwr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "trydar",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "tun",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "twll",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "twmpath dawns",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "twnnel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "11"
+    ]
+  },
+  {
+    "word": "twpsyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "4"
+    ]
+  },
+  {
+    "word": "tŵr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "twrci",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "twristiaeth",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "tŷ gwydr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "tŷ teras",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "tybed",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "tynnu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "tywel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "tywod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "tywyll",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "uchel",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "15"
+    ]
+  },
+  {
+    "word": "unig",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "wedi'r cyfan",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  },
+  {
+    "word": "wrth ochr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "wyr",
+    "level_welsh": "Sylfaen",
+    "units": []
+  },
+  {
+    "word": "wyres",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "y dyddiau hyn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "y lleill",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "8"
+    ]
+  },
+  {
+    "word": "y swistir",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "ychwanegol",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "ychwanegu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "19"
+    ]
+  },
+  {
+    "word": "ymarfer",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "ymarfer corff",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "2"
+    ]
+  },
+  {
+    "word": "ymbarél",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "ymddiheuro",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "9"
+    ]
+  },
+  {
+    "word": "ymwelydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "yn lle",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "26"
+    ]
+  },
+  {
+    "word": "yn union",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "23"
+    ]
+  },
+  {
+    "word": "yn y bon",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "16"
+    ]
+  },
+  {
+    "word": "yn ymyl",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "13"
+    ]
+  },
+  {
+    "word": "yn ystod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "14"
+    ]
+  },
+  {
+    "word": "yr eidal",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "3"
+    ]
+  },
+  {
+    "word": "ysgafn",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "10"
+    ]
+  },
+  {
+    "word": "ysgariad",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "ysgol fabanod",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "21"
+    ]
+  },
+  {
+    "word": "ysgol gyfun",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "ysgol gynradd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "ysgol uwchradd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "5"
+    ]
+  },
+  {
+    "word": "ysgwydd",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "25"
+    ]
+  },
+  {
+    "word": "ysmygu",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "12"
+    ]
+  },
+  {
+    "word": "ystafell wydr",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "20"
+    ]
+  },
+  {
+    "word": "yswiriant",
+    "level_welsh": "Sylfaen",
+    "units": [
+      "24"
+    ]
+  }
+]

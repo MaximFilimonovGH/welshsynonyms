@@ -23,10 +23,8 @@ export class AppComponent implements OnInit, OnDestroy{
 
   isStarted = false;
   forwardData;
-  gameName = "One Word";
 
   subscription: Subscription;
-
   aboutView = false;
 
   difficultyLevels: DifficultLevel[] = [
@@ -57,6 +55,7 @@ export class AppComponent implements OnInit, OnDestroy{
         this.aboutView = true;
     });
   }
+  
   ngOnInit(): void {
     //get values for difficulty slider
     this.difSliderMin = this.difficultyLevels[0].id;

@@ -44,11 +44,7 @@ export class GameComponent implements OnInit {
   submitProgress = "";
 
   async ngOnInit(): Promise<void> {
-    //count words in wordNet database
-    var countResult;
-    countResult = await this.countWords();
-    this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
-
+    //get data from main component regarding difficulty settings
     this.selectedDifficulty = this.data.selectedDifficulty;
     this.selectedDifficultyId = this.data.selectedDifficultyId;
     this.difficultyLevels = this.data.difficultyLevels;
@@ -57,6 +53,11 @@ export class GameComponent implements OnInit {
     this.difSliderTick = this.data.difficultySliderSettings.difSliderTick;
     this.lowestDifficulty = this.data.difficultySliderSettings.lowestDifficulty;
     this.hardestDifficulty = this.data.difficultySliderSettings.hardestDifficulty;
+    
+    //count words in wordNet database
+    var countResult;
+    countResult = await this.countWords();
+    this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
 
     this.firstButtonClick();
   }
@@ -79,8 +80,6 @@ export class GameComponent implements OnInit {
 
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
 
-
-    
     //get random word from wordnet
     randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));
     randomWordCheck = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;

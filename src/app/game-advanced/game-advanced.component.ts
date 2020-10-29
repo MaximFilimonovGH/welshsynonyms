@@ -42,7 +42,8 @@ export class GameAdvancedComponent implements OnInit {
   wordsCount = 0;
 
   async ngOnInit(): Promise<void> {
-    
+
+    //get data from main component regarding difficulty settings
     this.selectedDifficulty = this.data.selectedDifficulty;
     this.selectedDifficultyId = this.data.selectedDifficultyId;
     this.difficultyLevels = this.data.difficultyLevels;

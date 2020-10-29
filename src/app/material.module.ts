@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
       MatPaginatorModule,
       MatCardModule,
       MatDividerModule,
-      MatSlideToggleModule
+      MatSlideToggleModule,
+      MatSliderModule
    ],
    exports: [
       MatButtonModule,
@@ -64,7 +66,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
       MatPaginatorModule,
       MatCardModule,
       MatDividerModule,
-      MatSlideToggleModule
+      MatSlideToggleModule,
+      MatSliderModule
    ],
    providers: [
       MatDatepickerModule,

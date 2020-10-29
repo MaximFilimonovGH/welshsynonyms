@@ -33,12 +33,31 @@
     color: red;
   }
 
+  .game-slider-margin {
+	margin: 8px;
+  }
+
+  .mat-slider-horizontal {
+	width: 300px;
+  }
+
   .difficulty-choice {
 	margin: 10px;
 }
 
 .difficulty-label {
-	color: #f56a6a !important;
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.difficulty-current {
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.2em;
+	font-weight: 700;
+	margin-bottom: 15px;
 }
 
   .disclaimer-text {

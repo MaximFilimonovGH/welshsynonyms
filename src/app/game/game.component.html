@@ -31,22 +31,28 @@
     <mat-divider></mat-divider>
     <mat-card-actions class="centeralign">
         <div fxLayout="column">
-            <div class="centeralign difficulty-choice">
-                <mat-form-field>
-                  <mat-label class="difficulty-label">Difficulty Level</mat-label>
-                  <mat-select class="difficulty-select" [(value)]="selectedDifficultyId">
-                    <mat-option *ngFor="let dif of difficultyLevels" [value]="dif.id">
-                      {{dif.viewValue}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-              <div>
-                <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">HINT</button>
-                <button mat-raised-button color="primary" (click)="translateClick()" class="button" [disabled]="!isSynonymsAcquired">TRANSLATE</button>
-                <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
-                <button mat-raised-button color="primary" (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">{{firstButtonText}}</button>
-              </div>
+          <div class="centeralign game-slider">
+            <div class="difficulty-label">{{lowestDifficulty}}</div>
+            <mat-slider
+              class="game-slider-margin"
+              color="warn"
+              [max]="difSliderMax"
+              [min]="difSliderMin"
+              [step]="difSliderTick"
+              [(ngModel)]="selectedDifficultyId"
+              (change)="setDifficultyLevel(selectedDifficultyId)">
+            </mat-slider>
+            <div class="difficulty-label">{{hardestDifficulty}}</div>
+          </div>
+          <div class="centeralign difficulty-current">
+            Chosen difficulty level: {{selectedDifficulty}}
+          </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">HINT</button>
+            <button mat-raised-button color="primary" (click)="translateClick()" class="button" [disabled]="!isSynonymsAcquired">TRANSLATE</button>
+            <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
+            <button mat-raised-button color="primary" (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">{{firstButtonText}}</button>
+          </div>
         </div>
 
         

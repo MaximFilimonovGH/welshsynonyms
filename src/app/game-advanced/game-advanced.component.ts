@@ -28,15 +28,29 @@ export class GameAdvancedComponent implements OnInit {
   databaseProgress = '';
   gameResult = '';
   gameResult2 = '';
+
+  selectedDifficulty;
   selectedDifficultyId;
   difficultyLevels: DifficultLevel[];
+  difSliderMax;
+  difSliderMin;
+  difSliderTick;
+  lowestDifficulty;
+  hardestDifficulty;
 
   words = [];
   wordsCount = 0;
 
   async ngOnInit(): Promise<void> {
+    
+    this.selectedDifficulty = this.data.selectedDifficulty;
     this.selectedDifficultyId = this.data.selectedDifficultyId;
     this.difficultyLevels = this.data.difficultyLevels;
+    this.difSliderMax = this.data.difficultySliderSettings.difSliderMax;
+    this.difSliderMin = this.data.difficultySliderSettings.difSliderMin;
+    this.difSliderTick = this.data.difficultySliderSettings.difSliderTick;
+    this.lowestDifficulty = this.data.difficultySliderSettings.lowestDifficulty;
+    this.hardestDifficulty = this.data.difficultySliderSettings.hardestDifficulty;
     //count words in wordNet database
     var countResult;
     countResult = await this.countWords();
@@ -167,6 +181,15 @@ export class GameAdvancedComponent implements OnInit {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  setDifficultyLevel(id) {
+    for (var dif of this.difficultyLevels) {
+      if(dif.id == id) {
+        this.selectedDifficulty = dif.viewValue;
+        return;
+      }
+    }
   }
 
   //own backend implementation

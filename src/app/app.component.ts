@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { RouteService } from './services/route-service.service';
@@ -19,10 +19,9 @@ interface GameVariant {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy{
+export class AppComponent implements OnInit, OnDestroy{
 
   isStarted = false;
-  selectedDifficultyId = 20;
   forwardData;
   gameName = "One Word";
 
@@ -37,6 +36,13 @@ export class AppComponent implements OnDestroy{
     {id: 40, viewValue: 'Expert'},
     {id: 50, viewValue: 'Master'}
   ];
+  selectedDifficultyId = this.difficultyLevels[0].id;
+  selectedDifficulty = this.difficultyLevels[0].viewValue;
+  difSliderMax;
+  difSliderMin;
+  difSliderTick;
+  lowestDifficulty = this.difficultyLevels[0].viewValue;
+  hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].viewValue;
 
   gameVariants: GameVariant[] = [
     {id: 10, viewValue: 'One Word'},
@@ -50,6 +56,12 @@ export class AppComponent implements OnDestroy{
       value => {
         this.aboutView = true;
     });
+  }
+  ngOnInit(): void {
+    //get values for difficulty slider
+    this.difSliderMin = this.difficultyLevels[0].id;
+    this.difSliderMax = this.difficultyLevels[this.difficultyLevels.length-1].id;
+    this.difSliderTick = this.difficultyLevels[1].id - this.difficultyLevels[0].id;
   }
 
   title = 'Game of Welsh Words';
@@ -75,7 +87,14 @@ export class AppComponent implements OnDestroy{
     this.forwardData = {
       "selectedDifficultyId": this.selectedDifficultyId,
       "selectedDifficulty": selectedDifficulty,
-      "difficultyLevels": this.difficultyLevels
+      "difficultyLevels": this.difficultyLevels,
+      "difficultySliderSettings": {
+        "difSliderMin": this.difSliderMin,
+        "difSliderMax": this.difSliderMax,
+        "difSliderTick": this.difSliderTick,
+        "lowestDifficulty": this.lowestDifficulty,
+        "hardestDifficulty": this.hardestDifficulty
+      }
     }
 
     this.isStarted = true;
@@ -89,5 +108,14 @@ export class AppComponent implements OnDestroy{
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  setDifficultyLevel(id) {
+    for (var dif of this.difficultyLevels) {
+      if(dif.id == id) {
+        this.selectedDifficulty = dif.viewValue;
+        return;
+      }
+    }
   }
 }

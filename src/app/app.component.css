@@ -6,7 +6,38 @@
   
   .game-radio-button {
 	margin: 5px;
+	color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+    font-weight: 700;
   }
+
+  .game-slider-margin {
+	margin: 8px;
+  }
+
+  .mat-slider-horizontal {
+	width: 300px;
+  }
+
+  .difficulty-choice {
+	margin: 10px;
+}
+
+.difficulty-label {
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.difficulty-current {
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
 
 .top-toolbar {
     text-align: center;
@@ -49,13 +80,7 @@
     white-space: nowrap;
 }
 
-.difficulty-choice {
-	margin: 10px;
-}
 
-.difficulty-label {
-	color: #f56a6a !important;
-}
 
 /* to change selected item color in the select list */
 ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {

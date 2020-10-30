@@ -37,7 +37,7 @@ export class GameComponent implements OnInit {
   lowestDifficultyWelsh;
   hardestDifficultyWelsh;
   
-  firstButtonText = "SKIP";
+  firstButtonText = "NEW WORD";
   randomWord = {
     "word": '',
     "synonymList": []
@@ -164,20 +164,22 @@ export class GameComponent implements OnInit {
 
   async getRandomWord(level_welsh) {
     while (true) {
-      let randomWord = await this.getRandomWordFromDatabase(level_welsh);
+      //get a random word
+      let randomWordResult = await this.getRandomWordFromDatabase(level_welsh);
+      let randomWord = randomWordResult[0].word
       //check if that word is in wordNet
       let wordNetCheck;
-      wordNetCheck = await this.findWord(randomWord[0].word);
+      wordNetCheck = await this.findWord(randomWord);
       if (wordNetCheck.length != 0) {
         //check if word has synonyms and form list of synonyms if any
         //check if this word has synonyms
         let synonymList;
-        synonymList = await this.getSynonyms(randomWord[0].word);
+        synonymList = await this.getSynonyms(randomWord);
 
         //if word has synonyms
         if (synonymList.length != 0) {
           this.randomWord = {
-            "word": randomWord[0].word,
+            "word": randomWord,
             "synonymList": synonymList,
           };
           break;

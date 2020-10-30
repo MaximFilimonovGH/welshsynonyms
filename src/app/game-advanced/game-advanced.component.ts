@@ -25,7 +25,7 @@ export class GameAdvancedComponent implements OnInit {
 
   isSubmitted = false;
   isWordListAcquired = false;
-  firstButtonText = "NEW WORDS";
+  firstButtonText = "SKIP";
   databaseProgress = '';
   gameResult = '';
   gameResult2 = '';
@@ -60,18 +60,15 @@ export class GameAdvancedComponent implements OnInit {
     this.selectedDifficultyWelsh = this.data.selectedDifficultyWelsh;
     this.lowestDifficultyWelsh = this.data.difficultySliderSettings.lowestDifficultyWelsh;
     this.hardestDifficultyWelsh = this.data.difficultySliderSettings.hardestDifficultyWelsh;
-    //count words in wordNet database
-    var countResult;
-    countResult = await this.countWords();
-    this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
-    await this.getRandomWords();
+
+    this.startButtonClick();
   }
 
   async startButtonClick() {
     this.isWordListAcquired = false;
     this.isSubmitted = false;
   
-    await this.getRandomWords();
+    await this.getRandomWords(this.selectedDifficultyWelsh.toLowerCase());
   }
 
   showHintClick(wordData) {
@@ -81,7 +78,7 @@ export class GameAdvancedComponent implements OnInit {
     });
   }
 
-  async getRandomWords() {
+  async getRandomWords(level_welsh) {
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     //null existing words
     this.words.length = 0;
@@ -89,7 +86,63 @@ export class GameAdvancedComponent implements OnInit {
 
     while(true) {
       //get a random word
-      let randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));
+      let randomWordResult = await this.getRandomWordFromDatabase(level_welsh);
+      let randomWord = randomWordResult[0].word
+      //check if this word is in wordNet
+      let wordNetCheck;
+      wordNetCheck = await this.findWord(randomWord);
+      //if word is in wordNet
+      if (wordNetCheck.length != 0) {
+        //check if this word has synonyms
+        let synonymList = await this.getSynonyms(randomWord);
+
+        //if word has synonyms
+        if (synonymList.length != 0) {
+          //check if word is already in the list
+          let isListed = false;
+          for (let i = 0; i < this.words.length; i++) {
+            if (this.words[i].word == randomWord) {
+              isListed = true;
+              break;
+            }
+          }
+          //if this word is not listed in the words list already
+          if(!isListed) {
+            let singleEntry = {
+              "word": randomWord,
+              "synonymList": synonymList,
+              "inputWord": '',
+              "result": ''
+            }
+            this.words.push(singleEntry);
+            count++;
+          }
+        }
+      }
+
+      //if 10 words found and pushed to words list
+      if (count == 10) {
+        break;
+      }
+    }
+    this.isWordListAcquired = true;
+    this.databaseProgress = "";
+  }
+
+  async getRandomWordsWordNet() {
+    this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+    //null existing words
+    this.words.length = 0;
+    let count = 0;
+
+    //count words in wordNet database
+    var countResult;
+    countResult = await this.countWords();
+    let wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+
+    while(true) {
+      //get a random word
+      let randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, wordsCount));
       let randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
 
       //check if this word has synonyms
@@ -145,6 +198,7 @@ export class GameAdvancedComponent implements OnInit {
     this.gameResult = "You have scored " + correctWords + " out of 10.";
     this.gameResult2 = "You can check your answers now and resubmit or press NEW WORDS for a new round."
     this.isSubmitted = true;
+    this.firstButtonText = "NEW WORDS";
   }
 
   translateClick(word): void {
@@ -221,6 +275,17 @@ export class GameAdvancedComponent implements OnInit {
   async findSynset(synset) {
     const result = await this.mongodbService.findSynset(synset).toPromise().catch(error => console.log(error));
     return result;
+  }
+
+  //welshWords lists
+  async countWordsWelshWords(level_welsh) {
+    const count = await this.mongodbService.countWordsWelshWords(level_welsh).toPromise().catch(error => console.log(error));
+    return count;
+  }
+
+  async getRandomWordFromDatabase(level_welsh) {
+      let res = await this.mongodbService.getRandomWord(level_welsh).toPromise().catch(error => console.log(error));
+      return res;
   }
 
 }

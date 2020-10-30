@@ -10,17 +10,17 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-const db = require("./backend/models");
+const db = require("./backend/models").dbWordNet;
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
     .then(() => {
-        console.log("Connected to the database");
+        console.log("Connected to the wordNet database");
     })
     .catch(err => {
-        console.log("Cannot connect to the database", err);
+        console.log("Cannot connect to the wordNet database", err);
         process.exit();
     });
 

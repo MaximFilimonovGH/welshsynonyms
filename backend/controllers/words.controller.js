@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../models").dbWordNet;
 const wordsCollection = db.words;
 
 //retrieve a specified word from the database

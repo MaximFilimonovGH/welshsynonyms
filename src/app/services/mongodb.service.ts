@@ -35,4 +35,15 @@ export class MongodbService {
     return this.http.get(this.findUrl);
   }
 
+  //welshWords datasets
+  public countWordsWelshWords(level_welsh): Observable<any> {
+    this.findUrl = baseUrl + "welshWords/countWords?level_welsh=" + level_welsh;
+    return this.http.get(this.findUrl);
+  }
+
+  public getRandomWord(level_welsh): Observable<any> {
+    this.findUrl = baseUrl + "welshWords/getRandomWord?level_welsh="+ level_welsh;
+    return this.http.get(this.findUrl);
+  }
+
 }

@@ -59,6 +59,9 @@ export class GameComponent implements OnInit {
     countResult = await this.countWords();
     this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
 
+    var test = await this.getRandomWord("mynediad");
+    console.log(test);
+
     this.firstButtonClick();
   }
 
@@ -252,5 +255,16 @@ export class GameComponent implements OnInit {
   async findSynset(synset) {
     const result = await this.mongodbService.findSynset(synset).toPromise().catch(error => console.log(error));
     return result;
+  }
+
+  //welshWords lists
+  async countWordsWelshWords(level_welsh) {
+    const count = await this.mongodbService.countWordsWelshWords(level_welsh).toPromise().catch(error => console.log(error));
+    return count;
+  }
+
+  async getRandomWord(level_welsh) {
+    const count = await this.mongodbService.getRandomWord(level_welsh).toPromise().catch(error => console.log(error));
+    return count;
   }
 }

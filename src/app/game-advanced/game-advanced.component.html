@@ -51,7 +51,7 @@
             <div class = "centeralign">
                 <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isWordListAcquired">SUBMIT</button>
                 <button mat-raised-button color="primary" (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">{{firstButtonText}}</button>
-                <button mat-raised-button color="primary" (click)="backButtonClick()" class="button">BACK</button>
+                <button mat-raised-button color="primary" (click)="backButtonClick(true)" class="button">BACK</button>
             </div>
         </div>
     </mat-card-actions>

@@ -21,6 +21,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { MatSliderModule } from '@angular/material/slider';
       MatCardModule,
       MatDividerModule,
       MatSlideToggleModule,
-      MatSliderModule
+      MatSliderModule,
+      MatProgressSpinner,
+      MatProgressBar
    ],
    exports: [
       MatButtonModule,
@@ -67,7 +71,9 @@ import { MatSliderModule } from '@angular/material/slider';
       MatCardModule,
       MatDividerModule,
       MatSlideToggleModule,
-      MatSliderModule
+      MatSliderModule,
+      MatProgressSpinner,
+      MatProgressBar
    ],
    providers: [
       MatDatepickerModule,

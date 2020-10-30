@@ -37,6 +37,10 @@
 	margin: 8px;
   }
 
+  .game-spinner-margin {
+	  margin: 0 10px;
+  }
+
   .mat-slider-horizontal {
 	width: 300px;
   }

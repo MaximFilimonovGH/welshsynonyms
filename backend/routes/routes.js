@@ -17,8 +17,11 @@ module.exports = app => {
     //Get word by array position
     router.get("/words/findByArrayPosition", words.getWordByPosition);
 
-    //Get a Mynediad word 
+    //count words based on level in welshWords dataset
     router.get("/welshWords/countWords", welshWords.countWords);
+
+    //get random word based on level in welshWords dataset
+    router.get("/welshWords/getRandomWord", welshWords.getRandomWord);
 
     app.use("/", router);
 }

@@ -27,13 +27,18 @@
             <div class="game-result-score">{{gameResult}}</div>
             <div class="game-result">{{gameResult2}}</div>
         </div>
-        <div class="game-database-progress">{{databaseProgress}}</div>
-        <mat-progress-spinner
-            class="game-spinner-margin"
-            [color]="warn"
-            [mode]="determinate"
-            [value]="50">
-        </mat-progress-spinner>
+        <div fxLayout="row">
+            <div class="game-database-progress">{{databaseProgress}}</div>
+            <div *ngIf="!isWordListAcquired" class="centeralign game-spinner">
+                <mat-progress-spinner
+                    class="game-spinner-margin"
+                    color="warn"
+                    diameter="30"
+                    [value]="getProgressValue(words.length)">
+                </mat-progress-spinner>
+            </div>
+        </div>
+     
     </mat-card-content>
     <mat-divider *ngIf = "isWordListAcquired"></mat-divider>
     <mat-card-actions class="centeralign">

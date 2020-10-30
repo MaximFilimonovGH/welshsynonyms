@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { HintDialogComponent } from 'src/app/game-advanced/hint-dialog/hint-dialog.component';
 
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+
 interface DifficultLevel {
   id: number;
   level_english: string;
@@ -45,7 +47,6 @@ export class GameAdvancedComponent implements OnInit {
   hardestDifficultyWelsh;
 
   words = [];
-  wordsCount = 0;
 
   async ngOnInit(): Promise<void> {
 
@@ -178,6 +179,9 @@ export class GameAdvancedComponent implements OnInit {
     this.databaseProgress = "";
   }
 
+  getProgressValue(value: number) {
+    return (this.words.length * 10);
+  }
 
 
   submitButtonClick() {

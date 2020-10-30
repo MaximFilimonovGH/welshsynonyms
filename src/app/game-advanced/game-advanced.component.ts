@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,6 +22,8 @@ export class GameAdvancedComponent implements OnInit {
     private dialog: MatDialog) { }
 
   @Input() data: any;
+
+  @Output() onResetRequested: EventEmitter<any> = new EventEmitter<any>();
 
   isSubmitted = false;
   isWordListAcquired = false;
@@ -68,7 +70,15 @@ export class GameAdvancedComponent implements OnInit {
     this.isWordListAcquired = false;
     this.isSubmitted = false;
   
+    //get words from welshWords lists
     await this.getRandomWords(this.selectedDifficultyWelsh.toLowerCase());
+
+    //get words from wordNet disregarding difficulty
+    //await this.getRandomWordsWordNet();
+  }
+
+  backButtonClick(data: boolean): void {
+    this.onResetRequested.emit(data);
   }
 
   showHintClick(wordData) {

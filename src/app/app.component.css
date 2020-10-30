@@ -39,6 +39,14 @@
 	margin-bottom: 15px;
 }
 
+.title-text {
+	color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+	font-weight: 700;
+	margin-top: 15px;
+}
+
 .top-toolbar {
     text-align: center;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
@@ -16,9 +16,11 @@ interface DifficultLevel {
 })
 export class GameComponent implements OnInit {
   constructor(private router: Router,
-    private mongodbService: MongodbService) { }
+    private mongodbService: MongodbService) {}
 
   @Input() data: any;
+
+  @Output() onResetRequested: EventEmitter<any> = new EventEmitter<any>();
 
   isAnswerRequested = false;
   isSubmitted = false;
@@ -160,6 +162,10 @@ export class GameComponent implements OnInit {
   translateClick(): void {
     let url = "https://glosbe.com/cy/en/" + this.randomWord;
     window.open(url, "_blank", "noopener");
+  }
+
+  backButtonClick(data: boolean): void {
+    this.onResetRequested.emit(data);
   }
 
   async getRandomWord(level_welsh) {

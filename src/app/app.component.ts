@@ -66,7 +66,7 @@ export class AppComponent implements OnInit, OnDestroy{
     this.difSliderTick = this.difficultyLevels[1].id - this.difficultyLevels[0].id;
   }
 
-  title = 'Game of Welsh Words';
+  title = 'Welsh Synonyms Games';
 
   startButtonClick(): void {
     for (var dif of this.difficultyLevels) {
@@ -106,7 +106,7 @@ export class AppComponent implements OnInit, OnDestroy{
     this.isStarted = true;
   }
 
-  resetApp(): void {
+  resetApp(data: boolean): void {
     this.isStarted = false;
     this.aboutView = false;
     this.router.navigateByUrl('')

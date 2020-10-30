@@ -40,6 +40,8 @@
   </ul>
 </nav> -->
 
+<!-- <div class = "title-text centeralign">{{title}}</div> -->
+
 <div *ngIf = "!isStarted && !aboutView" class="centeralign">
   <mat-radio-group class="game-radio-group"
     color="warn"
@@ -70,9 +72,7 @@
 </div>
 
 
-<app-game *ngIf="isStarted && selectedGameModeId === 10" [data]="forwardData"></app-game>
-<app-game-advanced *ngIf="isStarted && selectedGameModeId === 20" [data]="forwardData"></app-game-advanced>
-
-<!-- <app-game></app-game> -->
+<app-game *ngIf="isStarted && selectedGameModeId === 10" [data]="forwardData" (onResetRequested)="resetApp($event)"></app-game>
+<app-game-advanced *ngIf="isStarted && selectedGameModeId === 20" [data]="forwardData" (onResetRequested)="resetApp($event)"></app-game-advanced>
 
 <router-outlet></router-outlet>

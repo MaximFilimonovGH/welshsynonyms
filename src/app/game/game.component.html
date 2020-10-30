@@ -32,7 +32,7 @@
     <mat-card-actions class="centeralign">
         <div fxLayout="column">
           <div class="centeralign game-slider">
-            <div class="difficulty-label">{{lowestDifficulty}}</div>
+            <div class="difficulty-label">{{lowestDifficultyEng}}</div>
             <mat-slider
               class="game-slider-margin"
               color="warn"
@@ -42,10 +42,10 @@
               [(ngModel)]="selectedDifficultyId"
               (change)="setDifficultyLevel(selectedDifficultyId)">
             </mat-slider>
-            <div class="difficulty-label">{{hardestDifficulty}}</div>
+            <div class="difficulty-label">{{hardestDifficultyEng}}</div>
           </div>
           <div class="centeralign difficulty-current">
-            Chosen difficulty level: {{selectedDifficulty}}
+            Chosen difficulty level: {{selectedDifficultyEng}}
           </div>
           <div>
             <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">HINT</button>

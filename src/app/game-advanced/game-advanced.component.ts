@@ -7,7 +7,8 @@ import { HintDialogComponent } from 'src/app/game-advanced/hint-dialog/hint-dial
 
 interface DifficultLevel {
   id: number;
-  viewValue: string;
+  level_english: string;
+  level_welsh: string;
 }
 
 @Component({
@@ -29,14 +30,17 @@ export class GameAdvancedComponent implements OnInit {
   gameResult = '';
   gameResult2 = '';
 
-  selectedDifficulty;
   selectedDifficultyId;
   difficultyLevels: DifficultLevel[];
   difSliderMax;
   difSliderMin;
   difSliderTick;
-  lowestDifficulty;
-  hardestDifficulty;
+  selectedDifficultyEng;
+  lowestDifficultyEng;
+  hardestDifficultyEng;
+  selectedDifficultyWelsh;
+  lowestDifficultyWelsh;
+  hardestDifficultyWelsh;
 
   words = [];
   wordsCount = 0;
@@ -44,14 +48,18 @@ export class GameAdvancedComponent implements OnInit {
   async ngOnInit(): Promise<void> {
 
     //get data from main component regarding difficulty settings
-    this.selectedDifficulty = this.data.selectedDifficulty;
+    this.selectedDifficultyEng = this.data.selectedDifficultyEng;
     this.selectedDifficultyId = this.data.selectedDifficultyId;
     this.difficultyLevels = this.data.difficultyLevels;
     this.difSliderMax = this.data.difficultySliderSettings.difSliderMax;
     this.difSliderMin = this.data.difficultySliderSettings.difSliderMin;
     this.difSliderTick = this.data.difficultySliderSettings.difSliderTick;
-    this.lowestDifficulty = this.data.difficultySliderSettings.lowestDifficulty;
-    this.hardestDifficulty = this.data.difficultySliderSettings.hardestDifficulty;
+    this.lowestDifficultyEng = this.data.difficultySliderSettings.lowestDifficultyEng;
+    this.hardestDifficultyEng = this.data.difficultySliderSettings.hardestDifficultyEng;
+
+    this.selectedDifficultyWelsh = this.data.selectedDifficultyWelsh;
+    this.lowestDifficultyWelsh = this.data.difficultySliderSettings.lowestDifficultyWelsh;
+    this.hardestDifficultyWelsh = this.data.difficultySliderSettings.hardestDifficultyWelsh;
     //count words in wordNet database
     var countResult;
     countResult = await this.countWords();
@@ -187,7 +195,8 @@ export class GameAdvancedComponent implements OnInit {
   setDifficultyLevel(id) {
     for (var dif of this.difficultyLevels) {
       if(dif.id == id) {
-        this.selectedDifficulty = dif.viewValue;
+        this.selectedDifficultyEng = dif.level_english;
+        this.selectedDifficultyWelsh = dif.level_welsh;
         return;
       }
     }

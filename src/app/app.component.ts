@@ -6,7 +6,8 @@ import { Subscription }   from 'rxjs';
 
 interface DifficultLevel {
   id: number;
-  viewValue: string;
+  level_english: string;
+  level_welsh: string;
 }
 
 interface GameVariant {
@@ -28,19 +29,21 @@ export class AppComponent implements OnInit, OnDestroy{
   aboutView = false;
 
   difficultyLevels: DifficultLevel[] = [
-    {id: 10, viewValue: 'Beginner'},
-    {id: 20, viewValue: 'Intermediate'},
-    {id: 30, viewValue: 'Advanced'},
-    {id: 40, viewValue: 'Expert'},
-    {id: 50, viewValue: 'Master'}
+    {id: 10, level_english: 'Entry', level_welsh: 'Mynediad'},
+    {id: 20, level_english: 'Foundation', level_welsh: 'Sylfaen'},
+    {id: 30, level_english: 'Intermediate', level_welsh: 'Canolradd'},
+    {id: 40, level_english: 'Advanced', level_welsh: 'Uwch'}
   ];
   selectedDifficultyId = this.difficultyLevels[0].id;
-  selectedDifficulty = this.difficultyLevels[0].viewValue;
+  selectedDifficultyEng = this.difficultyLevels[0].level_english;
+  selectedDifficultyWelsh = this.difficultyLevels[0].level_welsh;
   difSliderMax;
   difSliderMin;
   difSliderTick;
-  lowestDifficulty = this.difficultyLevels[0].viewValue;
-  hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].viewValue;
+  lowestDifficultyEng = this.difficultyLevels[0].level_english;
+  hardestDifficultyEng = this.difficultyLevels[this.difficultyLevels.length-1].level_english;
+  lowestDifficultyWelsh = this.difficultyLevels[0].level_welsh;
+  hardestDifficultyWelsh = this.difficultyLevels[this.difficultyLevels.length-1].level_welsh;
 
   gameVariants: GameVariant[] = [
     {id: 10, viewValue: 'One Word'},
@@ -68,7 +71,8 @@ export class AppComponent implements OnInit, OnDestroy{
   startButtonClick(): void {
     for (var dif of this.difficultyLevels) {
       if(dif.id == this.selectedDifficultyId) {
-        var selectedDifficulty = dif.viewValue;
+        var selectedDifficultyEng = dif.level_english;
+        var selectedDifficultyWelsh = dif.level_welsh;
         break;
       }
     }
@@ -81,18 +85,21 @@ export class AppComponent implements OnInit, OnDestroy{
     }
 
     console.log(`Selected game mode: "${selectedGameMode}" with id: ${this.selectedGameModeId}`);
-    console.log(`Selected difficulty level: "${selectedDifficulty}" with id: ${this.selectedDifficultyId}`);
+    console.log(`Selected difficulty level: "${selectedDifficultyEng}" or "${selectedDifficultyWelsh}" with id: ${this.selectedDifficultyId}`);
 
     this.forwardData = {
       "selectedDifficultyId": this.selectedDifficultyId,
-      "selectedDifficulty": selectedDifficulty,
+      "selectedDifficultyEng": selectedDifficultyEng,
+      "selectedDifficultyWelsh": selectedDifficultyWelsh,
       "difficultyLevels": this.difficultyLevels,
       "difficultySliderSettings": {
         "difSliderMin": this.difSliderMin,
         "difSliderMax": this.difSliderMax,
         "difSliderTick": this.difSliderTick,
-        "lowestDifficulty": this.lowestDifficulty,
-        "hardestDifficulty": this.hardestDifficulty
+        "lowestDifficultyEng": this.lowestDifficultyEng,
+        "hardestDifficultyEng": this.hardestDifficultyEng,
+        "lowestDifficultyWelsh": this.lowestDifficultyWelsh,
+        "hardestDifficultyWelsh": this.hardestDifficultyWelsh,
       }
     }
 
@@ -112,7 +119,8 @@ export class AppComponent implements OnInit, OnDestroy{
   setDifficultyLevel(id) {
     for (var dif of this.difficultyLevels) {
       if(dif.id == id) {
-        this.selectedDifficulty = dif.viewValue;
+        this.selectedDifficultyEng = dif.level_english;
+        this.selectedDifficultyWelsh = dif.level_welsh;
         return;
       }
     }

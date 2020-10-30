@@ -49,7 +49,7 @@
 </div>
 
 <div *ngIf = "!isStarted && !aboutView" class="centeralign game-slider">
-  <div class="difficulty-label">{{lowestDifficulty}}</div>
+  <div class="difficulty-label">{{lowestDifficultyEng}}</div>
   <mat-slider
     class="game-slider-margin"
     color="warn"
@@ -59,10 +59,10 @@
     [(ngModel)]="selectedDifficultyId"
     (change)="setDifficultyLevel(selectedDifficultyId)">
   </mat-slider>
-  <div class="difficulty-label">{{hardestDifficulty}}</div>
+  <div class="difficulty-label">{{hardestDifficultyEng}}</div>
 </div>
 <div *ngIf = "!isStarted && !aboutView" class="centeralign difficulty-current">
-  Chosen difficulty level: {{selectedDifficulty}}
+  Chosen difficulty level: {{selectedDifficultyEng}}
 </div>
 
 <div *ngIf = "!isStarted && !aboutView" class="centeralign">

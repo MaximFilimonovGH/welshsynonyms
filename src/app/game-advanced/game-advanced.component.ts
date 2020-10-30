@@ -5,8 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { HintDialogComponent } from 'src/app/game-advanced/hint-dialog/hint-dialog.component';
 
-import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
-
 interface DifficultLevel {
   id: number;
   level_english: string;

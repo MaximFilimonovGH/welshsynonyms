@@ -86,6 +86,9 @@ export class GameComponent implements OnInit {
     //get random word from welshWords list based on difficulty
     await this.getRandomWord(this.selectedDifficultyWelsh.toLowerCase());
 
+    //get random word from welsh word net with no regards to difficulty
+    //await this.getRandomWordWordNet();
+
     this.databaseProgress = "";
     this.isSynonymsAcquired = true;
   }
@@ -152,7 +155,6 @@ export class GameComponent implements OnInit {
     {
       this.answer = this.randomWord.synonymList.toString().split(",").join('\n');
     }
-
   }
 
   translateClick(): void {
@@ -163,11 +165,9 @@ export class GameComponent implements OnInit {
   async getRandomWord(level_welsh) {
     while (true) {
       let randomWord = await this.getRandomWordFromDatabase(level_welsh);
-      console.log("Word from welshWords: ", randomWord);
       //check if that word is in wordNet
       let wordNetCheck;
       wordNetCheck = await this.findWord(randomWord[0].word);
-      console.log("word from wordNet Check: ", wordNetCheck);
       if (wordNetCheck.length != 0) {
         //check if word has synonyms and form list of synonyms if any
         //check if this word has synonyms
@@ -220,9 +220,7 @@ export class GameComponent implements OnInit {
     var wordFindResult;
     var synsetList;
     wordFindResult = await this.findWord(word);
-    console.log("wordfindresult: ", wordFindResult);
     synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
-    //console.log("Synset List: ", synsetList);
 
     for (var s of synsetList)     //cycle all synsets
     {

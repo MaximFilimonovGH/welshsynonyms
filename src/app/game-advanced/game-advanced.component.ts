@@ -83,8 +83,7 @@ export class GameAdvancedComponent implements OnInit {
 
   showHintClick(wordData) {
     const dialogRef = this.dialog.open(HintDialogComponent, {
-       data: wordData,
-       autoFocus: false
+       data: wordData
     });
   }
 

@@ -3,17 +3,14 @@ const dbConfig = require("../database/db.config.js");
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-const dbWordNet = {};
-dbWordNet.mongoose = mongoose;
-dbWordNet.url = dbConfig.urlWordNet;
-dbWordNet.words = require("./words.model.js")(mongoose);
-dbWordNet.synsets = require("./synsets.model.js")(mongoose);
+const db = {};
+db.mongoose = mongoose;
+db.url = dbConfig.url;
+db.words = require("./words.model.js")(mongoose);
+db.synsets = require("./synsets.model.js")(mongoose);
+db.mynediad_entry = require("./mynediad_entry.model.js")(mongoose);
+db.sylfaen_foundation = require("./sylfaen_foundation.model.js")(mongoose);
+db.canolradd_intermediate = require("./canolradd_intermediate.model.js")(mongoose);
+db.uwch_advanced = require("./uwch_advanced.model.js")(mongoose);
 
-const dbWelshWords = {};
-dbWelshWords.mongoose = mongoose;
-dbWelshWords.url = dbConfig.urlWelshWords;
-
-module.exports = {
-    dbWordNet,
-    dbWelshWords
-};
+module.exports = db;

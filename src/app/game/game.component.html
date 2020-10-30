@@ -4,7 +4,7 @@
             <div class="game-label">Question:</div>
 
             <mat-form-field class="input-form-field">
-                <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="randomWord" class="game-text" readonly="true"></textarea>
+                <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="randomWord.word" class="game-text" readonly="true"></textarea>
             </mat-form-field>
 
             <div class="game-label" *ngIf="isSynonymsAcquired">Your answer:</div>

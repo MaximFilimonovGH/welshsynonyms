@@ -38,10 +38,11 @@ export class GameComponent implements OnInit {
   hardestDifficultyWelsh;
   
   firstButtonText = "SKIP";
-  randomWord = '';
+  randomWord = {
+    "word": '',
+    "synonymList": []
+  };
   inputWord = '';
-  listOfSynonyms = [];
-  wordsCount: Number;
   answer = "";
   result = "";
   databaseProgress = "";
@@ -61,52 +62,29 @@ export class GameComponent implements OnInit {
     this.selectedDifficultyWelsh = this.data.selectedDifficultyWelsh;
     this.lowestDifficultyWelsh = this.data.difficultySliderSettings.lowestDifficultyWelsh;
     this.hardestDifficultyWelsh = this.data.difficultySliderSettings.hardestDifficultyWelsh;
-    
-    //count words in wordNet database
-    var countResult;
-    countResult = await this.countWords();
-    this.wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
-
-    var test = await this.getRandomWord("mynediad");
-    console.log(test);
 
     this.firstButtonClick();
   }
 
   async firstButtonClick(): Promise<void> {
-    this.listOfSynonyms.length = 0;
     this.isAnswerRequested = false;
     this.isSubmitted = false;
     this.isCorrect = false;
     this.isSynonymsAcquired = false;
     this.inputWord = "";
-    this.randomWord = "";
+    this.randomWord = {
+      "word": '',
+      "synonymList": []
+    };
     this.answer = "";
     this.result = "";
     this.databaseProgress = "";
     this.firstButtonText = "SKIP";
 
-    var randomWordResult;
-    var randomWordCheck;
-
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
 
-    //get random word from wordnet
-    randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, this.wordsCount));
-    randomWordCheck = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
-
-    //generate list of synonyms
-    await this.getSynonyms(randomWordCheck);
-
-    //if there are synonyms then it's a good word
-    if (this.listOfSynonyms.length != 0) {
-      this.randomWord = randomWordCheck;
-    }
-    //if list of synonyms is empty
-    if (this.listOfSynonyms.length == 0)
-    {
-      this.firstButtonClick();
-    }
+    //get random word from welshWords list based on difficulty
+    await this.getRandomWord(this.selectedDifficultyWelsh.toLowerCase());
 
     this.databaseProgress = "";
     this.isSynonymsAcquired = true;
@@ -128,28 +106,11 @@ export class GameComponent implements OnInit {
     this.inputWord = this.inputWord.toLowerCase();
 
     //if same word 
-    if(this.inputWord == this.randomWord)
+    if(this.inputWord == this.randomWord.word)
     {
       this.result = "Please input a different word";
       return;
     }
-
-        // no synonyms implementation
-    //if no synonyms is the correct answer
-    // if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length==0)
-    // {
-    //   this.result = "Correct!\n\nThis word does not have any synonyms";
-    //   this.isCorrect = true;
-    //   this.firstButtonText = "TRY AGAIN?";
-    //   return;
-    // }
-
-    //if no synonyms is the input but there are synonyms
-    // if(this.inputWord.toLowerCase().includes("no synonyms") && this.listOfSynonyms.length!=0)
-    // {
-    //   this.result = "Incorrect!\n\nThis word has synonyms";
-    //   return;
-    // }
 
     //find word in mongodb
     let searchRes;
@@ -158,16 +119,16 @@ export class GameComponent implements OnInit {
     //if no such word
     if(searchRes.length == 0)
     {
-      this.result = "There is no such word in Welsh";
+      this.result = "There is no such word in Welsh WordNet";
       return;
     }
 
     //if word found
-    for(var s of this.listOfSynonyms)
+    for(var s of this.randomWord.synonymList)
     {
       if(s == this.inputWord)
       {
-        this.result = "Correct!\n\nFull list of synonyms:\n" + this.listOfSynonyms.toString().split(",").join('\n');;
+        this.result = "Correct!\n\nFull list of synonyms:\n" + this.randomWord.synonymList.toString().split(",").join('\n');;
         this.isCorrect = true;
         this.firstButtonText = "NEW WORD";
         return;
@@ -182,14 +143,14 @@ export class GameComponent implements OnInit {
     this.isSubmitted = false;
 
     //if no synonyms for this word
-    if (this.listOfSynonyms.length == 0)
+    if (this.randomWord.synonymList.length == 0)
     {
       this.answer = "This word has no synonyms";
     }
     //print list of synonyms
     else
     {
-      this.answer = this.listOfSynonyms.toString().split(",").join('\n');
+      this.answer = this.randomWord.synonymList.toString().split(",").join('\n');
     }
 
   }
@@ -199,12 +160,67 @@ export class GameComponent implements OnInit {
     window.open(url, "_blank", "noopener");
   }
 
-  async getSynonyms(word) {
+  async getRandomWord(level_welsh) {
+    while (true) {
+      let randomWord = await this.getRandomWordFromDatabase(level_welsh);
+      console.log("Word from welshWords: ", randomWord);
+      //check if that word is in wordNet
+      let wordNetCheck;
+      wordNetCheck = await this.findWord(randomWord[0].word);
+      console.log("word from wordNet Check: ", wordNetCheck);
+      if (wordNetCheck.length != 0) {
+        //check if word has synonyms and form list of synonyms if any
+        //check if this word has synonyms
+        let synonymList;
+        synonymList = await this.getSynonyms(randomWord[0].word);
+
+        //if word has synonyms
+        if (synonymList.length != 0) {
+          this.randomWord = {
+            "word": randomWord[0].word,
+            "synonymList": synonymList,
+          };
+          break;
+        }
+      }
+    }
+  }
+
+  async getRandomWordWordNet() {
+    //count words in wordNet database
+    var countResult;
+    countResult = await this.countWords();
+    let wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+
+    while (true) {
+      //get random word from wordnet
+      let randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, wordsCount));
+      let randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
+
+      //check if this word has synonyms
+      let synonymList;
+      synonymList = await this.getSynonyms(randomWord);
+
+      //if word has synonyms
+      if (synonymList.length != 0) {
+        this.randomWord = {
+          "word": randomWord,
+          "synonymList": synonymList,
+        };
+        break;
+      }
+    }
+  }
+
+  async getSynonyms(word): Promise<String[]> {
+
+    let synonymList = [];
 
     //find word and its synsets
     var wordFindResult;
     var synsetList;
     wordFindResult = await this.findWord(word);
+    console.log("wordfindresult: ", wordFindResult);
     synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
     //console.log("Synset List: ", synsetList);
 
@@ -221,12 +237,14 @@ export class GameComponent implements OnInit {
       //cycle all words in each synset
       for (var w of wordsList)  
       {
-        if(!this.listOfSynonyms.includes(w) && w != word) //check if a word is in the list already
+        if(!synonymList.includes(w) && w != word) //check if a word is in the list already
         {
-          this.listOfSynonyms.push(w);
+          synonymList.push(w);
         }
       }
     }
+
+    return synonymList;
   }
   
   getRandomNumber(min, max): Number {
@@ -272,8 +290,8 @@ export class GameComponent implements OnInit {
     return count;
   }
 
-  async getRandomWord(level_welsh) {
-    const count = await this.mongodbService.getRandomWord(level_welsh).toPromise().catch(error => console.log(error));
-    return count;
+  async getRandomWordFromDatabase(level_welsh) {
+      let res = await this.mongodbService.getRandomWord(level_welsh).toPromise().catch(error => console.log(error));
+      return res;
   }
 }

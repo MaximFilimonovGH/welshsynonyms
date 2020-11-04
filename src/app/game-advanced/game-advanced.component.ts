@@ -52,7 +52,7 @@ export class GameAdvancedComponent implements OnInit {
   words = [];
 
   countdownConfig = {
-    leftTime: 10,
+    leftTime: 90,
     stopTime: 0,
     format: 'm:s.S'
   };

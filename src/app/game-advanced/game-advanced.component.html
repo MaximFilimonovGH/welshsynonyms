@@ -1,9 +1,10 @@
 <mat-card class="game-card">
     <mat-card-content class="centeralign">
         <div *ngIf="isWordListAcquired" fxLayout="column" style="font-size: 12px">
-            <div class="game-label">Time remaining:
+            <div *ngIf = "!timesUp" class="game-label">Time remaining:
                 <countdown #cd [config]="countdownConfig" (event)="handleCountdownEvent($event)"></countdown>
             </div>
+            <div *ngIf="timesUp" class="game-label">Time remaining: 0:0:0</div>
             <div class="game-label">Questions:</div>
 
             <div *ngFor = "let word of this.words">

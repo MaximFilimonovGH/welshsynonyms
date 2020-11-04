@@ -53,6 +53,7 @@ export class GameAdvancedComponent implements OnInit {
 
   countdownConfig = {
     leftTime: 10,
+    stopTime: 0,
     format: 'm:s.S'
   };
   timesUp = false;

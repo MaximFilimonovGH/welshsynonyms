@@ -52,7 +52,7 @@ export class GameAdvancedComponent implements OnInit {
   words = [];
 
   countdownConfig = {
-    leftTime: 90,
+    leftTime: 10,
     format: 'm:s.S'
   };
   timesUp = false;
@@ -77,6 +77,10 @@ export class GameAdvancedComponent implements OnInit {
   }
 
   async startButtonClick() {
+    this.timesUp = false;
+    this.gameResult = '';
+    this.gameResult2 = '';
+    this.databaseProgress = '';
     this.isWordListAcquired = false;
     this.isSubmitted = false;
   

@@ -1,6 +1,9 @@
 <mat-card class="game-card">
     <mat-card-content class="centeralign">
         <div *ngIf="isWordListAcquired" fxLayout="column" style="font-size: 12px">
+            <div class="game-label">Time remaining:
+                <countdown #cd [config]="countdownConfig" (event)="handleCountdownEvent($event)"></countdown>
+            </div>
             <div class="game-label">Questions:</div>
 
             <div *ngFor = "let word of this.words">
@@ -10,7 +13,7 @@
                     </mat-form-field>
                     <mat-form-field class="input-form-field" appearance="outline">
                         <mat-label class="synonym-label">Synonym</mat-label>
-                        <input matInput type="text" [(ngModel)]="word.inputWord" class="game-text">  
+                        <input matInput type="text" [(ngModel)]="word.inputWord" class="game-text" [readonly]="timesUp">  
                     </mat-form-field>
                     <mat-icon 
                         *ngIf="isSubmitted"

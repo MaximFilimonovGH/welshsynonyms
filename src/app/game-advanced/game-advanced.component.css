@@ -25,7 +25,8 @@
       color: #3d4449;
       font-family: "Roboto Slab", serif;
       font-size: 1.7em;
-      font-weight: 700;
+	  font-weight: 700;
+	  margin-bottom: 10px;
   }
 
   .game-database-progress {

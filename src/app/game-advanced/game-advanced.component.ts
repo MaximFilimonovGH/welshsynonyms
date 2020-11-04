@@ -1,15 +1,18 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
 import { MatDialog } from '@angular/material/dialog';
 
 import { HintDialogComponent } from 'src/app/game-advanced/hint-dialog/hint-dialog.component';
+import { CountdownComponent } from 'ngx-countdown';
 
 interface DifficultLevel {
   id: number;
   level_english: string;
   level_welsh: string;
 }
+
+
 
 @Component({
   selector: 'app-game-advanced',
@@ -24,6 +27,8 @@ export class GameAdvancedComponent implements OnInit {
   @Input() data: any;
 
   @Output() onResetRequested: EventEmitter<any> = new EventEmitter<any>();
+
+  @ViewChild('cd', { static: false }) private countdown: CountdownComponent;
 
   isSubmitted = false;
   isWordListAcquired = false;
@@ -45,6 +50,12 @@ export class GameAdvancedComponent implements OnInit {
   hardestDifficultyWelsh;
 
   words = [];
+
+  countdownConfig = {
+    leftTime: 90,
+    format: 'm:s.S'
+  };
+  timesUp = false;
 
   async ngOnInit(): Promise<void> {
 
@@ -74,6 +85,15 @@ export class GameAdvancedComponent implements OnInit {
 
     //get words from wordNet disregarding difficulty
     //await this.getRandomWordsWordNet();
+
+    this.countdown.begin();
+  }
+
+  handleCountdownEvent($event) {
+    if ($event.action == "done") {
+      this.timesUp = true;
+      this.gameResult = "Time is up! Please submit your answers.";
+    }
   }
 
   backButtonClick(data: boolean): void {
@@ -210,6 +230,8 @@ export class GameAdvancedComponent implements OnInit {
     this.gameResult2 = "You can check your answers now and resubmit or press NEW WORDS for a new round."
     this.isSubmitted = true;
     this.firstButtonText = "NEW WORDS";
+    this.countdown.stop();
+    this.timesUp = false;
   }
 
   translateClick(word): void {

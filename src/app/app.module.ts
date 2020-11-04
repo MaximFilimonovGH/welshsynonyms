@@ -14,6 +14,8 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { GameAdvancedComponent } from './game-advanced/game-advanced.component';
 import { HintDialogComponent } from './game-advanced/hint-dialog/hint-dialog.component';
 
+import { CountdownModule } from 'ngx-countdown';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { HintDialogComponent } from './game-advanced/hint-dialog/hint-dialog.com
     FormsModule,
     AngularMaterialModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

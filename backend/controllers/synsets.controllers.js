@@ -1,5 +1,9 @@
-const db = require("../models");
-const synsetsCollection = db.synsets;
+// connection to single DB implementation
+//const db = require("../models");
+//const synsetsCollection = db.synsets;
+
+//connection to multiple databases
+const synsetsCollection = require("../schemas").synsetModel;
 
 //retrieve a specified word from the database
 exports.findSynset = (req, res) => {

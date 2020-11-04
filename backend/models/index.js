@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 
 const db = {};
 db.mongoose = mongoose;
-db.url = dbConfig.url;
+db.url = dbConfig.urlSynonymsGame;
 db.words = require("./words.model.js")(mongoose);
 db.synsets = require("./synsets.model.js")(mongoose);
 db.mynediad_entry = require("./mynediad_entry.model.js")(mongoose);

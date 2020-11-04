@@ -10,21 +10,20 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-//connect to database
-const db = require("./backend/models");
-db.mongoose
-    .connect(db.url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => {
-        console.log("Connected to the welshWords database");
-    })
-    .catch(err => {
-        console.log("Cannot connect to the welshWords database", err);
-        process.exit();
-    });
-
+//connect to single synonymsGame database
+// const db = require("./backend/models");
+// db.mongoose
+//     .connect(db.url, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     })
+//     .then(() => {
+//         console.log("Connected to the database");
+//     })
+//     .catch(err => {
+//         console.log("Cannot connect to the database", err);
+//         process.exit();
+//     });
 
 //parse requests of content-type - application/json
 app.use(bodyParser.json());

@@ -1,5 +1,9 @@
-const db = require("../models");
-const wordsCollection = db.words;
+// connection to single DB implementation
+// const db = require("../models");
+// const wordsCollection = db.words;
+
+//connection to multiple databases
+const wordsCollection = require("../schemas").wordsModel;
 
 //retrieve a specified word from the database
 exports.findWord = (req, res) => {

@@ -67,6 +67,22 @@
   Chosen difficulty level: {{selectedDifficultyEng}}
 </div>
 
+<div *ngIf = "!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
+  <div class="settings-text">Number of questions:</div>
+  <mat-form-field class="input-form-field" appearance="outline">
+    <!-- <mat-label class="settings-label">Number</mat-label> -->
+    <input matInput type="number" [(ngModel)]="questionsNumber" class="settings-text-input">  
+  </mat-form-field> 
+</div>
+
+<div *ngIf = "!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
+  <div class="settings-text">Timelimit (minutes):</div>
+  <mat-form-field class="input-form-field" appearance="outline">
+    <!-- <mat-label class="settings-label">Number</mat-label> -->
+    <input matInput type="number" [(ngModel)]="timeLimit" class="settings-text-input">  
+  </mat-form-field> 
+</div>
+
 <div *ngIf = "!isStarted && !aboutView" class="centeralign">
   <button mat-raised-button color="primary" (click)="startButtonClick()" class="button">START</button>
 </div>

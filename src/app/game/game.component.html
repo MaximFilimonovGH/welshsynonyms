@@ -1,18 +1,30 @@
 <mat-card class="game-card">
     <mat-card-content class="centeralign">
-        <div fxLayout="column" style="font-size: 12px">
+        <div fxLayout="column" style="font-size: 12px" *ngIf="isSynonymsAcquired">
             <div class="game-label">Question:</div>
 
             <mat-form-field class="input-form-field">
                 <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="randomWord.word" class="game-text" readonly="true"></textarea>
             </mat-form-field>
 
-            <div class="game-label" *ngIf="isSynonymsAcquired">Your answer:</div>
+            <mat-icon class="help-icon"
+                matTooltip="Translate"
+                matTooltipClass="synonyms-tooltip"
+                (click)="translateClick()">translate
+            </mat-icon>
 
-            <mat-form-field *ngIf="isSynonymsAcquired" class="input-form-field" appearance="outline" (keyup.enter)="submitButtonClick()">
+            <div class="game-label">Your answer:</div>
+
+            <mat-form-field class="input-form-field" appearance="outline" (keyup.enter)="submitButtonClick()">
                 <mat-label class="synonym-label">Synonym</mat-label>
                 <input matInput type="text" [(ngModel)]="inputWord" class="game-text">  
             </mat-form-field>
+
+            <mat-icon class="help-icon"
+                matTooltip="Hint"
+                matTooltipClass="synonyms-tooltip"
+                (click)="showAnswerClick()">help_outline
+            </mat-icon>
 
             <div *ngIf="isAnswerRequested" class="game-label">Full List of Synonyms:</div>
 
@@ -24,11 +36,10 @@
             <mat-form-field *ngIf="isSubmitted" class="result-form-field">
                 <textarea matInput rows="5" cols="1" type="text" [(ngModel)]="result" class="game-text" readonly="true"></textarea>
             </mat-form-field>
-
-            <div class="game-database-progress">{{databaseProgress}}</div>
         </div>
+        <div class="game-database-progress">{{databaseProgress}}</div>
     </mat-card-content>
-    <mat-divider></mat-divider>
+    <mat-divider *ngIf="isSynonymsAcquired"></mat-divider>
     <mat-card-actions class="centeralign">
         <div *ngIf = "isSynonymsAcquired" fxLayout="column">
           <div class="centeralign game-slider">
@@ -47,11 +58,11 @@
           <div class="centeralign difficulty-current">
             Chosen difficulty level: {{selectedDifficultyEng}}
           </div>
-          <div>
-            <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">HINT</button>
-            <button mat-raised-button color="primary" (click)="translateClick()" class="button" [disabled]="!isSynonymsAcquired">TRANSLATE</button>
+          <div class="centeralign">
+            <!-- <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">HINT</button>
+            <button mat-raised-button color="primary" (click)="translateClick()" class="button" [disabled]="!isSynonymsAcquired">TRANSLATE</button> -->
             <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
-            <button mat-raised-button color="primary" (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">{{firstButtonText}}</button>
+            <button mat-raised-button color="primary" (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">NEXT ROUND</button>
             <button mat-raised-button color="primary" (click)="backButtonClick(true)" class="button">BACK</button>
           </div>
         </div>

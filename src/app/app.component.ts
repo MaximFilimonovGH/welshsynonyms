@@ -25,6 +25,9 @@ export class AppComponent implements OnInit, OnDestroy{
   isStarted = false;
   forwardData;
 
+  timeLimit = 5;
+  questionsNumber = 10;
+
   subscription: Subscription;
   aboutView = false;
 
@@ -46,8 +49,8 @@ export class AppComponent implements OnInit, OnDestroy{
   hardestDifficultyWelsh = this.difficultyLevels[this.difficultyLevels.length-1].level_welsh;
 
   gameVariants: GameVariant[] = [
-    {id: 10, viewValue: 'One Word'},
-    {id: 20, viewValue: 'Ten Words'}
+    {id: 10, viewValue: 'Practice'},
+    {id: 20, viewValue: 'Test'}
   ]
   selectedGameModeId = this.gameVariants[0].id;
   selectedGameMode = this.gameVariants[0].viewValue;
@@ -92,6 +95,8 @@ export class AppComponent implements OnInit, OnDestroy{
       "selectedDifficultyEng": selectedDifficultyEng,
       "selectedDifficultyWelsh": selectedDifficultyWelsh,
       "difficultyLevels": this.difficultyLevels,
+      "timeLimit": this.timeLimit,
+      "questionsNumber": this.questionsNumber,
       "difficultySliderSettings": {
         "difSliderMin": this.difSliderMin,
         "difSliderMax": this.difSliderMax,

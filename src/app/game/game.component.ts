@@ -39,7 +39,7 @@ export class GameComponent implements OnInit {
   lowestDifficultyWelsh;
   hardestDifficultyWelsh;
   
-  firstButtonText = "NEW WORD";
+  firstButtonText = "NEXT ROUND";
   randomWord = {
     "word": '',
     "synonymList": []
@@ -81,7 +81,7 @@ export class GameComponent implements OnInit {
     this.answer = "";
     this.result = "";
     this.databaseProgress = "";
-    this.firstButtonText = "SKIP";
+    this.firstButtonText = "NEXT ROUND";
 
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
 
@@ -135,7 +135,7 @@ export class GameComponent implements OnInit {
       {
         this.result = "Correct!\n\nFull list of synonyms:\n" + this.randomWord.synonymList.toString().split(",").join('\n');;
         this.isCorrect = true;
-        this.firstButtonText = "NEW WORD";
+        this.firstButtonText = "NEXT ROUND";
         return;
       }
     }

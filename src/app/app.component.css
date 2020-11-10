@@ -65,6 +65,52 @@
 	line-height: 1.2;
   }
 
+  .input-form-field {
+    width: 70px;
+    color: #7f888f;
+		font-family: "Open Sans", sans-serif;
+		font-size: 10 pt;
+    font-weight: 400;
+	margin: 0px !important;
+
+  }
+
+  ::ng-deep .mat-form-field-infix {
+	border-top: .34375em solid transparent;
+  }
+
+  ::ng-deep .mat-form-field-wrapper {
+	  padding-bottom: 0.1em;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #f56a6a !important;
+}
+
+  .settings-text {
+	margin: 0px !important;
+	margin-right:10px !important;
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+	font-weight: 700;
+	width: 175px;
+  }
+
+  .settings-label {
+    margin: 0px !important;
+    color: #7f888f;
+		font-family: "Open Sans", sans-serif;
+		font-size: 11pt;
+		font-weight: 200;
+  }
+
+  .settings-text-input {
+	font-size: 22px;
+}
+
+
+
   .game-button {
     margin: 5px !important;
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;

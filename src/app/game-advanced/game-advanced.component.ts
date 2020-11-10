@@ -32,7 +32,7 @@ export class GameAdvancedComponent implements OnInit {
 
   isSubmitted = false;
   isWordListAcquired = false;
-  firstButtonText = "SKIP";
+  firstButtonText = "NEXT ROUND";
   databaseProgress = '';
   gameResult = '';
   gameResult2 = '';
@@ -48,6 +48,9 @@ export class GameAdvancedComponent implements OnInit {
   selectedDifficultyWelsh;
   lowestDifficultyWelsh;
   hardestDifficultyWelsh;
+
+  timeLimit;
+  questionsNumber;
 
   words = [];
 
@@ -74,6 +77,10 @@ export class GameAdvancedComponent implements OnInit {
     this.lowestDifficultyWelsh = this.data.difficultySliderSettings.lowestDifficultyWelsh;
     this.hardestDifficultyWelsh = this.data.difficultySliderSettings.hardestDifficultyWelsh;
 
+    this.questionsNumber = this.data.questionsNumber;
+    this.timeLimit = this.data.timeLimit;
+    this.countdownConfig.leftTime = this.timeLimit * 60;
+
     this.startButtonClick();
   }
 
@@ -86,10 +93,10 @@ export class GameAdvancedComponent implements OnInit {
     this.isSubmitted = false;
   
     //get words from welshWords lists
-    await this.getRandomWords(this.selectedDifficultyWelsh.toLowerCase());
+    await this.getRandomWords(this.selectedDifficultyWelsh.toLowerCase(), this.questionsNumber);
 
     //get words from wordNet disregarding difficulty
-    //await this.getRandomWordsWordNet();
+    //await this.getRandomWordsWordNet(this.questionsNumber);
 
     this.countdown.begin();
   }
@@ -111,7 +118,7 @@ export class GameAdvancedComponent implements OnInit {
     });
   }
 
-  async getRandomWords(level_welsh) {
+  async getRandomWords(level_welsh, number) {
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     //null existing words
     this.words.length = 0;
@@ -154,7 +161,7 @@ export class GameAdvancedComponent implements OnInit {
       }
 
       //if 10 words found and pushed to words list
-      if (count == 10) {
+      if (count == number) {
         break;
       }
     }
@@ -162,7 +169,7 @@ export class GameAdvancedComponent implements OnInit {
     this.databaseProgress = "";
   }
 
-  async getRandomWordsWordNet() {
+  async getRandomWordsWordNet(number) {
     this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     //null existing words
     this.words.length = 0;
@@ -194,7 +201,7 @@ export class GameAdvancedComponent implements OnInit {
       }
 
       //if 10 words found and pushed to words list
-      if (count == 10) {
+      if (count == number) {
         break;
       }
     }
@@ -232,9 +239,9 @@ export class GameAdvancedComponent implements OnInit {
     }
 
     this.gameResult = "You have scored " + correctWords + " out of 10.";
-    this.gameResult2 = "You can check your answers now and resubmit or press NEW WORDS for a new round."
+    this.gameResult2 = "You can check your answers now and resubmit or press NEXT ROUND."
     this.isSubmitted = true;
-    this.firstButtonText = "NEW WORDS";
+    this.firstButtonText = "NEXT ROUND";
     this.countdown.stop();
     this.timesUp = false;
   }

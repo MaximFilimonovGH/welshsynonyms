@@ -9,6 +9,11 @@
 
             <div *ngFor = "let word of this.words">
                 <div fxLayout="row">
+                    <mat-icon class="help-icon-left" *ngIf="isSubmitted"
+                        matTooltip="Translate"
+                        matTooltipClass="synonyms-tooltip"
+                        (click)="translateClick(word.word)">translate
+                    </mat-icon>
                     <mat-form-field class="input-form-field">
                         <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="word.word" class="game-text" readonly="true"></textarea>
                     </mat-form-field>
@@ -22,10 +27,11 @@
                             'result-incorrect result-icon': word.result === 'close'}">
                         {{word.result}}
                     </mat-icon>
-                    <mat-icon class="help-icon" *ngIf="isSubmitted"
-                    matTooltip="Hint"
-                    matTooltipClass="synonyms-tooltip"
-                    (click)="showHintClick(word)">help_outline</mat-icon>
+                   <mat-icon class="help-icon" *ngIf="isSubmitted"
+                        matTooltip="Hint"
+                        matTooltipClass="synonyms-tooltip"
+                        (click)="showHintClick(word)">help_outline
+                    </mat-icon> 
                 </div>
             </div>
             <div class="game-result-score">{{gameResult}}</div>
@@ -65,7 +71,7 @@
             </div>
             <div class = "centeralign">
                 <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isWordListAcquired">SUBMIT</button>
-                <button mat-raised-button color="primary" (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">{{firstButtonText}}</button>
+                <button mat-raised-button color="primary" (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">NEXT ROUND</button>
                 <button mat-raised-button color="primary" (click)="backButtonClick(true)" class="button">BACK</button>
             </div>
         </div>

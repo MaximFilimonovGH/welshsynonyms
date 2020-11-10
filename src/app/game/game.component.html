@@ -61,9 +61,9 @@
           <div class="centeralign">
             <!-- <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">HINT</button>
             <button mat-raised-button color="primary" (click)="translateClick()" class="button" [disabled]="!isSynonymsAcquired">TRANSLATE</button> -->
-            <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
-            <button mat-raised-button color="primary" (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">NEXT ROUND</button>
-            <button mat-raised-button color="primary" (click)="backButtonClick(true)" class="button">BACK</button>
+            <button (click)="submitButtonClick()" class="button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
+            <button (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">NEXT ROUND</button>
+            <button (click)="backButtonClick(true)" class="button">BACK</button>
           </div>
         </div>
 

@@ -1,19 +1,19 @@
 <mat-card class="game-card">
     <mat-card-content class="centeralign">
         <div *ngIf="isWordListAcquired" fxLayout="column" style="font-size: 12px">
-            <div *ngIf = "!timesUp" class="game-label">Time remaining:
+            <div *ngIf = "!timesUp" class="game-timer">Time remaining:
                 <countdown #cd [config]="countdownConfig" (event)="handleCountdownEvent($event)"></countdown>
             </div>
-            <div *ngIf="timesUp" class="game-label">Time remaining: 0:0:0</div>
+            <div *ngIf="timesUp" class="game-timer">Time remaining: 0:0:0</div>
             <div class="game-label">Questions:</div>
 
             <div *ngFor = "let word of this.words">
                 <div fxLayout="row">
-                    <mat-icon class="help-icon-left" *ngIf="isSubmitted"
+                    <!-- <mat-icon class="help-icon-left" *ngIf="isSubmitted"
                         matTooltip="Translate"
                         matTooltipClass="synonyms-tooltip"
                         (click)="translateClick(word.word)">translate
-                    </mat-icon>
+                    </mat-icon> -->
                     <mat-form-field class="input-form-field">
                         <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="word.word" class="game-text" readonly="true"></textarea>
                     </mat-form-field>
@@ -32,6 +32,11 @@
                         matTooltipClass="synonyms-tooltip"
                         (click)="showHintClick(word)">help_outline
                     </mat-icon> 
+                    <mat-icon class="help-icon" *ngIf="isSubmitted"
+                        matTooltip="Translate"
+                        matTooltipClass="synonyms-tooltip"
+                        (click)="translateClick(word.word)">translate
+                    </mat-icon>
                 </div>
             </div>
             <div class="game-result-score">{{gameResult}}</div>
@@ -70,9 +75,9 @@
                 Chosen difficulty level: {{selectedDifficultyEng}}
             </div>
             <div class = "centeralign">
-                <button mat-raised-button color="primary" (click)="submitButtonClick()" class="button" [disabled]="!isWordListAcquired">SUBMIT</button>
-                <button mat-raised-button color="primary" (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">NEXT ROUND</button>
-                <button mat-raised-button color="primary" (click)="backButtonClick(true)" class="button">BACK</button>
+                <button (click)="submitButtonClick()" class="button" [disabled]="!isWordListAcquired">SUBMIT</button>
+                <button (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">NEXT ROUND</button>
+                <button (click)="backButtonClick(true)" class="button">BACK</button>
             </div>
         </div>
     </mat-card-actions>

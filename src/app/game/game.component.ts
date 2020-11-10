@@ -160,7 +160,7 @@ export class GameComponent implements OnInit {
   }
 
   translateClick(): void {
-    let url = "https://glosbe.com/cy/en/" + this.randomWord;
+    let url = "https://glosbe.com/cy/en/" + this.randomWord.word;
     window.open(url, "_blank", "noopener");
   }
 

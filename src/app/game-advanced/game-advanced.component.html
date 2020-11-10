@@ -30,7 +30,7 @@
                    <mat-icon class="help-icon" *ngIf="isSubmitted"
                         matTooltip="Hint"
                         matTooltipClass="synonyms-tooltip"
-                        (click)="showHintClick(word)">help_outline
+                        (click)="showHintClick($event, word)">help_outline
                     </mat-icon> 
                     <mat-icon class="help-icon" *ngIf="isSubmitted"
                         matTooltip="Translate"

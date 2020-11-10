@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { HintDialogComponent } from 'src/app/game-advanced/hint-dialog/hint-dialog.component';
 import { CountdownComponent } from 'ngx-countdown';
@@ -112,10 +112,14 @@ export class GameAdvancedComponent implements OnInit {
     this.onResetRequested.emit(data);
   }
 
-  showHintClick(wordData) {
-    const dialogRef = this.dialog.open(HintDialogComponent, {
-       data: wordData
-    });
+  showHintClick(event, wordData) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.position = {
+      'top': event.y + 'px'
+    };
+    dialogConfig.data = wordData;
+    const dialogRef = this.dialog.open(HintDialogComponent, dialogConfig);
   }
 
   async getRandomWords(level_welsh, number) {

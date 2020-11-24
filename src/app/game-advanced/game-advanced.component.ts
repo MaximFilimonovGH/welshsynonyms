@@ -244,7 +244,7 @@ export class GameAdvancedComponent implements OnInit {
 
     this.gameResult = `You have scored ${correctWords} out of ${this.questionsNumber}.`
     //"You have scored " + correctWords + " out of ";
-    this.gameResult2 = "You can check your answers now and resubmit or press NEXT ROUND."
+    //this.gameResult2 = "You can check your answers now and resubmit or press NEXT ROUND."
     this.isSubmitted = true;
     this.firstButtonText = "NEXT ROUND";
     this.countdown.stop();

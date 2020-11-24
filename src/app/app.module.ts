@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
@@ -31,7 +33,8 @@ import { CountdownModule } from 'ngx-countdown';
     AngularMaterialModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CountdownModule
+    CountdownModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

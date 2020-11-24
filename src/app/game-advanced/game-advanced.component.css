@@ -29,6 +29,15 @@
 	margin-bottom: 10px;
 }
 
+.game-timer-margin {
+	color: #3d4449;
+	font-family: "Roboto Slab", serif;
+	font-size: 1.7em;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-left: 135px;
+}
+
   .game-label {
       color: #3d4449;
       font-family: "Roboto Slab", serif;
@@ -36,6 +45,15 @@
 	  font-weight: 700;
 	  margin-bottom: 10px;
   }
+
+  .game-label-margin {
+	color: #3d4449;
+	font-family: "Roboto Slab", serif;
+	font-size: 1.4em;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-left: 135px;
+}
 
   .game-database-progress {
     font-size: 15px;
@@ -82,7 +100,18 @@
     font-family: "Roboto Slab", serif;
     font-size: 2.0em;
     font-weight: 700;
-    margin-bottom: 10px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+  }
+
+  .game-result-score-margin {
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 2.0em;
+    font-weight: 700;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	margin-left: 135px;
   }
 
   .game-result {
@@ -90,6 +119,14 @@
     font-family: "Roboto Slab", serif;
     font-size: 1.3em;
     font-weight: 700;
+  }
+
+  .game-result-margin {
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+	font-weight: 700;
+	margin-left: 135px;
   }
 
   .help-icon {
@@ -112,6 +149,19 @@
       color: red;
   }
 
+  .result-icon {
+	  margin-top: 15px;
+  }
+
+  .help-button-right {
+	margin-top: 5px !important;
+	margin-left: 5px; 
+  }
+  .help-button-left {
+	margin-top: 5px !important;
+	margin-right: 5px; 
+  }
+
   ::ng-deep .synonyms-tooltip {
     max-width: unset !important;
     white-space: pre-line !important;
@@ -126,6 +176,10 @@
 
 ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
     color: #f56a6a !important;
+}
+
+.question-row {
+	margin-top: 5px;
 }
 
   .input-form-field {

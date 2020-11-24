@@ -1,33 +1,58 @@
 <mat-card class="game-card">
     <mat-card-content class="centeralign">
         <div *ngIf="isWordListAcquired" fxLayout="column" style="font-size: 12px">
-            <div *ngIf = "!timesUp" class="game-timer">Time remaining:
+            <div *ngIf = "!timesUp" [ngClass]="{'game-timer': !isSubmitted,
+                'game-timer-margin': isSubmitted}">
+                Time remaining:
                 <countdown #cd [config]="countdownConfig" (event)="handleCountdownEvent($event)"></countdown>
             </div>
-            <div *ngIf="timesUp" class="game-timer">Time remaining: 0:0:0</div>
-            <div class="game-label">Questions:</div>
-
+            <div *ngIf="timesUp" [ngClass]="{'game-timer': !isSubmitted,
+                'game-timer-margin': isSubmitted}">
+                Time remaining: 0:0:0
+            </div>
+            <div [ngClass]="{'game-label': !isSubmitted,
+                'game-label-margin': isSubmitted}">
+                Questions:
+            </div>
             <div *ngFor = "let word of this.words">
-                <div fxLayout="row">
+                <div fxLayout="row" class="question-row">
                     <!-- <mat-icon class="help-icon-left" *ngIf="isSubmitted"
                         matTooltip="Translate"
                         matTooltipClass="synonyms-tooltip"
                         (click)="translateClick(word.word)">translate
                     </mat-icon> -->
-                    <mat-form-field class="input-form-field">
-                        <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="word.word" class="game-text" readonly="true"></textarea>
-                    </mat-form-field>
-                    <mat-form-field class="input-form-field" appearance="outline">
-                        <mat-label class="synonym-label">Synonym</mat-label>
-                        <input matInput type="text" [(ngModel)]="word.inputWord" class="game-text" [readonly]="timesUp">  
-                    </mat-form-field>
-                    <mat-icon 
-                        *ngIf="isSubmitted"
-                        [ngClass]="{'result-correct result-icon': word.result === 'check',
-                            'result-incorrect result-icon': word.result === 'close'}">
-                        {{word.result}}
-                    </mat-icon>
-                   <mat-icon class="help-icon" *ngIf="isSubmitted"
+                    <div *ngIf="isSubmitted" class="help-button-left">
+                        <button (click)="translateClick(word.word)" class="button">
+                          TRANSLATE
+                        </button>
+                    </div>
+                    <div>
+                        <mat-form-field class="input-form-field">
+                            <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="word.word" class="game-text" readonly="true"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="input-form-field" appearance="outline">
+                            <mat-label class="synonym-label">Synonym</mat-label>
+                            <input matInput type="text" [(ngModel)]="word.inputWord" class="game-text" [readonly]="timesUp">  
+                        </mat-form-field>
+                    </div>
+                    <div class="result-icon">
+                        <mat-icon 
+                            *ngIf="isSubmitted"
+                            [ngClass]="{'result-correct ': word.result === 'check',
+                                'result-incorrect': word.result === 'close'}">
+                            {{word.result}}
+                        </mat-icon>
+                    </div>
+                    <div *ngIf="isSubmitted" class="help-button-right">
+                        <button (click)="showHintClick($event, word)" class="button">
+                          HINT
+                        </button>
+                    </div>
+
+
+                   <!-- <mat-icon class="help-icon" *ngIf="isSubmitted"
                         matTooltip="Hint"
                         matTooltipClass="synonyms-tooltip"
                         (click)="showHintClick($event, word)">help_outline
@@ -36,11 +61,13 @@
                         matTooltip="Translate"
                         matTooltipClass="synonyms-tooltip"
                         (click)="translateClick(word.word)">translate
-                    </mat-icon>
+                    </mat-icon> -->
                 </div>
             </div>
-            <div class="game-result-score">{{gameResult}}</div>
-            <div class="game-result">{{gameResult2}}</div>
+            <div [ngClass]="{'game-result-score': !isSubmitted,
+                'game-result-score-margin': isSubmitted}">{{gameResult}}</div>
+            <div [ngClass]="{'game-result': !isSubmitted,
+                'game-result-margin': isSubmitted}">{{gameResult2}}</div>
         </div>
         <div fxLayout="row">
             <div class="game-database-progress">{{databaseProgress}}</div>
@@ -76,8 +103,8 @@
             </div>
             <div class = "centeralign">
                 <button (click)="submitButtonClick()" class="button" [disabled]="!isWordListAcquired">SUBMIT</button>
-                <button (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">NEXT ROUND</button>
-                <button (click)="backButtonClick(true)" class="button">BACK</button>
+                <button (click)="startButtonClick()" class="button" [disabled]="!isWordListAcquired">NEXT</button>
+                <button (click)="backButtonClick(true)" class="button">EXIT</button>
             </div>
         </div>
     </mat-card-actions>

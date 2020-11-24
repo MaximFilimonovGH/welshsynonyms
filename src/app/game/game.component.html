@@ -3,28 +3,48 @@
         <div fxLayout="column" style="font-size: 12px" *ngIf="isSynonymsAcquired">
             <div class="game-label">Question:</div>
 
-            <mat-form-field class="input-form-field">
-                <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="randomWord.word" class="game-text" readonly="true"></textarea>
-            </mat-form-field>
+            <div fxLayout="row">
+              <div>
+                <mat-form-field class="input-form-field">
+                  <textarea matInput rows="1" cols="1" type="text" [(ngModel)]="randomWord.word" class="game-text" readonly="true"></textarea>
+                </mat-form-field>
+              </div>
 
-            <mat-icon class="help-icon"
-                matTooltip="Translate"
-                matTooltipClass="synonyms-tooltip"
-                (click)="translateClick()">translate
-            </mat-icon>
+              <div class="help-button">
+                <button (click)="translateClick()" class="button">
+                  TRANSLATE
+                </button>
+              </div>
 
+              <!-- <mat-icon class="help-icon"
+                  matTooltip="Translate"
+                  matTooltipClass="synonyms-tooltip"
+                  (click)="translateClick()">translate
+              </mat-icon> -->
+            </div>
+            
             <div class="game-label">Your answer:</div>
 
-            <mat-form-field class="input-form-field" appearance="outline" (keyup.enter)="submitButtonClick()">
-                <mat-label class="synonym-label">Synonym</mat-label>
-                <input matInput type="text" [(ngModel)]="inputWord" class="game-text">  
-            </mat-form-field>
+            <div fxLayout="row">
+              <div>
+                <mat-form-field class="input-form-field" appearance="outline" (keyup.enter)="submitButtonClick()">
+                  <mat-label class="synonym-label">Synonym</mat-label>
+                  <input matInput type="text" [(ngModel)]="inputWord" class="game-text">  
+                </mat-form-field>
+              </div>
 
-            <mat-icon class="help-icon"
+              <div class="help-button">
+                <button (click)="showAnswerClick()" class="button">
+                  HINT
+                </button>
+              </div>
+
+              <!-- <mat-icon class="help-icon"
                 matTooltip="Hint"
                 matTooltipClass="synonyms-tooltip"
                 (click)="showAnswerClick()">help_outline
-            </mat-icon>
+              </mat-icon> -->
+            </div>
 
             <div *ngIf="isAnswerRequested" class="game-label">Full List of Synonyms:</div>
 
@@ -62,8 +82,8 @@
             <!-- <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">HINT</button>
             <button mat-raised-button color="primary" (click)="translateClick()" class="button" [disabled]="!isSynonymsAcquired">TRANSLATE</button> -->
             <button (click)="submitButtonClick()" class="button" [disabled]="!isSynonymsAcquired">SUBMIT</button>
-            <button (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">NEXT ROUND</button>
-            <button (click)="backButtonClick(true)" class="button">BACK</button>
+            <button (click)="firstButtonClick()" class="button" [disabled]="!isSynonymsAcquired">NEXT</button>
+            <button (click)="backButtonClick(true)" class="button">EXIT</button>
           </div>
         </div>
 

@@ -76,21 +76,15 @@ export class AppComponent implements OnInit, OnDestroy{
   
   ngOnInit(): void {
     // check for parameters and set language
-    console.log(this.activeRoute);
     this.activeRoute.queryParamMap.subscribe(queryParamMap => {
       this.language = queryParamMap['language'];
-      console.log(queryParamMap);
+      console.log(this.language);
       if (this.language == "cy") {
         this.isWelsh = true;
       } else {
         this.isWelsh = false;
       }
-    });
-    // if (this.language == "cy") {
-    //   this.isWelsh = true;
-    // } else {
-    //   this.isWelsh = false;
-    // }
+    })
 
     //get values for difficulty slider
     this.difSliderMin = this.difficultyLevels[0].id;

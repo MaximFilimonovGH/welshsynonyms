@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { MongodbService } from 'src/app/services/mongodb.service';
 
-interface DifficultLevel {
+interface DifficultyLevel {
   id: number;
   level_english: string;
   level_welsh: string;
@@ -27,19 +27,17 @@ export class GameComponent implements OnInit {
   isCorrect = false;
   isSynonymsAcquired = false;
 
+  isWelsh;
+
   selectedDifficultyId;
-  difficultyLevels: DifficultLevel[];
+  selectedDifficulty;
+  difficultyLevels: DifficultyLevel[];
   difSliderMax;
   difSliderMin;
   difSliderTick;
-  selectedDifficultyEng;
-  lowestDifficultyEng;
-  hardestDifficultyEng;
-  selectedDifficultyWelsh;
-  lowestDifficultyWelsh;
-  hardestDifficultyWelsh;
+  lowestDifficulty;
+  hardestDifficulty;
   
-  firstButtonText = "NEXT ROUND";
   randomWord = {
     "word": '',
     "synonymList": []
@@ -50,25 +48,77 @@ export class GameComponent implements OnInit {
   databaseProgress = "";
   submitProgress = "";
 
+  submitButtonText;
+  nextButtonText;
+  exitButtonText;
+  difficultyText;
+  questionText;
+  translateButtonText;
+  answerText;
+  synonymLabelText;
+  hintButtonText;
+  listOfSynonymsText;
+  resultText;
+
   async ngOnInit(): Promise<void> {
+
     //get data from main component regarding difficulty settings
-    this.selectedDifficultyEng = this.data.selectedDifficultyEng;
+    this.isWelsh = this.data.isWelsh;
     this.selectedDifficultyId = this.data.selectedDifficultyId;
     this.difficultyLevels = this.data.difficultyLevels;
     this.difSliderMax = this.data.difficultySliderSettings.difSliderMax;
     this.difSliderMin = this.data.difficultySliderSettings.difSliderMin;
     this.difSliderTick = this.data.difficultySliderSettings.difSliderTick;
-    this.lowestDifficultyEng = this.data.difficultySliderSettings.lowestDifficultyEng;
-    this.hardestDifficultyEng = this.data.difficultySliderSettings.hardestDifficultyEng;
 
-    this.selectedDifficultyWelsh = this.data.selectedDifficultyWelsh;
-    this.lowestDifficultyWelsh = this.data.difficultySliderSettings.lowestDifficultyWelsh;
-    this.hardestDifficultyWelsh = this.data.difficultySliderSettings.hardestDifficultyWelsh;
+    // check if Welsh and assign view values for difficulty and gamevariant (test/practice)
 
-    this.firstButtonClick();
+    if (this.isWelsh) {
+      this.submitButtonText = "CYFLWYNO";
+      this.nextButtonText = "NESAF";
+      this.exitButtonText = "ALLANFA";
+      this.lowestDifficulty = this.difficultyLevels[0].level_welsh;
+      this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_welsh;
+      for (let i = 0; i < this.difficultyLevels.length; i++) {
+        if (this.difficultyLevels[i].id == this.selectedDifficultyId) {
+          this.selectedDifficulty = this.difficultyLevels[i].level_welsh;
+          break;
+        }
+      }
+      this.difficultyText = "Anhawster a ddewiswyd";
+      this.questionText = "Cwestiwn";
+      this.translateButtonText = "CYFIEITHWCH";
+      this.answerText = "Eich Ateb";
+      this.synonymLabelText = "Cyfystyr";
+      this.hintButtonText = "AWGRYM";
+      this.listOfSynonymsText = "Rhestr lawn o gyfystyron";
+      this.resultText = "Canlyniad";
+    }
+    else {
+      this.submitButtonText = "SUBMIT";
+      this.nextButtonText = "NEXT";
+      this.exitButtonText = "EXIT";
+      this.lowestDifficulty = this.difficultyLevels[0].level_english;
+      this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_english;
+      for (let i = 0; i < this.difficultyLevels.length; i++) {
+        if (this.difficultyLevels[i].id == this.selectedDifficultyId) {
+          this.selectedDifficulty = this.difficultyLevels[i].level_english;
+          break;
+        }
+      }
+      this.difficultyText = "Chosen difficulty";
+      this.questionText = "Question";
+      this.translateButtonText = "TRANSLATE";
+      this.answerText = "Your answer";
+      this.synonymLabelText = "Synonym";
+      this.hintButtonText = "HINT";
+      this.listOfSynonymsText = "Full list of synonyms";
+      this.resultText = "Result";
+    }
+
+    this.startButtonClick();
   }
 
-  async firstButtonClick(): Promise<void> {
+  async startButtonClick(): Promise<void> {
     this.isAnswerRequested = false;
     this.isSubmitted = false;
     this.isCorrect = false;
@@ -80,13 +130,16 @@ export class GameComponent implements OnInit {
     };
     this.answer = "";
     this.result = "";
-    this.databaseProgress = "";
-    this.firstButtonText = "NEXT ROUND";
 
-    this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+    if (this.isWelsh) {
+      this.databaseProgress = "Gweithio gyda WordNet Cymru. Arhoswch os gwelwch yn dda...\n";
+    } else {
+      this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+    }
+
 
     //get random word from welshWords list based on difficulty
-    await this.getRandomWord(this.selectedDifficultyWelsh.toLowerCase());
+    await this.getRandomWord(this.selectedDifficultyId);
 
     //get random word from welsh word net with no regards to difficulty
     //await this.getRandomWordWordNet();
@@ -99,12 +152,20 @@ export class GameComponent implements OnInit {
     this.isSubmitted = true;
     this.isAnswerRequested = false;
     this.isCorrect = false;
-    this.result = "Checking...";
+    if (this.isWelsh) {
+      this.result = "Gwirio...";
+    } else {
+      this.result = "Checking...";
+    }
     
     //if no input
     if(this.inputWord.length == 0)
     {
-      this.result = "Please input a word";
+      if (this.isWelsh) {
+        this.result = "Rhowch air";
+      } else {
+        this.result = "Please input a word";
+      }
       return;
     }
 
@@ -113,7 +174,11 @@ export class GameComponent implements OnInit {
     //if same word 
     if(this.inputWord == this.randomWord.word)
     {
-      this.result = "Please input a different word";
+      if (this.isWelsh) {
+        this.result = "Rhowch air gwahanol os gwelwch yn dda";
+      } else {
+        this.result = "Please input a different word";
+      }
       return;
     }
 
@@ -124,7 +189,11 @@ export class GameComponent implements OnInit {
     //if no such word
     if(searchRes.length == 0)
     {
-      this.result = "There is no such word in Welsh WordNet";
+      if (this.isWelsh) {
+        this.result = "Nid oes y fath air yn Cymraeg WordNet";
+      } else {
+        this.result = "There is no such word in Welsh WordNet";
+      }
       return;
     }
 
@@ -133,14 +202,20 @@ export class GameComponent implements OnInit {
     {
       if(s == this.inputWord)
       {
-        this.result = "Correct!\n\nFull list of synonyms:\n" + this.randomWord.synonymList.toString().split(",").join('\n');;
+        if (this.isWelsh) {
+          this.result = "Cywir!\n\nRhestr lawn o gyfystyron:\n" + this.randomWord.synonymList.toString().split(",").join('\n');
+        } else {
+          this.result = "Correct!\n\nFull list of synonyms:\n" + this.randomWord.synonymList.toString().split(",").join('\n');
+        }
         this.isCorrect = true;
-        this.firstButtonText = "NEXT ROUND";
         return;
       }
     }
-
-    this.result = "Incorrect.\n\nPlease try a different word or press HINT to see the synonyms";
+    if (this.isWelsh) {
+      this.result = "Anghywir.\n\nRhowch gynnig ar air gwahanol neu pwyswch AWGRYM i weld y cyfystyron";
+    } else {
+      this.result = "Incorrect.\n\nPlease try a different word or press HINT to see the synonyms";
+    }
   }
 
   showAnswerClick(): void {
@@ -150,7 +225,11 @@ export class GameComponent implements OnInit {
     //if no synonyms for this word
     if (this.randomWord.synonymList.length == 0)
     {
-      this.answer = "This word has no synonyms";
+      if (this.isWelsh) {
+        this.answer = "Nid oes gan y gair hwn gyfystyron";
+      } else {
+        this.answer = "This word has no synonyms";
+      }
     }
     //print list of synonyms
     else
@@ -168,7 +247,15 @@ export class GameComponent implements OnInit {
     this.onResetRequested.emit(data);
   }
 
-  async getRandomWord(level_welsh) {
+  async getRandomWord(difficultyId) {
+    var level_welsh;
+    // get difficulty level in Welsh
+    for (let i = 0; i < this.difficultyLevels.length; i++) {
+      if (this.difficultyLevels[i].id == difficultyId) {
+        level_welsh = this.difficultyLevels[i].level_welsh.toLowerCase();
+        break;
+      }
+    }
     while (true) {
       //get a random word
       let randomWordResult = await this.getRandomWordFromDatabase(level_welsh);
@@ -262,8 +349,13 @@ export class GameComponent implements OnInit {
   setDifficultyLevel(id) {
     for (var dif of this.difficultyLevels) {
       if(dif.id == id) {
-        this.selectedDifficultyEng = dif.level_english;
-        this.selectedDifficultyWelsh = dif.level_welsh;
+        this.selectedDifficultyId = id;
+        if (this.isWelsh) {
+          this.selectedDifficulty = dif.level_welsh;
+        }
+        else {
+          this.selectedDifficulty = dif.level_english;
+        }
         return;
       }
     }

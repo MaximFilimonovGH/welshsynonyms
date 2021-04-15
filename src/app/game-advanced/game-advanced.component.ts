@@ -6,7 +6,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { HintDialogComponent } from 'src/app/game-advanced/hint-dialog/hint-dialog.component';
 import { CountdownComponent } from 'ngx-countdown';
 
-interface DifficultLevel {
+interface DifficultyLevel {
   id: number;
   level_english: string;
   level_welsh: string;
@@ -32,22 +32,20 @@ export class GameAdvancedComponent implements OnInit {
 
   isSubmitted = false;
   isWordListAcquired = false;
-  firstButtonText = "NEXT ROUND";
   databaseProgress = '';
   gameResult = '';
   gameResult2 = '';
 
+  isWelsh;
+
   selectedDifficultyId;
-  difficultyLevels: DifficultLevel[];
+  selectedDifficulty;
+  difficultyLevels: DifficultyLevel[];
   difSliderMax;
   difSliderMin;
   difSliderTick;
-  selectedDifficultyEng;
-  lowestDifficultyEng;
-  hardestDifficultyEng;
-  selectedDifficultyWelsh;
-  lowestDifficultyWelsh;
-  hardestDifficultyWelsh;
+  lowestDifficulty;
+  hardestDifficulty;
 
   timeLimit;
   questionsNumber;
@@ -61,21 +59,73 @@ export class GameAdvancedComponent implements OnInit {
   };
   timesUp = false;
 
+  submitButtonText;
+  nextButtonText;
+  exitButtonText;
+  difficultyText;
+  questionText;
+  translateButtonText;
+  answerText;
+  synonymLabelText;
+  hintButtonText;
+  listOfSynonymsText;
+  resultText;
+  timeRemainingText;
+
   async ngOnInit(): Promise<void> {
 
     //get data from main component regarding difficulty settings
-    this.selectedDifficultyEng = this.data.selectedDifficultyEng;
+    this.isWelsh = this.data.isWelsh;
     this.selectedDifficultyId = this.data.selectedDifficultyId;
     this.difficultyLevels = this.data.difficultyLevels;
     this.difSliderMax = this.data.difficultySliderSettings.difSliderMax;
     this.difSliderMin = this.data.difficultySliderSettings.difSliderMin;
     this.difSliderTick = this.data.difficultySliderSettings.difSliderTick;
-    this.lowestDifficultyEng = this.data.difficultySliderSettings.lowestDifficultyEng;
-    this.hardestDifficultyEng = this.data.difficultySliderSettings.hardestDifficultyEng;
 
-    this.selectedDifficultyWelsh = this.data.selectedDifficultyWelsh;
-    this.lowestDifficultyWelsh = this.data.difficultySliderSettings.lowestDifficultyWelsh;
-    this.hardestDifficultyWelsh = this.data.difficultySliderSettings.hardestDifficultyWelsh;
+    if (this.isWelsh) {
+      this.submitButtonText = "CYFLWYNO";
+      this.nextButtonText = "NESAF";
+      this.exitButtonText = "ALLANFA";
+      this.lowestDifficulty = this.difficultyLevels[0].level_welsh;
+      this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_welsh;
+      for (let i = 0; i < this.difficultyLevels.length; i++) {
+        if (this.difficultyLevels[i].id == this.selectedDifficultyId) {
+          this.selectedDifficulty = this.difficultyLevels[i].level_welsh;
+          break;
+        }
+      }
+      this.difficultyText = "Anhawster a ddewiswyd";
+      this.questionText = "Cwestiynau";
+      this.translateButtonText = "CYFIEITHWCH";
+      this.answerText = "Eich Ateb";
+      this.synonymLabelText = "Cyfystyr";
+      this.hintButtonText = "AWGRYM";
+      this.listOfSynonymsText = "Rhestr lawn o gyfystyron";
+      this.resultText = "Canlyniad";
+      this.timeRemainingText = "Amser ar ôl";
+    }
+    else {
+      this.submitButtonText = "SUBMIT";
+      this.nextButtonText = "NEXT";
+      this.exitButtonText = "EXIT";
+      this.lowestDifficulty = this.difficultyLevels[0].level_english;
+      this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_english;
+      for (let i = 0; i < this.difficultyLevels.length; i++) {
+        if (this.difficultyLevels[i].id == this.selectedDifficultyId) {
+          this.selectedDifficulty = this.difficultyLevels[i].level_english;
+          break;
+        }
+      }
+      this.difficultyText = "Chosen difficulty";
+      this.questionText = "Questions";
+      this.translateButtonText = "TRANSLATE";
+      this.answerText = "Your answer";
+      this.synonymLabelText = "Synonym";
+      this.hintButtonText = "HINT";
+      this.listOfSynonymsText = "Full list of synonyms";
+      this.resultText = "Result";
+      this.timeRemainingText = "Time remaining";
+    }
 
     this.questionsNumber = this.data.questionsNumber;
     this.timeLimit = this.data.timeLimit;
@@ -93,18 +143,22 @@ export class GameAdvancedComponent implements OnInit {
     this.isSubmitted = false;
   
     //get words from welshWords lists
-    await this.getRandomWords(this.selectedDifficultyWelsh.toLowerCase(), this.questionsNumber);
+    await this.getRandomWords(this.selectedDifficultyId, this.questionsNumber);
 
     //get words from wordNet disregarding difficulty
     //await this.getRandomWordsWordNet(this.questionsNumber);
 
-    this.countdown.begin();
+    //this.countdown.begin();
   }
 
   handleCountdownEvent($event) {
     if ($event.action == "done") {
       this.timesUp = true;
-      this.gameResult = "Time is up! Please submit your answers.";
+      if (this.isWelsh) {
+        this.gameResult = "Amser ar ben! Cyflwynwch eich atebion.";
+      } else {
+        this.gameResult = "Time is up! Please submit your answers.";
+      }
     }
   }
 
@@ -119,14 +173,28 @@ export class GameAdvancedComponent implements OnInit {
       'top': event.y + 'px'
     };
     dialogConfig.data = wordData;
+    dialogConfig.data.isWelsh = this.isWelsh;
     const dialogRef = this.dialog.open(HintDialogComponent, dialogConfig);
   }
 
-  async getRandomWords(level_welsh, number) {
-    this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+  async getRandomWords(difficultyId, number) {
+    if (this.isWelsh) {
+      this.databaseProgress = "Gweithio gyda WordNet Cymru. Arhoswch os gwelwch yn dda...\n";
+    } else {
+      this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+    }
     //null existing words
     this.words.length = 0;
     let count = 0;
+
+    var level_welsh;
+    // get difficulty level in Welsh
+    for (let i = 0; i < this.difficultyLevels.length; i++) {
+      if (this.difficultyLevels[i].id == difficultyId) {
+        level_welsh = this.difficultyLevels[i].level_welsh.toLowerCase();
+        break;
+      }
+    }
 
     while(true) {
       //get a random word
@@ -174,7 +242,11 @@ export class GameAdvancedComponent implements OnInit {
   }
 
   async getRandomWordsWordNet(number) {
-    this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+    if (this.isWelsh) {
+      this.databaseProgress = "Gweithio gyda WordNet Cymru. Arhoswch os gwelwch yn dda...\n";
+    } else {
+      this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
+    }
     //null existing words
     this.words.length = 0;
     let count = 0;
@@ -242,11 +314,15 @@ export class GameAdvancedComponent implements OnInit {
       }
     }
 
-    this.gameResult = `You have scored ${correctWords} out of ${this.questionsNumber}.`
+    if (this.isWelsh) {
+      this.gameResult = `Rydych chi wedi sgorio ${correctWords} allan o ${this.questionsNumber}.`
+    } else {
+      this.gameResult = `You have scored ${correctWords} out of ${this.questionsNumber}.`
+    }
+
     //"You have scored " + correctWords + " out of ";
     //this.gameResult2 = "You can check your answers now and resubmit or press NEXT ROUND."
     this.isSubmitted = true;
-    this.firstButtonText = "NEXT ROUND";
     this.countdown.stop();
     this.timesUp = false;
   }
@@ -299,8 +375,13 @@ export class GameAdvancedComponent implements OnInit {
   setDifficultyLevel(id) {
     for (var dif of this.difficultyLevels) {
       if(dif.id == id) {
-        this.selectedDifficultyEng = dif.level_english;
-        this.selectedDifficultyWelsh = dif.level_welsh;
+        this.selectedDifficultyId = id;
+        if (this.isWelsh) {
+          this.selectedDifficulty = dif.level_welsh;
+        }
+        else {
+          this.selectedDifficulty = dif.level_english;
+        }
         return;
       }
     }

@@ -42,53 +42,48 @@
 
 <!-- <div class = "title-text centeralign">{{title}}</div> -->
 
-<div *ngIf = "!isStarted && !aboutView" class="centeralign">
-  <mat-radio-group class="game-radio-group"
-    color="warn"
-    [(ngModel)] = "selectedGameModeId">
-    <mat-radio-button class="game-radio-button" *ngFor="let g of gameVariants" [value]="g.id">{{g.viewValue}}</mat-radio-button>
+<div *ngIf="!isStarted && !aboutView" class="centeralign">
+  <mat-radio-group class="game-radio-group" color="warn" [(ngModel)]="selectedGameModeId">
+    <mat-radio-button class="game-radio-button" *ngFor="let g of gameVariants" [value]="g.id">{{g.viewValue}}
+    </mat-radio-button>
   </mat-radio-group>
 </div>
 
-<div *ngIf = "!isStarted && !aboutView" class="centeralign game-slider">
-  <div class="difficulty-label">{{lowestDifficultyEng}}</div>
-  <mat-slider
-    class="game-slider-margin"
-    color="warn"
-    [max]="difSliderMax"
-    [min]="difSliderMin"
-    [step]="difSliderTick"
-    [(ngModel)]="selectedDifficultyId"
-    (change)="setDifficultyLevel(selectedDifficultyId)">
+<div *ngIf="!isStarted && !aboutView" class="centeralign game-slider">
+  <div class="difficulty-label">{{lowestDifficulty}}</div>
+  <mat-slider class="game-slider-margin" color="warn" [max]="difSliderMax" [min]="difSliderMin" [step]="difSliderTick"
+    [(ngModel)]="selectedDifficultyId" (change)="setDifficultyLevel(selectedDifficultyId)">
   </mat-slider>
-  <div class="difficulty-label">{{hardestDifficultyEng}}</div>
+  <div class="difficulty-label">{{hardestDifficulty}}</div>
 </div>
-<div *ngIf = "!isStarted && !aboutView" class="centeralign difficulty-current">
-  Chosen difficulty level: {{selectedDifficultyEng}}
+<div *ngIf="!isStarted && !aboutView" class="centeralign difficulty-current">
+  {{difficultyText}}: {{selectedDifficulty}}
 </div>
 
-<div *ngIf = "!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
-  <div class="settings-text">Number of questions:</div>
+<div *ngIf="!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
+  <div class="settings-text">{{questionNumberText}}:</div>
   <mat-form-field class="input-form-field" appearance="outline">
     <!-- <mat-label class="settings-label">Number</mat-label> -->
-    <input matInput type="number" [(ngModel)]="questionsNumber" class="settings-text-input">  
-  </mat-form-field> 
+    <input matInput type="number" [(ngModel)]="questionsNumber" class="settings-text-input">
+  </mat-form-field>
 </div>
 
-<div *ngIf = "!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
-  <div class="settings-text">Timelimit (minutes):</div>
+<div *ngIf="!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
+  <div class="settings-text">{{timeLimitText}}:</div>
   <mat-form-field class="input-form-field" appearance="outline">
     <!-- <mat-label class="settings-label">Number</mat-label> -->
-    <input matInput type="number" [(ngModel)]="timeLimit" class="settings-text-input">  
-  </mat-form-field> 
+    <input matInput type="number" [(ngModel)]="timeLimit" class="settings-text-input">
+  </mat-form-field>
 </div>
 
-<div *ngIf = "!isStarted && !aboutView" class="centeralign">
-  <button (click)="startButtonClick()" class="button">START</button>
+<div *ngIf="!isStarted && !aboutView" class="centeralign">
+  <button (click)="startButtonClick()" class="button">{{startButtonText}}</button>
 </div>
 
 
-<app-game *ngIf="isStarted && selectedGameModeId === 10" [data]="forwardData" (onResetRequested)="resetApp($event)"></app-game>
-<app-game-advanced *ngIf="isStarted && selectedGameModeId === 20" [data]="forwardData" (onResetRequested)="resetApp($event)"></app-game-advanced>
+<app-game *ngIf="isStarted && selectedGameModeId === 10" [data]="forwardData" (onResetRequested)="resetApp($event)">
+</app-game>
+<app-game-advanced *ngIf="isStarted && selectedGameModeId === 20" [data]="forwardData"
+  (onResetRequested)="resetApp($event)"></app-game-advanced>
 
 <router-outlet></router-outlet>

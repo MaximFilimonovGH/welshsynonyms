@@ -12,9 +12,18 @@ export class HintDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   synonymList: any[];
+  isWelsh;
+  synonymsText;
 
   ngOnInit(): void {
+    console.log(this.data);
     this.synonymList = this.data.synonymList;
+    this.isWelsh = this.data.isWelsh;
+    if (this.isWelsh) {
+      this.synonymsText = "Cyfystyron";
+    } else {
+      this.synonymsText = "Synonyms";
+    }
   }
 
   onNoClick(): void {

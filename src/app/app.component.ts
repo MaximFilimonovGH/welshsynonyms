@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { RouteService } from './services/route-service.service';
 import { Subscription }   from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -27,7 +28,7 @@ interface GameVariant {
 export class AppComponent implements OnInit, OnDestroy{
 
   //is Welsh Version of the game or English?
-  isWelsh = true;
+  isWelsh = false;
   language = "en";
 
   //different texts for Welsh and English versions
@@ -76,43 +77,36 @@ export class AppComponent implements OnInit, OnDestroy{
   
   ngOnInit(): void {
     // check for parameters and set language
-    this.activeRoute.queryParamMap.subscribe(queryParamMap => {
-      this.language = queryParamMap['language'];
-      console.log(this.language);
+    this.activeRoute.queryParams.subscribe(routeParams  => {
+      this.language = routeParams['language'];
       if (this.language == "cy") {
         this.isWelsh = true;
+        this.gameVariants[0].viewValue = this.gameVariants[0].wel;
+        this.gameVariants[1].viewValue = this.gameVariants[1].wel;
+        this.lowestDifficulty = this.difficultyLevels[0].level_welsh;
+        this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_welsh;
+        this.difficultyText = "Anhawster a ddewiswyd";
+        this.startButtonText = "DECHRAU";
+        this.timeLimitText = "Terfyn amser (munudau)";
+        this.questionNumberText = "Nifer y cwestiynau";
       } else {
         this.isWelsh = false;
+        this.gameVariants[0].viewValue = this.gameVariants[0].eng;
+        this.gameVariants[1].viewValue = this.gameVariants[1].eng;
+        this.lowestDifficulty = this.difficultyLevels[0].level_english;
+        this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_english;
+        this.difficultyText = "Chosen difficulty";
+        this.startButtonText = "START";
+        this.timeLimitText = "Time limit (minutes)";
+        this.questionNumberText = "Number of questions";
       }
+      this.selectedDifficulty = this.lowestDifficulty;
     })
 
     //get values for difficulty slider
     this.difSliderMin = this.difficultyLevels[0].id;
     this.difSliderMax = this.difficultyLevels[this.difficultyLevels.length-1].id;
     this.difSliderTick = this.difficultyLevels[1].id - this.difficultyLevels[0].id;
-
-    // check if Welsh and assign view values for difficulty and gamevariant (test/practice)
-    if (this.isWelsh) {
-      this.gameVariants[0].viewValue = this.gameVariants[0].wel;
-      this.gameVariants[1].viewValue = this.gameVariants[1].wel;
-      this.lowestDifficulty = this.difficultyLevels[0].level_welsh;
-      this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_welsh;
-      this.difficultyText = "Anhawster a ddewiswyd";
-      this.startButtonText = "DECHRAU";
-      this.timeLimitText = "Terfyn amser (munudau)";
-      this.questionNumberText = "Nifer y cwestiynau";
-    }
-    else {
-      this.gameVariants[0].viewValue = this.gameVariants[0].eng;
-      this.gameVariants[1].viewValue = this.gameVariants[1].eng;
-      this.lowestDifficulty = this.difficultyLevels[0].level_english;
-      this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_english;
-      this.difficultyText = "Chosen difficulty";
-      this.startButtonText = "START";
-      this.timeLimitText = "Time limit (minutes)";
-      this.questionNumberText = "Number of questions";
-    }
-    this.selectedDifficulty = this.lowestDifficulty;
   }
 
   title = 'Welsh Synonyms Games';
@@ -156,7 +150,11 @@ export class AppComponent implements OnInit, OnDestroy{
   resetApp(data: boolean): void {
     this.isStarted = false;
     this.aboutView = false;
-    this.router.navigateByUrl('')
+    if (this.isWelsh) {
+      this.router.navigateByUrl('?language=cy');
+    } else {
+      this.router.navigateByUrl('')
+    }
   }
 
   ngOnDestroy() {

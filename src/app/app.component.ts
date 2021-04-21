@@ -66,7 +66,17 @@ export class AppComponent implements OnInit, OnDestroy{
   startButtonText;
   questionNumberText;
   timeLimitText;
-
+  questionText;
+  translateButtonText;
+  answerText;
+  synonymLabelText;
+  hintButtonText;
+  listOfSynonymsText;
+  resultText;
+  timeRemainingText;
+  submitButtonText;
+  nextButtonText;
+  exitButtonText;
 
   constructor(private router: Router, private routeService: RouteService, private activeRoute: ActivatedRoute) {
     this.subscription = routeService.routeChanged$.subscribe(
@@ -85,20 +95,45 @@ export class AppComponent implements OnInit, OnDestroy{
         this.gameVariants[1].viewValue = this.gameVariants[1].wel;
         this.lowestDifficulty = this.difficultyLevels[0].level_welsh;
         this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_welsh;
-        this.difficultyText = "Anhawster a ddewiswyd";
+        // language options
+        this.difficultyText = "Lefel y dewiswyd";
         this.startButtonText = "DECHRAU";
         this.timeLimitText = "Terfyn amser (munudau)";
-        this.questionNumberText = "Nifer y cwestiynau";
+        this.questionNumberText = "Nifer o gwestiynau";
+        this.submitButtonText = "CYFLWYNO";
+        this.nextButtonText = "NESAF";
+        this.exitButtonText = "ALLAN";
+        this.questionText = "Cwestiwn";
+        this.translateButtonText = "CYFIEITHU";
+        this.answerText = "Eich ateb";
+        this.synonymLabelText = "Cyfystyr";
+        this.hintButtonText = "AWGRYM";
+        this.listOfSynonymsText = "Rhestr lawn o gyfystyron";
+        this.resultText = "Canlyniad";
+        this.timeRemainingText = "Amser ar ôl";
+
       } else {
         this.isWelsh = false;
         this.gameVariants[0].viewValue = this.gameVariants[0].eng;
         this.gameVariants[1].viewValue = this.gameVariants[1].eng;
         this.lowestDifficulty = this.difficultyLevels[0].level_english;
         this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_english;
+        // language options
         this.difficultyText = "Chosen difficulty";
         this.startButtonText = "START";
         this.timeLimitText = "Time limit (minutes)";
         this.questionNumberText = "Number of questions";
+        this.submitButtonText = "SUBMIT";
+        this.nextButtonText = "NEXT";
+        this.exitButtonText = "EXIT";
+        this.questionText = "Question";
+        this.translateButtonText = "TRANSLATE";
+        this.answerText = "Your answer";
+        this.synonymLabelText = "Synonym";
+        this.hintButtonText = "HINT";
+        this.listOfSynonymsText = "Full list of synonyms";
+        this.resultText = "Result";
+        this.timeRemainingText = "Time remaining";
       }
       this.selectedDifficulty = this.lowestDifficulty;
     })
@@ -141,6 +176,23 @@ export class AppComponent implements OnInit, OnDestroy{
         "difSliderMin": this.difSliderMin,
         "difSliderMax": this.difSliderMax,
         "difSliderTick": this.difSliderTick
+      },
+      "languageSettings": {
+        "difficultyText": this.difficultyText,
+        "startButtonText": this.startButtonText,
+        "timeLimitText": this.timeLimitText,
+        "questionNumberText": this.questionNumberText,
+        "submitButtonText": this.submitButtonText,
+        "nextButtonText": this.nextButtonText,
+        "exitButtonText": this.exitButtonText,
+        "questionText": this.questionText,
+        "translateButtonText": this.translateButtonText,
+        "answerText": this.answerText,
+        "synonymLabelText": this.synonymLabelText,
+        "hintButtonText": this.hintButtonText,
+        "listOfSynonymsText": this.listOfSynonymsText,
+        "resultText": this.resultText,
+        "timeRemainingText": this.timeRemainingText
       }
     }
 

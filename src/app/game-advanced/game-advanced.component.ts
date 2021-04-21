@@ -81,11 +81,21 @@ export class GameAdvancedComponent implements OnInit {
     this.difSliderMax = this.data.difficultySliderSettings.difSliderMax;
     this.difSliderMin = this.data.difficultySliderSettings.difSliderMin;
     this.difSliderTick = this.data.difficultySliderSettings.difSliderTick;
+    // get data on language
+    this.submitButtonText = this.data.languageSettings.submitButtonText;
+    this.nextButtonText = this.data.languageSettings.nextButtonText;
+    this.exitButtonText = this.data.languageSettings.exitButtonText;
+    this.difficultyText = this.data.languageSettings.difficultyText;
+    this.questionText = this.data.languageSettings.questionText;
+    this.translateButtonText = this.data.languageSettings.translateButtonText;
+    this.answerText = this.data.languageSettings.answerText;
+    this.synonymLabelText = this.data.languageSettings.synonymLabelText;
+    this.hintButtonText = this.data.languageSettings.hintButtonText;
+    this.listOfSynonymsText = this.data.languageSettings.listOfSynonymsText;
+    this.resultText = this.data.languageSettings.resultText;
+    this.timeRemainingText = this.data.languageSettings.timeRemainingText;
 
     if (this.isWelsh) {
-      this.submitButtonText = "CYFLWYNO";
-      this.nextButtonText = "NESAF";
-      this.exitButtonText = "ALLANFA";
       this.lowestDifficulty = this.difficultyLevels[0].level_welsh;
       this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_welsh;
       for (let i = 0; i < this.difficultyLevels.length; i++) {
@@ -94,20 +104,8 @@ export class GameAdvancedComponent implements OnInit {
           break;
         }
       }
-      this.difficultyText = "Anhawster a ddewiswyd";
-      this.questionText = "Cwestiynau";
-      this.translateButtonText = "CYFIEITHWCH";
-      this.answerText = "Eich Ateb";
-      this.synonymLabelText = "Cyfystyr";
-      this.hintButtonText = "AWGRYM";
-      this.listOfSynonymsText = "Rhestr lawn o gyfystyron";
-      this.resultText = "Canlyniad";
-      this.timeRemainingText = "Amser ar ôl";
     }
     else {
-      this.submitButtonText = "SUBMIT";
-      this.nextButtonText = "NEXT";
-      this.exitButtonText = "EXIT";
       this.lowestDifficulty = this.difficultyLevels[0].level_english;
       this.hardestDifficulty = this.difficultyLevels[this.difficultyLevels.length-1].level_english;
       for (let i = 0; i < this.difficultyLevels.length; i++) {
@@ -116,15 +114,6 @@ export class GameAdvancedComponent implements OnInit {
           break;
         }
       }
-      this.difficultyText = "Chosen difficulty";
-      this.questionText = "Questions";
-      this.translateButtonText = "TRANSLATE";
-      this.answerText = "Your answer";
-      this.synonymLabelText = "Synonym";
-      this.hintButtonText = "HINT";
-      this.listOfSynonymsText = "Full list of synonyms";
-      this.resultText = "Result";
-      this.timeRemainingText = "Time remaining";
     }
 
     this.questionsNumber = this.data.questionsNumber;
@@ -179,7 +168,7 @@ export class GameAdvancedComponent implements OnInit {
 
   async getRandomWords(difficultyId, number) {
     if (this.isWelsh) {
-      this.databaseProgress = "Gweithio gyda WordNet Cymru. Arhoswch os gwelwch yn dda...\n";
+      this.databaseProgress = "Yn gweithio gyda WordNet Cymraeg. Arhoswch os gwelwch yn dda...\n";
     } else {
       this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     }
@@ -243,7 +232,7 @@ export class GameAdvancedComponent implements OnInit {
 
   async getRandomWordsWordNet(number) {
     if (this.isWelsh) {
-      this.databaseProgress = "Gweithio gyda WordNet Cymru. Arhoswch os gwelwch yn dda...\n";
+      this.databaseProgress = "Yn gweithio gyda WordNet Cymraeg. Arhoswch os gwelwch yn dda...\n";
     } else {
       this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     }

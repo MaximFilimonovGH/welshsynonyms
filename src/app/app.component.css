@@ -109,6 +109,46 @@
 	font-size: 22px;
 }
 
+.password-text {
+	margin: 0px !important;
+	margin-right:10px !important;
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+	font-weight: 700;
+	margin-top: 17px !important;
+  }
+
+  .password-label {
+    margin: 0px !important;
+    color: #7f888f;
+		font-family: "Open Sans", sans-serif;
+		font-size: 8pt;
+		font-weight: 200;
+  }
+
+  .password-text-input {
+	font-size: 22px;
+}
+
+.password-error {
+	margin-bottom: 10px !important;
+    color: red;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.3em;
+	font-weight: 700;
+  }
+
+.password-form-field {
+    width: 300px;
+    color: #7f888f;
+		font-family: "Open Sans", sans-serif;
+		font-size: 10 pt;
+    font-weight: 400;
+	margin: 0px !important;
+
+  }
+
 
 
   .game-button {

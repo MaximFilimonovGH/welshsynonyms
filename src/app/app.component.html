@@ -42,25 +42,41 @@
 
 <!-- <div class = "title-text centeralign">{{title}}</div> -->
 
-<div *ngIf="!isStarted && !aboutView" class="centeralign">
+<div *ngIf="!isPasswordAccepted && !aboutView">
+  <div fxLayout="column" class="centeralign">
+    <div class="password-text">{{passwordText}}:</div>
+    <div fxLayout="row">
+      <mat-form-field class="password-form-field" appearance="outline" (keyup.enter)="checkPasswordClick(password)">
+        <mat-label class="password-label">{{passwordText}}</mat-label>
+        <input matInput type="text" [(ngModel)]="password" class="password-text-input">
+      </mat-form-field>
+    </div>
+    <div class="password-error">{{passwordErrorMessage}}</div>
+    <div>
+      <button (click)="checkPasswordClick(password)" class="button">{{submitButtonText}}</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isStarted && !aboutView && isPasswordAccepted" class="centeralign">
   <mat-radio-group class="game-radio-group" color="warn" [(ngModel)]="selectedGameModeId">
     <mat-radio-button class="game-radio-button" *ngFor="let g of gameVariants" [value]="g.id">{{g.viewValue}}
     </mat-radio-button>
   </mat-radio-group>
 </div>
 
-<div *ngIf="!isStarted && !aboutView" class="centeralign game-slider">
+<div *ngIf="!isStarted && !aboutView && isPasswordAccepted" class="centeralign game-slider">
   <div class="difficulty-label">{{lowestDifficulty}}</div>
   <mat-slider class="game-slider-margin" color="warn" [max]="difSliderMax" [min]="difSliderMin" [step]="difSliderTick"
     [(ngModel)]="selectedDifficultyId" (change)="setDifficultyLevel(selectedDifficultyId)">
   </mat-slider>
   <div class="difficulty-label">{{hardestDifficulty}}</div>
 </div>
-<div *ngIf="!isStarted && !aboutView" class="centeralign difficulty-current">
+<div *ngIf="!isStarted && !aboutView && isPasswordAccepted" class="centeralign difficulty-current">
   {{difficultyText}}: {{selectedDifficulty}}
 </div>
 
-<div *ngIf="!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
+<div *ngIf="!isStarted && !aboutView && selectedGameModeId === 20 && isPasswordAccepted" class="centeralign">
   <div class="settings-text">{{questionNumberText}}:</div>
   <mat-form-field class="input-form-field" appearance="outline">
     <!-- <mat-label class="settings-label">Number</mat-label> -->
@@ -68,7 +84,7 @@
   </mat-form-field>
 </div>
 
-<div *ngIf="!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
+<div *ngIf="!isStarted && !aboutView && selectedGameModeId === 20 && isPasswordAccepted" class="centeralign">
   <div class="settings-text">{{timeLimitText}}:</div>
   <mat-form-field class="input-form-field" appearance="outline">
     <!-- <mat-label class="settings-label">Number</mat-label> -->
@@ -76,7 +92,7 @@
   </mat-form-field>
 </div>
 
-<div *ngIf="!isStarted && !aboutView" class="centeralign">
+<div *ngIf="!isStarted && !aboutView && isPasswordAccepted" class="centeralign">
   <button (click)="startButtonClick()" class="button">{{startButtonText}}</button>
 </div>
 

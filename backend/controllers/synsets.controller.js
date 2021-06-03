@@ -22,7 +22,7 @@ exports.getSynonyms = async (req, res) => {
         // cycle through results and eliminate huge block of data
         for (let i = 0; i < data.length; i++) {
             // skip huge block of data
-            if (data[i].lemma.length > 30) {
+            if (data[i].lemma.length > 100) {
                 continue;
             } 
             // push all other words
@@ -65,7 +65,7 @@ exports.getSynonymsPos = async (req, res) => {
         // cycle through results and eliminate huge block of data
         for (let i = 0; i < data.length; i++) {
             // skip huge block of data
-            if (data[i].lemma.length > 30) {
+            if (data[i].lemma.length > 100) {
                 continue;
             } 
             // push all other words

@@ -84,7 +84,8 @@ export class AppComponent implements OnInit, OnDestroy{
   // password protection
   isPasswordAccepted = false;
   passwordErrorMessage = '';
-  password = 'TCK9pabdetjd3g4U';
+  //password = 'TCK9pabdetjd3g4U';
+  password = '';
 
   constructor(private router: Router, private routeService: RouteService, private activeRoute: ActivatedRoute) {
     this.subscription = routeService.routeChanged$.subscribe(

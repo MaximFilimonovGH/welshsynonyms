@@ -17,6 +17,10 @@ module.exports = app => {
     router.get('/wordNet/all', wordNet.findAll);
     // count synsets
     router.get('/wordNet/count', wordNet.count);
+    // get synonyms
+    router.get('/wordNet/getSynonyms', wordNet.getSynonyms);
+    // find word
+    router.get('/wordNet/findWord', wordNet.findWord);
 
     // difficulty lists
     const welshWords = require("../controllers/welshWords.controllers.js");

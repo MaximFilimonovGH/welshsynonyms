@@ -19,6 +19,8 @@ module.exports = app => {
     router.get('/wordNet/count', wordNet.count);
     // get synonyms
     router.get('/wordNet/getSynonyms', wordNet.getSynonyms);
+    // get synonyms pos
+    router.get('/wordNet/getSynonymsPos', wordNet.getSynonymsPos);
     // find word
     router.get('/wordNet/findWord', wordNet.findWord);
 

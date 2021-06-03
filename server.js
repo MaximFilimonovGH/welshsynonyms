@@ -26,14 +26,14 @@ app.use(cors(corsOptions));
 //     });
 
 //parse requests of content-type - application/json
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Create link to Angular build directory
 var distDir = "./dist/welshsynonyms/";
 app.use(express.static(distDir));
 
 //parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded( {extended: true }));
+app.use(express.urlencoded( {extended: true }));
 
 //simple route
 app.get("/test", (req, res) => {

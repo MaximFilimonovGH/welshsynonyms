@@ -28,7 +28,10 @@ exports.getSynonyms = async (req, res) => {
             // push all other words
             else {
                 for (let j = 0; j < data[i].lemma.length; j++) {
-                    synonyms.push(data[i].lemma[j]);
+                    // check if it is the same word and if not, push to list
+                    if (data[i].lemma[j].localeCompare(req.query.word) != 0) {
+                        synonyms.push(data[i].lemma[j]);
+                    }
                 }
             }
         }
@@ -68,7 +71,10 @@ exports.getSynonymsPos = async (req, res) => {
             // push all other words
             else {
                 for (let j = 0; j < data[i].lemma.length; j++) {
-                    synonyms.push(data[i].lemma[j]);
+                    // check if it is the same word and if not, push to list
+                    if (data[i].lemma[j].localeCompare(req.query.word) != 0) {
+                        synonyms.push(data[i].lemma[j]);
+                    }
                 }
             }
         }

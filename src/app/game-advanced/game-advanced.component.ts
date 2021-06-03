@@ -385,7 +385,7 @@ export class GameAdvancedComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.position = {
-      'top': event.y + 'px'
+      'top': '100px'
     };
     dialogConfig.data = wordData;
     dialogConfig.data.isWelsh = this.isWelsh;

@@ -82,7 +82,7 @@
     <mat-divider *ngIf="isWordListAcquired"></mat-divider>
     <mat-card-actions class="centeralign">
         <div *ngIf="isWordListAcquired" fxLayout="column">
-            <div class="centeralign game-slider">
+            <!-- <div class="centeralign game-slider">
                 <div class="difficulty-label">{{lowestDifficulty}}</div>
                 <mat-slider class="game-slider-margin" color="warn" [max]="difSliderMax" [min]="difSliderMin"
                     [step]="difSliderTick" [(ngModel)]="selectedDifficultyId"
@@ -92,7 +92,7 @@
             </div>
             <div class="centeralign difficulty-current">
                 {{difficultyText}}: {{selectedDifficulty}}
-            </div>
+            </div> -->
             <div class="centeralign">
                 <button (click)="submitButtonClick()" class="button"
                     [disabled]="!isWordListAcquired">{{submitButtonText}}</button>

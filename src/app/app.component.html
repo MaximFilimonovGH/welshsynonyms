@@ -65,7 +65,7 @@
   </mat-radio-group>
 </div>
 
-<div *ngIf="!isStarted && !aboutView && isPasswordAccepted" class="centeralign game-slider">
+<!-- <div *ngIf="!isStarted && !aboutView && isPasswordAccepted" class="centeralign game-slider">
   <div class="difficulty-label">{{lowestDifficulty}}</div>
   <mat-slider class="game-slider-margin" color="warn" [max]="difSliderMax" [min]="difSliderMin" [step]="difSliderTick"
     [(ngModel)]="selectedDifficultyId" (change)="setDifficultyLevel(selectedDifficultyId)">
@@ -74,7 +74,7 @@
 </div>
 <div *ngIf="!isStarted && !aboutView && isPasswordAccepted" class="centeralign difficulty-current">
   {{difficultyText}}: {{selectedDifficulty}}
-</div>
+</div> -->
 
 <div *ngIf="!isStarted && !aboutView && selectedGameModeId === 20 && isPasswordAccepted" class="centeralign">
   <div class="settings-text">{{questionNumberText}}:</div>

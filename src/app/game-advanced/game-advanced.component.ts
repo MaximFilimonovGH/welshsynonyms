@@ -134,7 +134,7 @@ export class GameAdvancedComponent implements OnInit {
     // get words from new list of words disregarding difficulty
     await this.getRandomWordsWordList(this.questionsNumber);
   
-    //get words from welshWords lists
+    // get words from welshWords lists
     // await this.getRandomWordsDifficulty(this.selectedDifficultyId, this.questionsNumber);
 
     //get words from wordNet disregarding difficulty

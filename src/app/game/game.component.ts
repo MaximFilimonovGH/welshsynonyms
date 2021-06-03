@@ -131,7 +131,7 @@ export class GameComponent implements OnInit {
     await this.getRandomWordWordList();
 
     //get random word from welshWords list based on difficulty
-    //await this.getRandomWordDifficulty(this.selectedDifficultyId);
+    // await this.getRandomWordDifficulty(this.selectedDifficultyId);
 
     //get random word from old welsh word net with no regards to difficulty
     //await this.getRandomWordWordNetOld();

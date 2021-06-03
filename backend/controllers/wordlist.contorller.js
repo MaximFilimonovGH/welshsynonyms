@@ -1,6 +1,21 @@
 //connection collections
 const collection = require("../schemas").wordListModel;
 
+// get random word
+exports.getRandomWord = (req, res) => {
+    collection.aggregate([{ $sample: { size: 1 } }])
+        .then(data => {
+            console.log(`Random word acquired`);
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || `Some error occured while getting random word data.`
+            })
+        })
+}
+
 // retrieve all synsets
 exports.findAll = (req, res) => {
     collection.find()

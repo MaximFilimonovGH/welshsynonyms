@@ -8,6 +8,8 @@ module.exports = app => {
     router.get('/wordList/all', wordList.findAll);
     // count words in wordList
     router.get('/wordList/count', wordList.count);
+    // get a random word
+    router.get('/wordList/getRandomWord', wordList.getRandomWord);
 
     // new wordNet Synsets
     const wordNet = require('../controllers/synsets.controller');

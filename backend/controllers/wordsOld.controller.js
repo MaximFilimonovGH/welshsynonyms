@@ -3,7 +3,7 @@
 // const wordsCollection = db.words;
 
 //connection to multiple databases
-const wordsCollection = require("../schemas").wordsModel;
+const wordsCollection = require("../schemas").wordsOldModel;
 
 //retrieve a specified word from the database
 exports.findWord = (req, res) => {

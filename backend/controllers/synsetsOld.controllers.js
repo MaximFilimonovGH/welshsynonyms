@@ -3,7 +3,7 @@
 //const synsetsCollection = db.synsets;
 
 //connection to multiple databases
-const synsetsCollection = require("../schemas").synsetModel;
+const synsetsCollection = require("../schemas").synsetsOldModel;
 
 //retrieve a specified word from the database
 exports.findSynset = (req, res) => {

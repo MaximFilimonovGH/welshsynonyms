@@ -1,11 +1,12 @@
 module.exports = mongoose => {
     const synsetsSchema = mongoose.Schema({
-        "sense": String,
-        "pos": String,
-        "lemma": [String]
+        "synsets": [{
+            "k": String,
+            "v": [String]
+        }] 
     },
     {
-        collection: 'synsets'
+        collection: "synsetsOld"
     });
     
     return synsetsSchema;

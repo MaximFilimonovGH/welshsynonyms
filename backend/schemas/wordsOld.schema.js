@@ -4,6 +4,9 @@ module.exports = mongoose => {
             "k": String,
             "v": [String]
         }] 
+    },
+    {
+        collection: 'wordsOld'
     });
     
     return wordsSchema;

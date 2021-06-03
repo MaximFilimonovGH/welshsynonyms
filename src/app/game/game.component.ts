@@ -127,12 +127,14 @@ export class GameComponent implements OnInit {
       this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     }
 
+    // get random word from new list of words
+    await this.getRandomWordWordList();
 
     //get random word from welshWords list based on difficulty
-    await this.getRandomWord(this.selectedDifficultyId);
+    //await this.getRandomWordDifficulty(this.selectedDifficultyId);
 
-    //get random word from welsh word net with no regards to difficulty
-    //await this.getRandomWordWordNet();
+    //get random word from old welsh word net with no regards to difficulty
+    //await this.getRandomWordWordNetOld();
 
     this.databaseProgress = "";
     this.isSynonymsAcquired = true;
@@ -237,99 +239,6 @@ export class GameComponent implements OnInit {
     this.onResetRequested.emit(data);
   }
 
-  async getRandomWord(difficultyId) {
-    var level_welsh;
-    // get difficulty level in Welsh
-    for (let i = 0; i < this.difficultyLevels.length; i++) {
-      if (this.difficultyLevels[i].id == difficultyId) {
-        level_welsh = this.difficultyLevels[i].level_welsh.toLowerCase();
-        break;
-      }
-    }
-    while (true) {
-      //get a random word
-      let randomWordResult = await this.getRandomWordFromDatabase(level_welsh);
-      let randomWord = randomWordResult[0].word
-      //check if that word is in wordNet
-      let wordNetCheck;
-      wordNetCheck = await this.findWord(randomWord);
-      if (wordNetCheck.length != 0) {
-        //check if word has synonyms and form list of synonyms if any
-        //check if this word has synonyms
-        let synonymList;
-        synonymList = await this.getSynonyms(randomWord);
-
-        //if word has synonyms
-        if (synonymList.length != 0) {
-          this.randomWord = {
-            "word": randomWord,
-            "synonymList": synonymList,
-          };
-          break;
-        }
-      }
-    }
-  }
-
-  async getRandomWordWordNet() {
-    //count words in wordNet database
-    var countResult;
-    countResult = await this.countWords();
-    let wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
-
-    while (true) {
-      //get random word from wordnet
-      let randomWordResult = await this.findWordByArrayPosition(this.getRandomNumber(0, wordsCount));
-      let randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
-
-      //check if this word has synonyms
-      let synonymList;
-      synonymList = await this.getSynonyms(randomWord);
-
-      //if word has synonyms
-      if (synonymList.length != 0) {
-        this.randomWord = {
-          "word": randomWord,
-          "synonymList": synonymList,
-        };
-        break;
-      }
-    }
-  }
-
-  async getSynonyms(word): Promise<String[]> {
-
-    let synonymList = [];
-
-    //find word and its synsets
-    var wordFindResult;
-    var synsetList;
-    wordFindResult = await this.findWord(word);
-    synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
-
-    for (var s of synsetList)     //cycle all synsets
-    {
-       //find each synset in mongodb
-      var synsetFindRes;
-      var wordsList;
-      synsetFindRes = await this.findSynset(s);
-      wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;
-
-      //get word list for each synset
-      
-      //cycle all words in each synset
-      for (var w of wordsList)  
-      {
-        if(!synonymList.includes(w) && w != word) //check if a word is in the list already
-        {
-          synonymList.push(w);
-        }
-      }
-    }
-
-    return synonymList;
-  }
-  
   getRandomNumber(min, max): Number {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -351,35 +260,183 @@ export class GameComponent implements OnInit {
     }
   }
 
-  //own backend implementation
-  async countWords() {
-    const count = await this.mongodbService.countWords().toPromise().catch(error => console.log(error));
-    return count;
+  async getRandomWordWordList() {
+    while (true) {
+      //get a random word
+      let randomWordResult = await this.getRandomWordFromDatabaseWordList();
+      let randomWord = randomWordResult[0].eurfaCy;
+      let randomWordPos = randomWordResult[0].pos;
+      //check if that word is in wordNet
+      let wordNetCheck;
+      wordNetCheck = await this.findWord(randomWord);
+      if (wordNetCheck.length != 0) {
+        //check if word has synonyms and form list of synonyms if any
+        //check if this word has synonyms
+        let synonymList;
+        synonymList = await this.getSynonymsWordNetPos(randomWord, randomWordPos);
+        //if word has synonyms
+        if (synonymList.length != 0) {
+          this.randomWord = {
+            "word": randomWord,
+            "synonymList": synonymList,
+          };
+          break;
+        }
+      }
+    }
   }
 
-  async findWordByArrayPosition(arrNumber) {
-    const result = await this.mongodbService.findWordByArrayPosition(arrNumber).toPromise().catch(error => console.log(error));
-    return result;
+  async getRandomWordDifficulty(difficultyId) {
+    var level_welsh;
+    // get difficulty level in Welsh
+    for (let i = 0; i < this.difficultyLevels.length; i++) {
+      if (this.difficultyLevels[i].id == difficultyId) {
+        level_welsh = this.difficultyLevels[i].level_welsh.toLowerCase();
+        break;
+      }
+    }
+    while (true) {
+      //get a random word
+      let randomWordResult = await this.getRandomWordFromDatabaseDifficulty(level_welsh);
+      let randomWord = randomWordResult[0].word
+      //check if that word is in wordNet
+      let wordNetCheck;
+      wordNetCheck = await this.findWord(randomWord);
+      if (wordNetCheck.length != 0) {
+        //check if word has synonyms and form list of synonyms if any
+        //check if this word has synonyms
+        let synonymList;
+        synonymList = await this.getSynonymsWordNet(randomWord);
+
+        //if word has synonyms
+        if (synonymList.length != 0) {
+          this.randomWord = {
+            "word": randomWord,
+            "synonymList": synonymList,
+          };
+          break;
+        }
+      }
+    }
   }
 
+  // new wordNet
+  // find word
   async findWord(word) {
     const result = await this.mongodbService.findWord(word).toPromise().catch(error => console.log(error));
     return result;
   }
 
-  async findSynset(synset) {
-    const result = await this.mongodbService.findSynset(synset).toPromise().catch(error => console.log(error));
+  // get synonyms
+  async getSynonymsWordNet(word) {
+    const result = await this.mongodbService.getSynonyms(word).toPromise().catch(error => console.log(error));
+    return result;
+  }
+
+  // get synonyms
+  async getSynonymsWordNetPos(word, pos) {
+    const result = await this.mongodbService.getSynonymsPos(word, pos).toPromise().catch(error => console.log(error));
+    return result;
+  }
+
+  // new list of words
+  async getRandomWordFromDatabaseWordList() {
+    const result = await this.mongodbService.getRandomWordWordList().toPromise().catch(error => console.log(error));
     return result;
   }
 
   //welshWords lists
-  async countWordsWelshWords(level_welsh) {
-    const count = await this.mongodbService.countWordsWelshWords(level_welsh).toPromise().catch(error => console.log(error));
+  async countWordsWelshWordsDifficulty(level_welsh) {
+    const count = await this.mongodbService.countWordsWelshWordsDifficulty(level_welsh).toPromise().catch(error => console.log(error));
     return count;
   }
 
-  async getRandomWordFromDatabase(level_welsh) {
-      let res = await this.mongodbService.getRandomWord(level_welsh).toPromise().catch(error => console.log(error));
+  async getRandomWordFromDatabaseDifficulty(level_welsh) {
+      let res = await this.mongodbService.getRandomWordDifficulty(level_welsh).toPromise().catch(error => console.log(error));
       return res;
   }
+
+
+  // old wordNet
+  async getRandomWordWordNetOld() {
+    //count words in wordNet database
+    var countResult;
+    countResult = await this.countWordsOld();
+    let wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
+
+    while (true) {
+      //get random word from wordnet
+      let randomWordResult = await this.findWordByArrayPositionOld(this.getRandomNumber(0, wordsCount));
+      let randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
+
+      //check if this word has synonyms
+      let synonymList;
+      synonymList = await this.getSynonymsOld(randomWord);
+
+      //if word has synonyms
+      if (synonymList.length != 0) {
+        this.randomWord = {
+          "word": randomWord,
+          "synonymList": synonymList,
+        };
+        break;
+      }
+    }
+  }
+
+  async getSynonymsOld(word): Promise<String[]> {
+
+    let synonymList = [];
+
+    //find word and its synsets
+    var wordFindResult;
+    var synsetList;
+    wordFindResult = await this.findWordOld(word);
+    synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
+
+    for (var s of synsetList)     //cycle all synsets
+    {
+       //find each synset in mongodb
+      var synsetFindRes;
+      var wordsList;
+      synsetFindRes = await this.findSynsetOld(s);
+      wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;
+
+      //get word list for each synset
+      
+      //cycle all words in each synset
+      for (var w of wordsList)  
+      {
+        if(!synonymList.includes(w) && w != word) //check if a word is in the list already
+        {
+          synonymList.push(w);
+        }
+      }
+    }
+
+    return synonymList;
+  }
+
+  // old wordNet
+  async countWordsOld() {
+    const count = await this.mongodbService.countWordsOld().toPromise().catch(error => console.log(error));
+    return count;
+  }
+
+  async findWordByArrayPositionOld(arrNumber) {
+    const result = await this.mongodbService.findWordByArrayPositionOld(arrNumber).toPromise().catch(error => console.log(error));
+    return result;
+  }
+
+  async findWordOld(word) {
+    const result = await this.mongodbService.findWordOld(word).toPromise().catch(error => console.log(error));
+    return result;
+  }
+
+  async findSynsetOld(synset) {
+    const result = await this.mongodbService.findSynsetOld(synset).toPromise().catch(error => console.log(error));
+    return result;
+  }
+
+
 }

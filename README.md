@@ -1,27 +1,46 @@
-# Welshsynonyms
+# Welsh Synonyms
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+Learn new words in Welsh and practice your vocabulary.
+You will be shown randoms word.
+Your task is to provide their synonyms, i.e. different words with the same meaning.
+The words are divided into four Welsh language levels. Please use the slider to change the level.
+There are two game modes: practice and test. Please use the radio buttons to change the mode.
+Click on HINT to see synonym suggestions from the Welsh WordNet.
+Click on TRANSLATE to access an English translation.
+Click on SUBMIT to submit your answers.
+Click on NEXT to move onto the next round.
+Click on EXIT to end the game session.
 
-## Development server
+## Application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The application is written using MEAN stack (http://meanjs.org/)
 
-## Code scaffolding
+Demo is accessible on https://datainnovation.cardiff.ac.uk/welshsynonyms/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Set Up
+The following will install the npm packages according to the configuration:
+#### `npm install`
+
+## Development server/Run the application locally
+
+Run `npm start` for a dev frontend server and `node server.js` for backend server from separate consoles.
+Navigate to `http://localhost:4202/`.
+The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The following will build the production version of the applicaion:
+#### `npm run build`
+The following will run the production version of the application:
+#### `node server.js`
 
-## Running unit tests
+## Mongodb connection
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+MongoDB is used to store and access the Welsh WordNet.
 
-## Running end-to-end tests
+## Authors
+- Maxim Filimonov
+- Irena Spasić
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Contact Information
+If you have any questions, feel free to contact the authors on GitHub

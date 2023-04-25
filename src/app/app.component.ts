@@ -246,7 +246,7 @@ export class AppComponent implements OnInit, OnDestroy{
   }
 
   checkPasswordClick(password) {
-    if (password == 'TCK9pabdetjd3g4U') {
+    if (password == '1234657890#') {
       this.isPasswordAccepted = true;
       this.passwordErrorMessage = '';
     } else {

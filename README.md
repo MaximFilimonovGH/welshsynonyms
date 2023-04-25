@@ -18,6 +18,7 @@ The application is written using MEAN stack (http://meanjs.org/)
 Demo is accessible on https://datainnovation.cardiff.ac.uk/welshsynonyms/
 
 ## Set Up
+
 The following will install the npm packages according to the configuration:
 #### `npm install`
 
@@ -38,9 +39,34 @@ The following will run the production version of the application:
 
 MongoDB is used to store and access the Welsh WordNet.
 
+There are two mongodb databases used, both are provided in `mongodb` folder, and should be initiliased before the application is running.
+
+`wordNetWelsh` database contains the Welsh WordNet.
+
+`welshWordsLists` database contains lists of Welsh Words for the game.
+
+You can initialise those databases using the following commands:
+```
+mongorestore --db wordNetWelsh <path_to_wordNetWelsh_BSON>
+mongorestore --db welshWordsLists <path_to_welshWordsLists_BSON>
+```
+
+## Environment Variables
+
+To make use of the mongoDB connection, you need to provide mongoDB user settings in `.env` file in the source directory.
+
+The variables required:
+
+- `WORDNET_USER`: Name of a user with access to `wordNetWelsh` database.
+- `WORDNET_PASSWORD`: Password of a user with access to `wordNetWelsh` database.
+- `WELSHWORDSLISTS_USER`: Name of a user with access to `welshWordsLists` database.
+- `WELSHWORDSLISTS_PASSWORD`: Password of a user with access to `welshWordsLists` database.
+
 ## Authors
+
 - Maxim Filimonov
 - Irena Spasić
 
 ## Contact Information
+
 If you have any questions, feel free to contact the authors on GitHub

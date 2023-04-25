@@ -3,7 +3,7 @@ module.exports = app => {
     var router = require("express").Router();
 
     // new wordlist
-    const wordList = require('../controllers/wordlist.contorller.js');
+    const wordList = require('../controllers/wordlist.controller.js');
     // get all words from wordList
     router.get('/wordList/all', wordList.findAll);
     // count words in wordList
@@ -30,18 +30,6 @@ module.exports = app => {
     router.get("/welshWords/countWords", welshWords.countWords);
     //get random word based on level in welshWords dataset
     router.get("/welshWords/getRandomWord", welshWords.getRandomWord);
-
-    // old wordNet
-    const wordsOld = require("../controllers/wordsOld.controller.js");
-    const synsetsOld = require("../controllers/synsetsOld.controllers.js");
-    //Retrieve a word
-    router.get("/wordsOld/findByWord", wordsOld.findWord);
-    //Retrieve a synset
-    router.get("/synsetsOld/findBySynset", synsetsOld.findSynset);
-    //Count words
-    router.get("/wordsOld/count", wordsOld.countWords);
-    //Get word by array position
-    router.get("/wordsOld/findByArrayPosition", wordsOld.getWordByPosition);
 
     app.use("/", router);
 }

@@ -1,10 +1,3 @@
-// connection to single DB implementation
-// const db = require("../models");
-// const mynediadCollection = db.mynediad_entry;
-// const sylfaenCollection = db.sylfaen_foundation;
-// const canolraddCollection = db.canolradd_intermediate;
-// const uwchCollection = db.uwch_advanced;
-
 //connection to multiple databases
 const models = require('../schemas');
 const mynediadCollection = models.mynediadModel;

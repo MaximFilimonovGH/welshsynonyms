@@ -25,8 +25,4 @@ models.sylfaenModel = connWelshWords.model('sylfaen_foundation', require('./sylf
 models.canolraddModel = connWelshWords.model('canolradd_intermediate', require('./canolradd_intermediate.schema')(mongoose));
 models.uwchModel = connWelshWords.model('uwch_advanced', require('./uwch_advanced.schema')(mongoose));
 
-// old wordnet models
-models.wordsOldModel = connWordNet.model('wordsOld', require('./wordsOld.schema')(mongoose));
-models.synsetsOldModel = connWordNet.model('synsetsOld', require('./synsetsOld.schema')(mongoose));
-
 module.exports = models;

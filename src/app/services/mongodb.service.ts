@@ -66,28 +66,4 @@ export class MongodbService {
     this.findUrl = baseUrl + "welshWords/getRandomWord?level_welsh="+ level_welsh;
     return this.http.get(this.findUrl);
   }
-
-  // old wordNet
-  public findWordOld(word) {
-    this.findUrl = baseUrl + "words/findByWord?word=" + word;
-    return this.http.get(this.findUrl);
-  }
-
-  public findSynsetOld(synset) {
-    this.findUrl = baseUrl + "synsets/findBySynset?synset=" + synset;
-    return this.http.get(this.findUrl);
-  }
-
-  public findWordByArrayPositionOld(arrNumber) {
-    this.findUrl = baseUrl + "words/findByArrayPosition?number=" + arrNumber;
-    return this.http.get(this.findUrl);
-  }
-
-  public countWordsOld(): Observable<any> {
-    this.findUrl = baseUrl + "words/count";
-    return this.http.get(this.findUrl);
-  }
-
-
-
 }

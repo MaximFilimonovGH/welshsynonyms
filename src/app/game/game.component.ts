@@ -133,9 +133,6 @@ export class GameComponent implements OnInit {
     //get random word from welshWords list based on difficulty
     // await this.getRandomWordDifficulty(this.selectedDifficultyId);
 
-    //get random word from old welsh word net with no regards to difficulty
-    //await this.getRandomWordWordNetOld();
-
     this.databaseProgress = "";
     this.isSynonymsAcquired = true;
   }
@@ -355,88 +352,5 @@ export class GameComponent implements OnInit {
       let res = await this.mongodbService.getRandomWordDifficulty(level_welsh).toPromise().catch(error => console.log(error));
       return res;
   }
-
-
-  // old wordNet
-  async getRandomWordWordNetOld() {
-    //count words in wordNet database
-    var countResult;
-    countResult = await this.countWordsOld();
-    let wordsCount = JSON.parse(JSON.stringify(countResult[0])).wordsCount;
-
-    while (true) {
-      //get random word from wordnet
-      let randomWordResult = await this.findWordByArrayPositionOld(this.getRandomNumber(0, wordsCount));
-      let randomWord = JSON.parse(JSON.stringify(randomWordResult[0])).word.k;
-
-      //check if this word has synonyms
-      let synonymList;
-      synonymList = await this.getSynonymsOld(randomWord);
-
-      //if word has synonyms
-      if (synonymList.length != 0) {
-        this.randomWord = {
-          "word": randomWord,
-          "synonymList": synonymList,
-        };
-        break;
-      }
-    }
-  }
-
-  async getSynonymsOld(word): Promise<String[]> {
-
-    let synonymList = [];
-
-    //find word and its synsets
-    var wordFindResult;
-    var synsetList;
-    wordFindResult = await this.findWordOld(word);
-    synsetList = JSON.parse(JSON.stringify(wordFindResult[0])).words[0].v;
-
-    for (var s of synsetList)     //cycle all synsets
-    {
-       //find each synset in mongodb
-      var synsetFindRes;
-      var wordsList;
-      synsetFindRes = await this.findSynsetOld(s);
-      wordsList = JSON.parse(JSON.stringify(synsetFindRes[0])).synsets[0].v;
-
-      //get word list for each synset
-      
-      //cycle all words in each synset
-      for (var w of wordsList)  
-      {
-        if(!synonymList.includes(w) && w != word) //check if a word is in the list already
-        {
-          synonymList.push(w);
-        }
-      }
-    }
-
-    return synonymList;
-  }
-
-  // old wordNet
-  async countWordsOld() {
-    const count = await this.mongodbService.countWordsOld().toPromise().catch(error => console.log(error));
-    return count;
-  }
-
-  async findWordByArrayPositionOld(arrNumber) {
-    const result = await this.mongodbService.findWordByArrayPositionOld(arrNumber).toPromise().catch(error => console.log(error));
-    return result;
-  }
-
-  async findWordOld(word) {
-    const result = await this.mongodbService.findWordOld(word).toPromise().catch(error => console.log(error));
-    return result;
-  }
-
-  async findSynsetOld(synset) {
-    const result = await this.mongodbService.findSynsetOld(synset).toPromise().catch(error => console.log(error));
-    return result;
-  }
-
 
 }

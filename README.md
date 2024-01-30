@@ -1,15 +1,16 @@
 # Welsh Synonyms
 
 Learn new words in Welsh and practice your vocabulary.
-You will be shown randoms word.
+You will be shown random word.
 Your task is to provide their synonyms, i.e. different words with the same meaning.
 The words are divided into four Welsh language levels. Please use the slider to change the level.
 There are two game modes: practice and test. Please use the radio buttons to change the mode.
-Click on HINT to see synonym suggestions from the Welsh WordNet.
-Click on TRANSLATE to access an English translation.
-Click on SUBMIT to submit your answers.
-Click on NEXT to move onto the next round.
-Click on EXIT to end the game session.
+
+- Click on HINT to see synonym suggestions from the Welsh WordNet.
+- Click on TRANSLATE to access an English translation.
+- Click on SUBMIT to submit your answers.
+- Click on NEXT to move onto the next round.
+- Click on EXIT to end the game session.
 
 ## Application
 
@@ -53,18 +54,6 @@ mongorestore --db wordNetWelsh <path_to_wordNetWelsh_BSON>
 mongorestore --db welshWordsLists <path_to_welshWordsLists_BSON>
 ```
 
-## Difficulty settings
-
-Difficulty settings are enabled by default, and words are acquired from lists of Welsh words based on difficulty.
-
-To disable the difficulty settings and acquire the words from a predefined list of Welsh words, several files need to be adjusted:
-
-- `src/app/app.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
-- `src/app/game/game.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
-- `src/app/game-advanced/game-advanced.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
-- `src/app/game/game.component.ts/`: comment function marked by "// WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
-- `src/app/game-advanced/game-advanced.component.ts/`: comment function marked by "//WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
-
 ## Environment Variables
 
 To make use of the mongoDB connection, you need to provide mongoDB user settings in `.env` file in the source directory.
@@ -75,6 +64,18 @@ The variables required:
 - `WORDNET_PASSWORD`: Password of a user with access to `wordNetWelsh` database.
 - `WELSHWORDSLISTS_USER`: Name of a user with access to `welshWordsLists` database.
 - `WELSHWORDSLISTS_PASSWORD`: Password of a user with access to `welshWordsLists` database.
+
+## Difficulty settings
+
+Difficulty settings are enabled by default, and words are acquired from lists of Welsh words based on difficulty.
+
+To disable the difficulty settings and acquire the words from a predefined list of Welsh words, several files need to be adjusted:
+
+- `src/app/app.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+- `src/app/game/game.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+- `src/app/game-advanced/game-advanced.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+- `src/app/game/game.component.ts/`: comment function marked by "//WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
+- `src/app/game-advanced/game-advanced.component.ts/`: comment function marked by "//WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
 
 ## Authors
 

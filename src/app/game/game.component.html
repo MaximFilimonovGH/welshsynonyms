@@ -65,7 +65,7 @@
   <mat-divider *ngIf="isSynonymsAcquired"></mat-divider>
   <mat-card-actions class="centeralign">
     <div *ngIf="isSynonymsAcquired" fxLayout="column">
-      <!-- <div class="centeralign game-slider">
+      <div class="centeralign game-slider">
         <div class="difficulty-label">{{lowestDifficulty}}</div>
         <mat-slider class="game-slider-margin" color="warn" [max]="difSliderMax" [min]="difSliderMin"
           [step]="difSliderTick" [(ngModel)]="selectedDifficultyId" (change)="setDifficultyLevel(selectedDifficultyId)">
@@ -74,7 +74,7 @@
       </div>
       <div class="centeralign difficulty-current">
         {{difficultyText}}: {{selectedDifficulty}}
-      </div> -->
+      </div>
       <div class="centeralign">
         <!-- <button mat-raised-button color="primary" (click)="showAnswerClick()" class="button" [disabled]="(isCorrect || isAnswerRequested || !isSynonymsAcquired)">HINT</button>
             <button mat-raised-button color="primary" (click)="translateClick()" class="button" [disabled]="!isSynonymsAcquired">TRANSLATE</button> -->

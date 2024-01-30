@@ -132,13 +132,10 @@ export class GameAdvancedComponent implements OnInit {
     this.isSubmitted = false;
 
     // get words from new list of words disregarding difficulty
-    await this.getRandomWordsWordList(this.questionsNumber);
+    // await this.getRandomWordsWordList(this.questionsNumber);
   
     // get words from welshWords lists
-    // await this.getRandomWordsDifficulty(this.selectedDifficultyId, this.questionsNumber);
-
-    //get words from wordNet disregarding difficulty
-    //await this.getRandomWordsWordNet(this.questionsNumber);
+    await this.getRandomWordsDifficulty(this.selectedDifficultyId, this.questionsNumber);
 
     //this.countdown.begin();
   }

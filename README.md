@@ -59,11 +59,11 @@ Difficulty settings are enabled by default, and words are acquired from lists of
 
 To disable the difficulty settings and acquire the words from a predefined list of Welsh words, several files need to be adjusted:
 
-`src/app/app.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
-`src/app/game/game.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
-`src/app/game-advanced/game-advanced.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
-`src/app/game/game.component.ts/`: comment function marked by "// WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
-`src/app/game-advanced/game-advanced.component.ts/`: comment function marked by "//WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
+- `src/app/app.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+- `src/app/game/game.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+- `src/app/game-advanced/game-advanced.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+- `src/app/game/game.component.ts/`: comment function marked by "// WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
+- `src/app/game-advanced/game-advanced.component.ts/`: comment function marked by "//WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
 
 ## Environment Variables
 

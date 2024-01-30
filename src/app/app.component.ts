@@ -77,15 +77,6 @@ export class AppComponent implements OnInit, OnDestroy{
   submitButtonText;
   nextButtonText;
   exitButtonText;
-  passwordText;
-  passwordError;
-  passwordButtonText;
-
-  // password protection
-  isPasswordAccepted = false;
-  passwordErrorMessage = '';
-  //password = 'TCK9pabdetjd3g4U';
-  password = '';
 
   constructor(private router: Router, private routeService: RouteService, private activeRoute: ActivatedRoute) {
     this.subscription = routeService.routeChanged$.subscribe(
@@ -120,9 +111,6 @@ export class AppComponent implements OnInit, OnDestroy{
         this.listOfSynonymsText = "Rhestr lawn o gyfystyron";
         this.resultText = "Canlyniad";
         this.timeRemainingText = "Amser ar ôl";
-        this.passwordText = 'Cyfrinair';
-        this.passwordError = 'Mynediad wedi ei wrthod';
-        this.passwordButtonText = "CYFLWYNO";
 
       } else {
         this.isWelsh = false;
@@ -146,9 +134,6 @@ export class AppComponent implements OnInit, OnDestroy{
         this.listOfSynonymsText = "Full list of synonyms";
         this.resultText = "Result";
         this.timeRemainingText = "Time remaining";
-        this.passwordText = 'Password';
-        this.passwordError = 'Access denied';
-        this.passwordButtonText = "SUBMIT";
       }
       this.selectedDifficulty = this.lowestDifficulty;
     })
@@ -158,7 +143,6 @@ export class AppComponent implements OnInit, OnDestroy{
     this.difSliderMax = this.difficultyLevels[this.difficultyLevels.length-1].id;
     this.difSliderTick = this.difficultyLevels[1].id - this.difficultyLevels[0].id;
 
-    // password set up
   }
 
   title = 'Welsh Synonyms Games';
@@ -245,12 +229,4 @@ export class AppComponent implements OnInit, OnDestroy{
     }
   }
 
-  checkPasswordClick(password) {
-    if (password == '1234657890#') {
-      this.isPasswordAccepted = true;
-      this.passwordErrorMessage = '';
-    } else {
-      this.passwordErrorMessage = this.passwordError;
-    }
-  }
 }

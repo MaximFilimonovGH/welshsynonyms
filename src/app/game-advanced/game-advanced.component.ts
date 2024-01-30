@@ -131,9 +131,11 @@ export class GameAdvancedComponent implements OnInit {
     this.isWordListAcquired = false;
     this.isSubmitted = false;
 
+    // WITHOUT DIFFICULTY SETTINGS (ACQUIRING WORD FROM PREDEFINED LIST)
     // get words from new list of words disregarding difficulty
     // await this.getRandomWordsWordList(this.questionsNumber);
   
+    // WITH DIFFICULTY SETTINGS (ACQUIRING WORD FROM PREDEFINED LIST BASED ON DIFFICULTY)
     // get words from welshWords lists
     await this.getRandomWordsDifficulty(this.selectedDifficultyId, this.questionsNumber);
 

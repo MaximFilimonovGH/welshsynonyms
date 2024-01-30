@@ -127,9 +127,12 @@ export class GameComponent implements OnInit {
       this.databaseProgress = "Working with Welsh WordNet. Please wait...\n";
     }
 
-    // get random word from new list of words
+
+    // WITHOUT DIFFICULTY SETTINGS
+    // get random word from predefined list of words
     // await this.getRandomWordWordList();
 
+    // WITH DIFFICULTY SETTINGS
     //get random word from welshWords list based on difficulty
     await this.getRandomWordDifficulty(this.selectedDifficultyId);
 

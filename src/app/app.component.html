@@ -7,6 +7,8 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<!-- DESCRIPTION -->
+
 <!-- <mat-toolbar color="primary" class="top-toolbar">
   <span (click)="resetApp()" style="cursor: pointer;">Game of Welsh Words</span>
 </mat-toolbar> -->
@@ -42,12 +44,16 @@
 
 <!-- <div class = "title-text centeralign">{{title}}</div> -->
 
+<!-- SELECT MODE -->
+
 <div *ngIf="!isStarted && !aboutView" class="centeralign">
   <mat-radio-group class="game-radio-group" color="warn" [(ngModel)]="selectedGameModeId">
     <mat-radio-button class="game-radio-button" *ngFor="let g of gameVariants" [value]="g.id">{{g.viewValue}}
     </mat-radio-button>
   </mat-radio-group>
 </div>
+
+<!-- DIFFICULTY SETTINGS SLIDER -->
 
 <div *ngIf="!isStarted && !aboutView" class="centeralign game-slider">
   <div class="difficulty-label">{{lowestDifficulty}}</div>
@@ -59,6 +65,8 @@
 <div *ngIf="!isStarted && !aboutView" class="centeralign difficulty-current">
   {{difficultyText}}: {{selectedDifficulty}}
 </div>
+
+<!-- APPLICATION MODES -->
 
 <div *ngIf="!isStarted && !aboutView && selectedGameModeId === 20" class="centeralign">
   <div class="settings-text">{{questionNumberText}}:</div>

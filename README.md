@@ -22,6 +22,8 @@ Demo is accessible on https://datainnovation.cardiff.ac.uk/welshsynonyms/
 The following will install the npm packages according to the configuration:
 #### `npm install`
 
+Node.js version 16 or lower is required to run the application.
+
 ## Development server/Run the application locally
 
 Run `npm start` for a dev frontend server and `node server.js` for backend server from separate consoles.
@@ -50,6 +52,18 @@ You can initialise those databases using the following commands:
 mongorestore --db wordNetWelsh <path_to_wordNetWelsh_BSON>
 mongorestore --db welshWordsLists <path_to_welshWordsLists_BSON>
 ```
+
+## Difficulty settings
+
+Difficulty settings are enabled by default, and words are acquired from lists of Welsh words based on difficulty.
+
+To disable the difficulty settings and acquire the words from a predefined list of Welsh words, several files need to be adjusted:
+
+`src/app/app.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+`src/app/game/game.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+`src/app/game-advanced/game-advanced.component.html`: comment code marked by "DIFFICULTY SETTING SLIDER"
+`src/app/game/game.component.ts/`: comment function marked by "// WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
+`src/app/game-advanced/game-advanced.component.ts/`: comment function marked by "//WITH DIFFICULTY SETTING" and uncomment function marked by "//WITHOUT DIFFICULTY SETTING"
 
 ## Environment Variables
 

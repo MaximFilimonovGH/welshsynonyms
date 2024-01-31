@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4202",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -12,13 +12,13 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/flex-layout": "^11.0.0-beta.33",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "mongoose": "^5.9.25"
   },
   "devDependencies": {
+    "@angular/flex-layout": "^11.0.0-beta.33",
     "@angular-devkit/build-angular": "^0.1000.0",
     "@angular/animations": "~9.0.5",
     "@angular/cdk": "^9.1.1",
